@@ -1,1 +1,5 @@
 .vscode/
+
+src/build/
+src/dist/
+*.spec

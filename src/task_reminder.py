@@ -23,16 +23,23 @@ def exit_program():
 
 # Save settings to a file
 def save_settings(wait_duration_seconds, display_duration_seconds, message):
-    with open("settings.txt", "w") as settings_file:
-        settings_file.write(f"{wait_duration_seconds}\n{display_duration_seconds}\n{message}")
+    settings_data = {
+        "wait_duration_seconds": wait_duration_seconds,
+        "display_duration_seconds": display_duration_seconds,
+        "message": message
+    }
+
+    with open("reminder_settings.json", "w") as f:
+        json.dump(settings_data, f, indent=4)
 
 # Load settings from a file
 def load_settings():
     try:
-        with open("settings.txt", "r") as settings_file:
-            wait_duration_seconds = int(settings_file.readline().strip())
-            display_duration_seconds = int(settings_file.readline().strip())
-            message = settings_file.readline().strip()
+        with open("reminder_settings.json", "r") as f:
+            settings_data = json.load(f)
+            wait_duration_seconds = settings_data["wait_duration_seconds"]
+            display_duration_seconds = settings_data["display_duration_seconds"]
+            message = settings_data["message"]
             return wait_duration_seconds, display_duration_seconds, message
     except FileNotFoundError:
         return 3600, 5, "Don't forget to take a break!"
