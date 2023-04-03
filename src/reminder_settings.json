@@ -1,5 +1,5 @@
 {
-    "wait_duration_seconds": 2,
+    "wait_duration_seconds": 1200,
     "display_duration_seconds": 2,
     "message": "Don't forget to take a break!"
 }
