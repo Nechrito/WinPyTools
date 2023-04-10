@@ -1,5 +1,8 @@
 .vscode/
 
-src/build/
-src/dist/
+build/
+dist/
 *.spec
+
+src/temp.py
+*.ps1
