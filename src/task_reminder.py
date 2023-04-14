@@ -3,8 +3,6 @@ from tkinter import ttk
 from ttkthemes import ThemedTk
 import time
 import json
-import tempfile
-import os
 import threading
 
 root: tk.Tk = None

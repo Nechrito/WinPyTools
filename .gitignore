@@ -2,7 +2,12 @@
 
 build/
 dist/
-*.spec
+
+docs/REMINDER.md
 
 src/temp.py
+src/open_file_in_vscode.py
+
+*.spec
+
 *.ps1
