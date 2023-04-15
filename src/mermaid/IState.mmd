@@ -1,0 +1,16 @@
+classDiagram
+JumpBase --|> JumpSlam
+JumpBase --|> JumpToPosition
+SpitBase --|> PoisonMortar
+SpitBase --|> SlimeMortar
+FrogAttackBase --|> SpitBase
+SerializedScriptableObject --|> SpitProjectile
+TongueBase --|> PoisonTongue
+FrogAttackBase --|> TongueBase
+MonoBehaviour --|> FrogDamageCollider
+MonoBehaviour --|> FrogShockwave
+IState --|> FrogAttackState
+IState --|> GuardAttackState
+CombatUnit --|> GuardController
+IState --|> PigAttackState
+CombatUnit --|> PigController

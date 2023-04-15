@@ -1,0 +1,15 @@
+classDiagram
+Module --|> CombatModule
+UnitController --|> DarkHank
+Module --|> HealthModule
+Module --|> HurtModule
+Module --|> InputModule
+SerializedMonoBehaviour --|> Module
+Module --|> MoveModule
+Module --|> PunchModule
+Module --|> SprintModule
+Module --|> StaminaModule
+Unit --|> UnitController
+IHank --|> _Hank
+SerializedScriptableObject --|> PositionData
+SerializedMonoBehaviour --|> Unit

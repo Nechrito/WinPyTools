@@ -1,0 +1,16 @@
+classDiagram
+EffectBase --|> BleedEffect
+EffectBase --|> BurnEffect
+EffectBase --|> HealthRegenEffect
+EffectBase --|> HighEffect
+EffectBase --|> LuminiousEffect
+EffectBase --|> PoisonEffect
+EffectBase --|> RecoveryEffect
+EffectBase --|> ShockedEffect
+EffectBase --|> SlowEffect
+EffectBase --|> StaminaRegenerateEffect
+EffectBase --|> StunEffect
+EffectBase --|> WeakenedEffect
+EffectBase --|> WetEffect
+IDisposable --|> EffectBase
+MonoBehaviour --|> ActivateOnStart

@@ -1,0 +1,2225 @@
+classDiagram
+SelectedObjectsData --|> GlobalConfig
+class SelectedObjectsData {
+    
+}
+ObjectPoolEditor --|> PropertyDrawer
+class ObjectPoolEditor {
+    
+   void OnGUI()
+   property if()
+}
+SerializableDictionaryDrawer --|> PropertyDrawer
+class SerializableDictionaryDrawer {
+    
+   GUIContent elementIndex
+  private ReorderableList list
+   new GUIContent()
+   new GUIContent()
+}
+class CompilerOptionsEditorScript {
+    
+   static CompilerOptionsEditorScript()
+}
+ScriptExecutionOrder --|> Attribute
+class ScriptExecutionOrder {
+    
+   int order
+   public ScriptExecutionOrder()
+}
+class ScriptOptions {
+    
+   void AutoRefreshToggle()
+}
+class SelectionHistoryPersistent {
+    
+   static SelectionHistoryPersistent()
+}
+class SelectedObject {
+    
+  public bool InScene
+  public bool Locked
+  public Object Selection
+}
+DeleteEmptyFolders --|> AssetModificationProcessor
+class DeleteEmptyFolders {
+    
+   void DeleteAllEmptyDirAndMeta()
+   new StringBuilder()
+}
+TextureImportProcessor --|> AssetPostprocessor
+class TextureImportProcessor {
+    
+   as TextureImporter
+  private void OnPreprocessTexture()
+}
+HClick --|> MonoBehaviour
+class HClick {
+    
+  private bool ping
+  private bool select
+  private bool lookAt
+  private LayerMask layerMask
+  private SceneView currentSceneView
+  private void OnEnable()
+}
+class InkEditorUtils {
+    
+   void TagLines()
+}
+class DeEditorCoroutines {
+    
+   IEnumerator StartCoroutine()
+}
+class DeEditorFileUtils {
+    
+   string PathSlash
+   string PathSlashToReplace
+   string _fooProjectPath
+   static DeEditorFileUtils()
+}
+class DeEditorMetaFixer {
+    
+   string _currSceneADBFilePath
+   IEnumerator _opsCoroutine
+   string correctGuid
+   string id
+  public int totGuidsFixed
+   public ComponentData()
+}
+class ComponentData {
+    
+}
+class ModInfo {
+    
+  public void AddModifiedGameObjectName()
+}
+ObjectExplorer --|> OdinEditorWindow
+class ObjectExplorer {
+    
+  private bool filterHidden
+   void OnGUI()
+}
+class QuickOpener {
+    
+   void OpenDataPath()
+}
+class CharacterCreatorEditor {
+    
+  private EntityData TemplateData
+  private GameObject TemplatePrefab
+  private void Save()
+}
+ExtractorEditor --|> OdinEditorWindow
+class ExtractorEditor {
+    
+   OdinEditorWindow window
+  private void SetConfiguration()
+}
+FolderNavigationEditor --|> OdinEditorWindow
+class FolderNavigationEditor {
+    
+}
+LoggerSettingsEditor --|> OdinEditorWindow
+class LoggerSettingsEditor {
+    
+   OdinEditorWindow window
+  public HLoggerSettings Settings
+   void OpenWindow()
+}
+OpenAllEditors --|> OdinEditorWindow
+class OpenAllEditors {
+    
+}
+SelectionHistoryEditor --|> OdinEditorWindow
+class SelectionHistoryEditor {
+    
+  private SelectedObjectsData data
+  private GUIStyle _centeredLabelStyle
+  private EVisibleElements _visibleElements
+  private GUIStyle lockButtonStyle
+  private GUIContent searchButtonContent
+}
+TextureEditor --|> OdinEditorWindow
+class TextureEditor {
+    
+   OdinEditorWindow window
+  private SliceType command
+  private Object copyFrom
+  private Object copyTo
+  private void Copy()
+}
+ToolsEditor --|> OdinEditorWindow
+class ToolsEditor {
+    
+   OdinEditorWindow window
+   void OpenWindow()
+}
+MinMaxRangeAttribute --|> PropertyAttribute
+class MinMaxRangeAttribute {
+    
+   float Max
+   float Min
+   public MinMaxRangeAttribute()
+}
+class RangedExtensions {
+    
+   float LerpFromRange()
+}
+MinMaxRangeIntAttributeDrawer --|> PropertyDrawer
+class MinMaxRangeIntAttributeDrawer {
+    
+   void OnGUI()
+}
+class SerializableDictionary {
+    
+}
+AudioPoint --|> MonoBehaviour
+class AudioPoint {
+    
+  private string clip
+  private bool playOnStart
+  private void Start()
+}
+EntitySFX --|> MonoBehaviour
+class EntitySFX {
+    
+  private void Awake()
+}
+class FadeMixerGroup {
+    
+   float currentVol
+   return null
+   IEnumerator StartFade()
+}
+class PlayWithVolume {
+    
+   void PlayOneShot()
+}
+UnitSFX --|> MonoBehaviour
+class UnitSFX {
+    
+  private void Awake()
+}
+MusicLibrary --|> GlobalConfig
+class MusicLibrary {
+    
+}
+SoundEffectLibrary --|> GlobalConfig
+class SoundEffectLibrary {
+    
+}
+SoundUILibrary --|> ScriptableObjectSingleton
+class SoundUILibrary {
+    
+}
+CameraFollow --|> Singleton
+class CameraFollow {
+    
+}
+CameraSetup --|> MonoBehaviour
+class CameraSetup {
+    
+  private RenderTexture outputTexture
+  private GameObject forwardRenderer
+  private Camera worldRenderer
+  private void Awake()
+}
+FireflyController --|> MonoBehaviour
+class FireflyController {
+    
+  private bool isStopped
+  private Vector2 spawnPosition
+  private Vector2 target
+  private float timeElapsed
+  private void Start()
+}
+FireflySpawner --|> MonoBehaviour
+class FireflySpawner {
+    
+  private GameObject fireFly
+  private Vector2 fireFlySpawn
+  private bool isFading
+  private void Start()
+}
+FrogController --|> CombatUnit
+class FrogController {
+    
+  protected float Volume
+  public GameObject TongueObject
+  public GameObject SpitObject
+  public GameObject ShadowObject
+  public GameObject ShockwaveObject
+  public FrogDamageCollider JumpCollider
+}
+FrogAttackBase --|> SerializedScriptableObject
+class FrogAttackBase {
+    
+  private float timeSinceAttacked
+  public UnityAction AttackFailedEvent
+  public UnityAction AttackFinishedEvent
+  protected bool HasInvoked
+  private string preparationID
+  private string prepLoopID
+  private string recoveryAfterAttackID
+}
+JumpBase --|> FrogAttackBase
+class JumpBase {
+    
+  protected string SoundJumpStart
+  protected string SoundJumpLand
+  protected GameObject ShadowObject
+  protected bool HasLanded
+  protected bool HasShockwaved
+  protected bool HasSlammed
+  protected Vector2 JumpStartPosition
+  protected float JumpStartTime
+  protected SpriteRenderer ShadowRenderer
+  protected bool AnimateJumpUp()
+}
+JumpSlam --|> JumpBase
+class JumpSlam {
+    
+  protected FrogShockwave Shockwave
+   void Load()
+}
+JumpToPosition --|> JumpBase
+class JumpToPosition {
+    
+  public Vector2 TargetPosition
+   void Load()
+}
+PoisonMortar --|> SpitBase
+class PoisonMortar {
+    
+}
+SlimeMortar --|> SpitBase
+class SlimeMortar {
+    
+}
+SpitBase --|> FrogAttackBase
+class SpitBase {
+    
+  protected string SoundRechargeSpit
+  protected string SoundBigProjectileLanding
+  protected string SoundProjectileLanding
+  private int projectileIndex
+  private int spawnIndex
+  private int spawnCountSum
+  private SpitProjectile currentProjectile
+  protected ObjectPool pool
+  protected ObjectPoolSequence pool
+  private int poolIndex
+   void Load()
+}
+SpitProjectile --|> SerializedScriptableObject
+class SpitProjectile {
+    
+  public int LoopIndex
+  public Sprite Sprite
+  private void OnEnable()
+   UNITY_EDITOR if()
+}
+PoisonTongue --|> TongueBase
+class PoisonTongue {
+    
+   void Load()
+}
+TongueBase --|> FrogAttackBase
+class TongueBase {
+    
+  protected string SoundAnimationStart
+  protected string SoundHit
+  protected FrogDamageCollider Collider
+  private string tongueHitID
+  private string tongueID
+   void Load()
+}
+FrogDamageCollider --|> MonoBehaviour
+class FrogDamageCollider {
+    
+}
+FrogShockwave --|> MonoBehaviour
+class FrogShockwave {
+    
+  public SpriteRenderer SpriteRenderer
+  private CircleCollider2D circleCollider
+  private bool isPlaying
+  private float lastFrameChange
+  private FrogController owner
+  private int spriteIndex
+  private float timeElapsed
+  private void Start()
+}
+FrogAttackState --|> IState
+class FrogAttackState {
+    
+   FrogController controller
+  private int failedCount
+  private FrogAttackBase query
+   public FrogAttackState()
+}
+GuardAttackState --|> IState
+class GuardAttackState {
+    
+   GuardController owner
+   public GuardAttackState()
+}
+GuardController --|> CombatUnit
+class GuardController {
+    
+  public float AttackPushLength
+   protected set
+}
+PigAttackState --|> IState
+class PigAttackState {
+    
+   PigController owner
+   public PigAttackState()
+}
+PigController --|> CombatUnit
+class PigController {
+    
+  private string gruntSound
+  private string squealSound
+  private float fleeEnterTime
+  private float lastGruntTime
+   void OnStart()
+   new StateMachine()
+   new PatrolState()
+   new PigAttackState()
+}
+EmptyState --|> IState
+class EmptyState {
+    
+  public void Enter()
+}
+FleeState --|> IState
+class FleeState {
+    
+   MoveUnit owner
+   public FleeState()
+}
+IdleState --|> IState
+class IdleState {
+    
+   AnimatedUnit owner
+   public IdleState()
+}
+PatrolState --|> IState
+class PatrolState {
+    
+   MoveUnit owner
+   public PatrolState()
+}
+class StateMachine {
+    
+}
+class StateExtension {
+    
+   string GetName()
+}
+class Observer {
+    
+}
+Subject --|> ISubject
+class Subject {
+    
+  private string status
+}
+AIData --|> MonoBehaviour
+class AIData {
+    
+  public Transform currentTarget
+  public int GetTargetsCount()
+}
+ContextSolver --|> MonoBehaviour
+class ContextSolver {
+    
+  private void Start()
+}
+Detector --|> MonoBehaviour
+class Detector {
+    
+   void Detect()
+}
+EnemyAI --|> MonoBehaviour
+class EnemyAI {
+    
+  private AIData aiData
+  public UnityEvent OnAttackPressed
+  private Vector2 movementInput
+  private ContextSolver movementDirectionSolver
+  private bool following
+  private void Start()
+}
+ObstacleAvoidanceBehaviour --|> SteeringBehaviour
+class ObstacleAvoidanceBehaviour {
+    
+  private void OnDrawGizmos()
+}
+class Directions {
+    
+   new Vector2()
+   new Vector2()
+   new Vector2()
+   new Vector2()
+   new Vector2()
+   new Vector2()
+   new Vector2()
+   new Vector2()
+}
+ObstacleDetector --|> Detector
+class ObstacleDetector {
+    
+  private LayerMask layerMask
+  private void OnDrawGizmos()
+}
+SeekBehaviour --|> SteeringBehaviour
+class SeekBehaviour {
+    
+  private Vector2 targetPositionCached
+  private void OnDrawGizmos()
+}
+SteeringBehaviour --|> MonoBehaviour
+class SteeringBehaviour {
+    
+   public abstract()
+}
+TargetDetector --|> Detector
+class TargetDetector {
+    
+  private bool showGizmos
+  private void OnDrawGizmosSelected()
+}
+Controller --|> PlayerMovement
+class Controller {
+    
+   void Subscribe()
+}
+Hank --|> Singleton
+class Hank {
+    
+}
+EntityData --|> ScriptableObject
+class EntityData {
+    
+  public string Name
+  public bool IsPlayer
+  public bool HasDialogue
+  public bool IsBoss
+  public bool NameIsKnown
+  public bool KillableOnce
+  public float HealthRegen
+  public float StaminaRegen
+  public string CurrentName
+  public ArmorType ArmorType
+  public int ArmorValue
+  public TextAsset InkAsset
+  private Story _story
+   new Story()
+}
+TrackedPositionData --|> SerializedScriptableObject
+class TrackedPositionData {
+    
+  public bool Enabled
+   private set
+}
+Unit --|> SerializedMonoBehaviour
+class Unit {
+    
+}
+AnimatedUnit --|> Unit
+class AnimatedUnit {
+    
+}
+BlockUnit --|> SprintUnit
+class BlockUnit {
+    
+   void OnBlock()
+}
+Attack --|> IAttack
+class Attack {
+    
+  protected IUnit source
+  protected IUnit target
+   protected Attack()
+}
+CombatUnit --|> HurtUnit
+class CombatUnit {
+    
+   private set
+}
+Throw --|> MonoBehaviour
+class Throw {
+    
+  private SpriteRenderer spriteRenderer
+  public GameObject Hitmarker
+  public Transform TransformBody
+  public bool TransferSpriteColorToHitmarker
+  public bool DisableOnImpact
+  public UnityEvent GroundHitEvent
+  public UnityEvent DisableEvent
+  private int bounces
+  private float initialHeight
+  private Vector2 previousFrame
+}
+class HurtUnit {
+    
+   private set
+}
+MoveUnit --|> AnimatedUnit
+class MoveUnit {
+    
+  protected Vector2 CachedDestination
+  private float effectThreshold
+  private float effectTime
+  public HouseCamera HouseCamera
+  private bool isBlockedOverride
+  protected bool wasBlocked
+  protected bool wasMoving
+}
+NPCUnit --|> CombatUnit
+class NPCUnit {
+    
+   void OnCollisionEnter2D()
+}
+StaticNPCUnit --|> Unit
+class StaticNPCUnit {
+    
+}
+PlayerInteract --|> MonoBehaviour
+class PlayerInteract {
+    
+  public float LostTargetTime
+  private EntityData data
+  private LayerMask interactLayerMask
+  private CachedInteractTarget current
+  private Vector3 initPosition
+  private Vector2 moveInput
+  private Transform playerTransform
+  private float timer
+}
+class CachedInteractTarget {
+    
+   public CachedInteractTarget()
+}
+PlayerItems --|> PlayerUnit
+class PlayerItems {
+    
+  private Item emptyItem
+  public ContainerDefinition HeldContainerDefinition
+  public CollectionInstance HeldCollection
+  private CollectionInstance pocketCollection
+  private int selectedItemIndex
+   new CollectionInstance()
+}
+PlayerMovement --|> PlayerItems
+class PlayerMovement {
+    
+  public bool UsePathfinder
+  private Vector2 cache
+  protected LayerMask CharacterLayer
+  private float inputlag
+  protected LayerMask ObstacleLayer
+}
+PlayerUnit --|> BlockUnit
+class PlayerUnit {
+    
+   void OnHealthChanged()
+}
+PunchUnit --|> CombatUnit
+class PunchUnit {
+    
+  private FloatingDamageNumber damageNumber
+  private GameObject hitEffectNormal
+  private GameObject hitEffectSpecial
+  private BoxCollider2D meleeCollider
+  private CollisionTrigger meleeTrigger
+  private float horizontalX
+  private float horizontalY
+  private float verticalUpX
+  private float verticalUpY
+  private float verticalDownX
+  private Camera cam
+  private Hank controller
+  private FistType fistType
+   void OnEnabled()
+}
+SprintUnit --|> PunchUnit
+class SprintUnit {
+    
+   void OnUpdate()
+}
+class GlobalConfigCollection {
+    
+}
+HLoggerSettings --|> GlobalConfig
+class HLoggerSettings {
+    
+}
+ItemCollection --|> GlobalConfigCollection
+class ItemCollection {
+    
+}
+QuestCollection --|> GlobalConfigCollection
+class QuestCollection {
+    
+}
+StatusEffectCollection --|> GlobalConfigCollection
+class StatusEffectCollection {
+    
+}
+UnitCollection --|> GlobalConfigCollection
+class UnitCollection {
+    
+}
+class CollectionsExtension {
+    
+   return array
+}
+class ColorExtension {
+    
+   Brightness factor()
+   Color ChangeBrightness()
+}
+class ComponentExtensions {
+    
+}
+class CoroutineGroup {
+    
+   public CoroutineGroup()
+}
+CoroutineOwner --|> MonoBehaviour
+class CoroutineOwner {
+    
+}
+class MyCoroutines {
+    
+   return _coroutineOwner
+}
+class EnumExtension {
+    
+}
+class GameObjectExtension {
+    
+   void AwakeAndDeactivate()
+}
+class GenericExtensions {
+    
+}
+class MonoBehaviourExtensions {
+    
+   void InvokeSafe()
+}
+class NumberExtension {
+    
+   int GetNearestMultiple()
+}
+class RectExtension {
+    
+   return true
+   bool Contains()
+}
+class Rigidbody2DExtension {
+    
+   void AddExplosionForce()
+}
+class SerializationExtension {
+    
+}
+class SpriteExtension {
+    
+   public static()
+   new Texture2D()
+}
+class SpriteRendererExtensions {
+    
+   void SetAlpha()
+   new Color()
+}
+class StringExtension {
+    
+}
+class Texture2DExtension {
+    
+   Rect GetRect()
+   new Rect()
+}
+class TilemapExtensions {
+    
+   void SetStatic()
+}
+class TransformExtension {
+    
+   void LocalReset()
+}
+class UnitExtensions {
+    
+   Unit GetUnit()
+}
+class Vector2Extension {
+    
+   Vector2 RoundToNearest()
+   new Vector2()
+}
+DialogueAnimator --|> MonoBehaviour
+class DialogueAnimator {
+    
+}
+DialogueChoiceButton --|> MonoBehaviour
+class DialogueChoiceButton {
+    
+  private Image buttonImage
+  public void SetButton()
+}
+DialogueHandler --|> MonoBehaviour
+class DialogueHandler {
+    
+  private DialogueAnimator animator
+  private DialogueTextBubble textBubble
+  private GameObject nameObj
+  private Button choiceButtonPrefab
+  private Transform choicesAnchor
+  private SelectorUI selectorUI
+  private Button continueButton
+  private GameObject dialogueAnchor
+  private TextAsset loadGlobalJson
+  private bool canWalkAway
+  private EntityData character1
+  private EntityData character2
+  private EntityData character3
+  private EntityData character4
+  private int choiceIndex
+  private DialogueGlobals dialogueGlobals
+  private DialogueTimer dialogueTimer
+  private DialogueVariables dialogueVariables
+  private int selectedButton
+  private bool hadVariables
+  private int playerFrozenFor
+  private Hank playerRef
+  private bool refreshedThisFrame
+  private DialogueSoundHandler soundHandler
+  private Vector3 startPosition
+  private Story story
+  private bool waitingForInput
+  private void Awake()
+   new DialogueGlobals()
+}
+DialoguePortrait --|> MonoBehaviour
+class DialoguePortrait {
+    
+  private Vector2 enterTargetPosition
+  private Vector2 exitTargetPosition
+  private bool offsetScreenWidth
+}
+DialogueSoundHandler --|> MonoBehaviour
+class DialogueSoundHandler {
+    
+  private DialogueAnimator dialogueAnimator
+  private void Awake()
+}
+DialogueTextBubble --|> MonoBehaviour
+class DialogueTextBubble {
+    
+  private Image bubbleBorder
+  private Image bubbleBackground
+  private TMP_Text characterText
+  private Color nextColor
+  private void OnEnable()
+}
+DialogueTimer --|> MonoBehaviour
+class DialogueTimer {
+    
+  private Image fill
+  public void Enable()
+}
+MonologueColliderEvent --|> MonoBehaviour
+class MonologueColliderEvent {
+    
+  private bool repeat
+  private int index
+  private bool inDialogue
+  private void Update()
+}
+class DialogueGlobals {
+    
+  private Story globalVariablesStory
+   public DialogueGlobals()
+   new Story()
+}
+DialogueLockUnlocker --|> MonoBehaviour
+class DialogueLockUnlocker {
+    
+  public UnityEvent OnTriggerEnter
+  public UnityEvent OnStayedForTime
+  public string LockName
+  private DialogueHandler dialogueHandler
+  private BoolValue falseDefualt
+  private bool inside
+  private float timer
+  private BoolValue trueDefault
+  private void Start()
+   new BoolValue()
+   new BoolValue()
+}
+class DialogueTags {
+    
+  public void HandleCurrent()
+}
+DialogueTriggerLockUnlocker --|> MonoBehaviour
+class DialogueTriggerLockUnlocker {
+    
+  public UnityEvent OnTrigger
+  private BadTrigger trigger
+  public string LockName
+  private DialogueHandler dialogueHandler
+  private BoolValue falseDefualt
+  private BoolValue trueDefault
+  private void Start()
+   new BoolValue()
+   new BoolValue()
+}
+class DialogueVariables {
+    
+   EntityData character
+   public DialogueVariables()
+}
+class GameEvents {
+    
+}
+class GuiEvents {
+    
+}
+BossPanel --|> MonoBehaviour
+class BossPanel {
+    
+  public GameObject Portrait
+  public GameObject Frame
+  public GameObject Slider
+  private ValueStat healthRef
+  private bool loaded
+  private Slider sliderRef
+  private void Awake()
+}
+GameNotice --|> MonoBehaviour
+class GameNotice {
+    
+  private InputActionUI inputActionUI
+  private QuestLine noticeQuest
+  private TMP_Text noticeText
+  private Trigger noticeTrigger
+  private Triggerable noticeTriggerable
+  private bool showing
+}
+PortraitDamageUI --|> MonoBehaviour
+class PortraitDamageUI {
+    
+  private Slider healthBar
+  private Image image
+  private void OnEnable()
+}
+QuestTracker --|> Singleton
+class QuestTracker {
+    
+}
+RegionTextNotice --|> MonoBehaviour
+class RegionTextNotice {
+    
+  private TMP_Text text
+  private string textToDisplay
+  private string lastText
+  private bool isAnimating
+  private bool isQueued
+  private void OnEnable()
+}
+StatusEffectIcon --|> MonoBehaviour
+class StatusEffectIcon {
+    
+  public Image IconComponent
+  public SpriteEffect Animator
+  public bool Initialize()
+}
+StatusEffectUI --|> MonoBehaviour
+class StatusEffectUI {
+    
+  public GameObject StatusEffectsPanel
+  public GameObject StatusEffectChild
+  private void Start()
+}
+TabNavigation --|> Singleton
+class TabNavigation {
+    
+}
+UIGameMenuItems --|> MonoBehaviour
+class UIGameMenuItems {
+    
+  private ItemUI selectedItemUI
+  private void OnEnable()
+}
+InputActionUI --|> MonoBehaviour
+class InputActionUI {
+    
+  private InputAction ConnectedInputAction
+  private Image IconImage
+  private TextMeshProUGUI DescriptionText
+  private TextMeshProUGUI InputControlPathText
+  private bool ShowControlPath
+  private void OnEnable()
+}
+InputUISpawner --|> MonoBehaviour
+class InputUISpawner {
+    
+  private ObjectPool inputActionUIObjectPool
+  private void Start()
+}
+InteractFollower --|> MonoBehaviour
+class InteractFollower {
+    
+  private CanvasGroup canvasGroup
+  private InputActionUI inputActionUI
+  private Camera cam
+  private bool hadTarget
+}
+CoinDisplayUI --|> MonoBehaviour
+class CoinDisplayUI {
+    
+  private TextMeshProUGUI text
+  private Item coinItem
+  private int coinAmount
+  private void Start()
+}
+ContainerUI --|> MonoBehaviour
+class ContainerUI {
+    
+  private ItemUI itemPrefab
+  private Image background
+  private Button upButton
+  private Button downButton
+  private GridLayoutGroup itemSlotGrid
+  private TextMeshProUGUI volumeTextMesh
+  private CollectionInstance currentCollection
+  private ContainerDefinition currentDefinition
+  private int currentRowOffset
+  private int currentSelectedIndex
+}
+DisplayItemPopupUI --|> MonoBehaviour
+class DisplayItemPopupUI {
+    
+  private GameObject panel
+  private TextMeshProUGUI title
+  private TextMeshProUGUI description
+  private Image image
+  private Animator animator
+  private bool displaying
+  private void OnEnable()
+}
+InventoryHandler --|> Singleton
+class InventoryHandler {
+    
+}
+ItemDetailsUI --|> MonoBehaviour
+class ItemDetailsUI {
+    
+  private Image itemIcon
+  private TextMeshProUGUI nameTextMesh
+  private TextMeshProUGUI descriptionTextMesh
+  private TextMeshProUGUI weightTextMesh
+  private TextMeshProUGUI volumeTextMesh
+  private Image usageTypeImage
+  public void SetDescription()
+}
+ItemSlotUI --|> MonoBehaviour
+class ItemSlotUI {
+    
+  public Image SlotIcon
+  public Transform ItemRoot
+}
+ItemUI --|> MonoBehaviour
+class ItemUI {
+    
+  private Image itemImage
+  private TextMeshProUGUI volumeTextMesh
+  private TextMeshProUGUI weightTextMesh
+  private Image rarityImage
+  private TextMeshProUGUI amountTextMesh
+  private Image usageTypeImage
+  public void Setup()
+}
+SelectorUI --|> MonoBehaviour
+class SelectorUI {
+    
+  private AnimationCurve transitionCurve
+  private Image selectorImage
+   private set
+}
+JournalHandler --|> Singleton
+class JournalHandler {
+    
+}
+class PageCollection {
+    
+}
+PagePairUI --|> MonoBehaviour
+class PagePairUI {
+    
+  private SinglePageUI leftPage
+  private SinglePageUI rightPage
+   void AddText()
+   new TextObjectSettings()
+}
+SinglePageUI --|> MonoBehaviour
+class SinglePageUI {
+    
+  private GameObject textPrefab
+  private GameObject imagePrefab
+  private VerticalLayoutGroup _verticalLayoutGroup
+  private float usedHeight
+}
+MainMenuHandler --|> MonoBehaviour
+class MainMenuHandler {
+    
+  private GameObject titleText
+  private GameObject pressPrompt
+  private GameObject borderTop
+  private GameObject borderBottom
+  private GameObject mainPanel
+  private GameObject settingsPanel
+  private GameObject blackScreen
+  private GameObject menuHand
+  private MenuHandAnimator handAnimator
+  public bool CanSkipCutscene
+  private bool isMainMenu
+  private int selectedButton
+  private void Start()
+}
+MenuHandAnimator --|> MonoBehaviour
+class MenuHandAnimator {
+    
+  private Animator animatorComponent
+  private void Awake()
+}
+MenuLoadProgress --|> Singleton
+class MenuLoadProgress {
+    
+}
+ParallaxScrolling --|> MonoBehaviour
+class ParallaxScrolling {
+    
+  private float speed
+  private float positionX
+  private void Start()
+}
+PopupPanelUI --|> MonoBehaviour
+class PopupPanelUI {
+    
+  private TextMeshProUGUI text
+  private Animator animator
+  private void Start()
+}
+TextPopup --|> MonoBehaviour
+class TextPopup {
+    
+}
+TextPopupHandlerUI --|> MonoBehaviour
+class TextPopupHandlerUI {
+    
+  private Camera cam
+  private bool displaying
+  private Vector3 hankPos
+  private int index
+  private void Start()
+}
+Tooltip --|> MonoBehaviour
+class Tooltip {
+    
+  private void Start()
+}
+TooltipUI --|> MonoBehaviour
+class TooltipUI {
+    
+  private TMP_Text tipDescription
+  private TMP_Text tipHeader
+  private void Start()
+}
+CutoutAnimation --|> MonoBehaviour
+class CutoutAnimation {
+    
+  private Animation animationComponent
+  private void Awake()
+}
+CutoutMaskUI --|> Image
+class CutoutMaskUI {
+    
+   return material
+   new Material()
+}
+class HExtractor {
+    
+   bool CopyToClipboard
+   bool SaveToFile
+   bool OpenFile
+   bool Styalized
+   string GetLastPartAfterDot()
+}
+class found {
+    
+}
+HLogger --|> MonoBehaviour
+class HLogger {
+    
+   HLoggerSettings settings
+   bool saving
+  private void Awake()
+}
+class LogExtensions {
+    
+   void Log()
+}
+ConsoleController --|> Singleton
+class ConsoleController {
+    
+}
+class DebugCommandBase {
+    
+  public string CommandFormat
+  public string CommandID
+   public DebugCommandBase()
+}
+class DebugCommand {
+    
+   Action command
+   public DebugCommand()
+}
+ConsoleToGui --|> MonoBehaviour
+class ConsoleToGui {
+    
+  public bool EnableOutput
+   string log
+  private string output
+  private string stack
+  private void OnEnable()
+}
+AIInput --|> ICommand
+class AIInput {
+    
+  public void Execute()
+}
+PlayerInput --|> ICommand
+class PlayerInput {
+    
+  public void Execute()
+}
+BlockCommand --|> ICommand
+class BlockCommand {
+    
+  public Animation animation
+  public IBlock block
+   public BlockCommand()
+}
+HurtObserver --|> Observer
+class HurtObserver {
+    
+   UnitSFX sfx
+   public HurtObserver()
+}
+MoveObserver --|> Observer
+class MoveObserver {
+    
+}
+ObserverCommand --|> Observer
+class ObserverCommand {
+    
+}
+Animation --|> IAnimation
+class Animation {
+    
+  public string Resource
+}
+Animator --|> AnimatorBase
+class Animator {
+    
+}
+MovementModule --|> MonoBehaviour
+class MovementModule {
+    
+}
+Punch --|> Attack
+class Punch {
+    
+   IAnimation animation
+   int damage
+   public Punch()
+}
+Spell --|> Attack
+class Spell {
+    
+  public int manaCost
+   public Spell()
+}
+CommandFactory --|> ICommandFactory
+class CommandFactory {
+    
+   return null
+}
+class BaseComponent {
+    
+  protected IMediator Mediator
+   protected BaseComponent()
+}
+ConcreteMediator --|> IMediator
+class ConcreteMediator {
+    
+  public void Notify()
+}
+class Mediator {
+    
+  private MediatorCallback subscribers
+  public void Subscribe()
+}
+Publisher --|> SerializedMonoBehaviour
+class Publisher {
+    
+}
+CollectionInstance --|> IEnumerable
+class CollectionInstance {
+    
+}
+CollectionPreset --|> ScriptableObject
+class CollectionPreset {
+    
+  public float MaxWeight
+  public float MaxVolume
+}
+ContainerDefinition --|> ScriptableObject
+class ContainerDefinition {
+    
+  public Sprite WorldIconDefault
+  public Sprite WorldIconOpen
+  public Sprite WorldIconClosed
+  public Sprite BackgroundImage
+  public Sprite SlotEmptyIcon
+  public Sprite SlotFilledIcon
+}
+LockState --|> SerializedScriptableObject
+class LockState {
+    
+  public bool IsUnlocked
+  public bool Multilock
+  public bool IsThreeWay
+  public LockThreeWay LockThreeWay
+  public LockStateType StateType
+  private void Toggle()
+}
+ShopDefinition --|> ScriptableObject
+class ShopDefinition {
+    
+  public Sprite ShopSprite
+  public Sprite SellerSprite
+  public CollectionInstance ConstantWares
+}
+ContainerObject --|> UnlockableBase
+class ContainerObject {
+    
+  public ContainerDefinition Definition
+  private CollectionPreset preset
+  public CollectionInstance Instance
+  private LockState lockState
+  private SpriteRenderer spriteRenderer
+  private void OnEnable()
+}
+ShopObject --|> MonoBehaviour
+class ShopObject {
+    
+}
+Item --|> SerializedScriptableObject
+class Item {
+    
+  public Sprite Icon
+  public string Name
+  public string Description
+  public UsageType Usage
+  public Rarity Rarity
+  public string Header
+  public bool DestroyOnMiss
+  public string ConsumedSound
+  public string ThrownSound
+  public string UsedSound
+  public bool Discovered
+}
+class ItemConsumeAttribute {
+    
+  public StatusType ConsumeStatusType
+  public float ConsumeValue
+  public float ConsumeDuration
+  public bool InstantiateWhenConsumed
+  public Item ItemToInstantiate
+}
+ItemObject --|> MonoBehaviour
+class ItemObject {
+    
+}
+ItemObjectGroup --|> MonoBehaviour
+class ItemObjectGroup {
+    
+}
+class ItemThrowAttribute {
+    
+  public StatusType ThrowStatusType
+  public float ThrowValue
+  public float ThrowDuration
+  public bool InstantiateWhenThrown
+  public Item ItemToInstantiate
+}
+LightBase --|> MonoBehaviour
+class LightBase {
+    
+  protected bool SetColorInternally
+  protected bool IsFading
+  protected bool HasLoaded
+  private Clock _clock
+  protected float MinimumIntensity
+  protected string Ambience
+  protected float Volume
+  private AudioPoint audioPoint
+   Light2D light
+}
+LightFire --|> LightBase
+class LightFire {
+    
+  private float baseIntensity
+  private float baseIntensity
+  private float basePointLightOuterRadius
+  private SpriteGlowEffect glow
+  private bool isFlickering
+  private float timeElapsed
+  private void Awake()
+}
+Luminousity --|> LightBase
+class Luminousity {
+    
+  public bool HideSpriteWhenUnactive
+  private SpriteRenderer spriteRenderer
+  private bool isHiding
+   void OnEnable()
+}
+Sun --|> LightBase
+class Sun {
+    
+   new Gradient()
+   new Gradient()
+   new Gradient()
+   new Gradient()
+}
+ClockManager --|> Singleton
+class ClockManager {
+    
+}
+FMODManager --|> Singleton
+class FMODManager {
+    
+}
+InputManager --|> Singleton
+class InputManager {
+    
+}
+QuestManager --|> Singleton
+class QuestManager {
+    
+}
+RegionManager --|> Singleton
+class RegionManager {
+    
+}
+class SaveSettings {
+    
+   void SaveAudio()
+}
+class SerializableAudioSettings {
+    
+}
+VideoManager --|> Singleton
+class VideoManager {
+    
+}
+MainMenuUI --|> MonoBehaviour
+class MainMenuUI {
+    
+  private GameObject pressToContinueText
+  private GameObject button1
+  private GameObject button2
+  private TMP_Dropdown dropdown
+  private GameObject mapSelect
+  private bool hasContinued
+  private int mapSelection
+  private bool isFocused
+  private bool isPaused
+  private float timeSinceLastFocus
+  private float timeSinceLastPause
+  private void Awake()
+}
+class BadTrigger {
+    
+}
+class Note {
+    
+}
+QuestLine --|> Triggerable
+class QuestLine {
+    
+}
+class DynamicData {
+    
+}
+QuestPart --|> Triggerable
+class QuestPart {
+    
+  private string taskHeader
+}
+class Trigger {
+    
+}
+Triggerable --|> SerializedScriptableObject
+class Triggerable {
+    
+}
+class TriggerGroup {
+    
+  private TriggerCombinationMode mode
+  private int amount
+  private DynamicData dynamicData
+  public void Init()
+}
+ConditionBase --|> ScriptableObject
+class ConditionBase {
+    
+}
+ConditionTimeInterval --|> IQuestCondition
+class ConditionTimeInterval {
+    
+  public TimeState TimeState
+   public ConditionTimeInterval()
+}
+ConditionTimer --|> ConditionBase
+class ConditionTimer {
+    
+}
+DialogueObserver --|> Observer
+class DialogueObserver {
+    
+}
+InstantObserver --|> Observer
+class InstantObserver {
+    
+}
+ItemHeldObserver --|> Observer
+class ItemHeldObserver {
+    
+}
+ItemUsedObserver --|> Observer
+class ItemUsedObserver {
+    
+}
+KillObserver --|> Observer
+class KillObserver {
+    
+}
+RegionObserver --|> Observer
+class RegionObserver {
+    
+}
+SpeakObserver --|> Observer
+class SpeakObserver {
+    
+}
+TriggerableObserver --|> Observer
+class TriggerableObserver {
+    
+}
+AnimatorBase --|> Publisher
+class AnimatorBase {
+    
+}
+SpriteEffect --|> AnimatorBase
+class SpriteEffect {
+    
+  public bool InstantiateOnFinish
+  public bool DestroyOnFinish
+  public bool DisableOnFinish
+  public GameObject ObjectToInstantiate
+  public float DestroyDelay
+  public float DisableDelay
+  private void Start()
+}
+ColliderGizmo --|> MonoBehaviour
+class ColliderGizmo {
+    
+  public Presets Preset
+  public Color CustomWireColor
+  public Color CustomFillColor
+  public Color CustomCenterColor
+  public bool DrawCenter
+  public bool IncludeChildColliders
+  private NavMeshObstacle _navMeshObstacle
+  private Color _wireGizmoColor
+  private Color _fillGizmoColor
+  private Color _centerGizmoColor
+  private bool _initialized
+   your collider()
+  private void OnDrawGizmos()
+}
+class GizmosDebug {
+    
+   void DrawString()
+}
+GlowColorRandomizer --|> MonoBehaviour
+class GlowColorRandomizer {
+    
+  private SpriteGlowEffect spriteGlow
+  private void Awake()
+}
+SpriteGlowEffect --|> MonoBehaviour
+class SpriteGlowEffect {
+    
+  public bool UseAverageColor
+  private bool drawOutside
+  private bool enableInstancing
+  private MaterialPropertyBlock materialProperties
+   private set
+   The brightness()
+}
+SpriteGlowMaterial --|> Material
+class SpriteGlowMaterial {
+    
+   public SpriteGlowMaterial()
+}
+Rain --|> MonoBehaviour
+class Rain {
+    
+  private Texture2D rainTexture
+  private RenderTexture rainTexture
+  private Material rainMaterial
+  private Shader rainShader
+  private void OnRenderImage()
+   new Material()
+}
+DynamicYSort --|> ISort
+class DynamicYSort {
+    
+  public SpriteRenderer SpriteRenderer
+  public int Order
+}
+ISort --|> MonoBehaviour
+class ISort {
+    
+   void Sort()
+}
+StaticYSort --|> ISort
+class StaticYSort {
+    
+  private int offset
+  private Renderer render
+  public void SortShadow()
+}
+FloatingDamageNumber --|> WorldTextBase
+class FloatingDamageNumber {
+    
+}
+TextDisplay --|> MonoBehaviour
+class TextDisplay {
+    
+  public TextMeshPro textMesh
+  public TextMeshProUGUI textMeshGUI
+  private void Start()
+}
+WorldTextBase --|> MonoBehaviour
+class WorldTextBase {
+    
+  protected TextMeshProUGUI TextMeshProUGUI
+  protected TMP_Text TMPText
+}
+DebugSettings --|> ScriptableObject
+class DebugSettings {
+    
+}
+GameSettings --|> GlobalConfig
+class GameSettings {
+    
+}
+BerserkerEffect --|> EffectBase
+class BerserkerEffect {
+    
+  private StatModifier modifier
+   public BerserkerEffect()
+}
+BleedEffect --|> EffectBase
+class BleedEffect {
+    
+  private GameObject bloodPoolObject
+  private BloodPool bloodPoolComponent
+  private SpriteEffect spriteEffect
+   public BleedEffect()
+}
+BurnEffect --|> EffectBase
+class BurnEffect {
+    
+   public BurnEffect()
+}
+HealthRegenEffect --|> EffectBase
+class HealthRegenEffect {
+    
+   public HealthRegenEffect()
+}
+HighEffect --|> EffectBase
+class HighEffect {
+    
+  private float lastRayTime
+   public HighEffect()
+}
+LuminiousEffect --|> EffectBase
+class LuminiousEffect {
+    
+   public LuminiousEffect()
+}
+PoisonEffect --|> EffectBase
+class PoisonEffect {
+    
+   public PoisonEffect()
+}
+RecoveryEffect --|> EffectBase
+class RecoveryEffect {
+    
+   public RecoveryEffect()
+}
+ShockedEffect --|> EffectBase
+class ShockedEffect {
+    
+  private float damage
+   public ShockedEffect()
+}
+SlowEffect --|> EffectBase
+class SlowEffect {
+    
+   float percentage
+   public SlowEffect()
+}
+StaminaRegenerateEffect --|> EffectBase
+class StaminaRegenerateEffect {
+    
+   public StaminaRegenerateEffect()
+}
+StunEffect --|> EffectBase
+class StunEffect {
+    
+   public StunEffect()
+}
+WeakenedEffect --|> EffectBase
+class WeakenedEffect {
+    
+  private StatModifier modifier
+   public WeakenedEffect()
+}
+WetEffect --|> EffectBase
+class WetEffect {
+    
+   public WetEffect()
+}
+EffectBase --|> IDisposable
+class EffectBase {
+    
+  public GameObject Resource
+  public string SpriteEffectName
+  protected GameObject EffectInstance
+  protected Vector3 Offset
+  protected HurtUnit Owner
+   protected EffectBase()
+}
+ActivateOnStart --|> MonoBehaviour
+class ActivateOnStart {
+    
+  private void Start()
+}
+CollisionTrigger --|> MonoBehaviour
+class CollisionTrigger {
+    
+  private void OnTriggerEnter2D()
+}
+class ComponentUtils {
+    
+}
+DestroyAfter --|> MonoBehaviour
+class DestroyAfter {
+    
+  public float LifeTime
+  private float startTime
+  private SpriteRenderer sprite
+  private SpriteMask mask
+  private Color color
+  private bool dying
+  private void Start()
+}
+DisableOnStart --|> MonoBehaviour
+class DisableOnStart {
+    
+  private void Start()
+}
+class GraphicUtils {
+    
+   void SetOpacity()
+   new Color()
+}
+class LayerMaskBuilder {
+    
+  public LayerMask layerMask
+   public LayerMaskBuilder()
+}
+class MaskUtils {
+    
+   LayerMask AddLayer()
+}
+class ObjectPool {
+    
+}
+class ObjectUtils {
+    
+   void DestroyOrImmediate()
+}
+class ResourceUtility {
+    
+}
+class SceneUtility {
+    
+}
+class SubscribableEventBase {
+    
+}
+class SubscribableEvent {
+    
+}
+class TypeHelpers {
+    
+   return default
+}
+Orientation --|> IEquatable
+class Orientation {
+    
+}
+class VectorUtils {
+    
+   Orientation ToOrientation()
+}
+class instance {
+    
+}
+class ScriptableObjectSingleton {
+    
+}
+class Singleton {
+    
+}
+class SingletonPerLevel {
+    
+}
+class StatModifier {
+    
+  public float Value
+   StatModType Type
+   public StatModifier()
+}
+class ValueStat {
+    
+  private float _value
+  public float BaseValue
+  private float cachedValue
+  private bool isDepleted
+  public Slider Slider
+  private float startValue
+   public ValueStat()
+}
+class DelayedAction {
+    
+   void Stop()
+}
+class DelayItem {
+    
+  public Action Action
+  public float Delay
+  public bool HasBeenPerformed
+  public float TimeStamp
+}
+DelayTicker --|> Singleton
+class DelayTicker {
+    
+}
+class FixedTimer {
+    
+  public float Duration
+  public float Cooldown
+  public float Timestamp
+  public bool IsFinishedIn()
+}
+class TickBase {
+    
+   Action OnReset
+   TickBase Add()
+   TickBase Subtract()
+}
+TimeTick --|> TickBase
+class TimeTick {
+    
+   Action OnReset
+}
+ValueTick --|> TickBase
+class ValueTick {
+    
+   protected set
+}
+Delevation --|> MonoBehaviour
+class Delevation {
+    
+  private Elevation elevation
+   private set
+}
+DigZone --|> MonoBehaviour
+class DigZone {
+    
+}
+Elevation --|> MonoBehaviour
+class Elevation {
+    
+  private Delevation delevation
+  private string unitSortingLayerName
+   private set
+}
+Punchable --|> MonoBehaviour
+class Punchable {
+    
+  public float DestructionDelay
+  public GameObject DestroyedObject
+}
+Bush --|> MonoBehaviour
+class Bush {
+    
+}
+Clock --|> GlobalConfig
+class Clock {
+    
+}
+HouseCamera --|> MonoBehaviour
+class HouseCamera {
+    
+  public MoveUnit Unit
+  public Vector3 Offset
+  private void Awake()
+}
+HouseDoor --|> MonoBehaviour
+class HouseDoor {
+    
+  private Animator animator
+  private void Awake()
+}
+HouseTeleportTrigger --|> MonoBehaviour
+class HouseTeleportTrigger {
+    
+  private Transform destination
+  private CutoutAnimation insideTransition
+  private CutoutAnimation outsideTransition
+  private GameObject canvas
+  private HouseTeleportTrigger other
+  public bool IsInHouse
+  private string musicTrackToPlay
+  private void OnTriggerEnter2D()
+   house if()
+}
+ShroomExplosion --|> MonoBehaviour
+class ShroomExplosion {
+    
+  private void OnTriggerEnter2D()
+}
+Door --|> UnlockableBase
+class Door {
+    
+}
+DoorData --|> SerializedScriptableObject
+class DoorData {
+    
+  public Sprite DoorOpen
+  public Sprite DoorClose
+  public Sprite DoorLocked
+}
+KeyControlGroup --|> MonoBehaviour
+class KeyControlGroup {
+    
+  private bool linkUnlocked
+  private void OnEnable()
+}
+Lever --|> MonoBehaviour
+class Lever {
+    
+  public WorldKey Key
+  public Collider2D Zone
+  public SpriteRenderer LeverSprite
+  public Sprite LeverOff
+  public Sprite LeverOn
+  private bool leverState
+  private void Start()
+}
+LockBase --|> MonoBehaviour
+class LockBase {
+    
+  public LockState LockState
+  protected bool openClose
+  protected bool consumeItem
+  protected string keyPhrase
+  private CollectionInstance carryCollection
+  public ContainerDefinition backpackref
+  public EntityData data
+  protected bool isInteractable
+   new UnityEvent()
+  private void Start()
+}
+LockEvent --|> LockBase
+class LockEvent {
+    
+  private int current
+  private int remaining
+  private int total
+  private void Start()
+}
+LockItem --|> LockBase
+class LockItem {
+    
+  protected ItemCollectionType CollectionType
+   void Lock()
+}
+LockLever --|> LockBase
+class LockLever {
+    
+  public bool ThreeLockSystem
+}
+PressurePlate --|> MonoBehaviour
+class PressurePlate {
+    
+  public WorldKey Key
+  public Collider2D Trigger
+  public SpriteRenderer PlateSprite
+  public Sprite PlateUp
+  public Sprite PlateDown
+  public bool Sticky
+  private bool active
+  private void OnTriggerEnter2D()
+}
+UnlockableBase --|> MonoBehaviour
+class UnlockableBase {
+    
+}
+WorldKey --|> MonoBehaviour
+class WorldKey {
+    
+  private bool isUnlocked
+}
+Trap --|> UnlockableBase
+class Trap {
+    
+  private TrapData data
+  private bool state
+  private LockState lockState
+  private GameObject trapCollider
+  private SpriteRenderer spriteRenderer
+  private Animator animator
+}
+TrapData --|> ScriptableObject
+class TrapData {
+    
+  public Sprite On
+  public Sprite Off
+  public GameObject TrapCollider
+  public RuntimeAnimatorController animatorController
+}
+class RegionTriggerData {
+    
+  public WorldRegion WorldRegion
+  public string MusicTrack
+  public Unit Source
+}
+WorldRegion --|> ScriptableObject
+class WorldRegion {
+    
+  public string Name
+  public Vector2 Origin
+  private void Awake()
+}
+ForestTeleportTrigger --|> MonoBehaviour
+class ForestTeleportTrigger {
+    
+  private Vector3 teleportDistance
+  private int regionSize
+  private void OnTriggerEnter2D()
+   zone if()
+}
+LayerTrigger --|> MonoBehaviour
+class LayerTrigger {
+    
+  public string Layer
+  public string SortingLayer
+  private void OnTriggerEnter2D()
+}
+RegionTrigger --|> MonoBehaviour
+class RegionTrigger {
+    
+  private Unit triggerSource
+  private void OnTriggerEnter2D()
+}
+TriggerCollider --|> MonoBehaviour
+class TriggerCollider {
+    
+  private void OnTriggerEnter2D()
+}
+KeyTrigger --|> MonoBehaviour
+class KeyTrigger {
+    
+}
+KeyTriggerType --|> ScriptableObject
+class KeyTriggerType {
+    
+  public Sprite On
+  public Sprite Off
+}
+Init --|> MonoBehaviour
+class Init {
+    
+  private void Awake()
+   new ResourcesPerformanceLogger()
+}
+Main --|> MonoBehaviour
+class Main {
+    
+   private set
+}
+UI --|> Singleton
+class UI {
+    
+}
+Visualization --|> MonoBehaviour
+class Visualization {
+    
+}
+AnimationModule --|> Module
+class AnimationModule {
+    
+  private Sprite shadowDefault
+}
+class AttackData {
+    
+  public Vector2 Impact
+  public Transform Source
+  public Vector2 Velocity
+}
+BlockModule --|> Module
+class BlockModule {
+    
+}
+CombatModule --|> Module
+class CombatModule {
+    
+  private AnimationModule animationModule
+  private MoveModule moveModule
+  private PunchModule punchModule
+  private SprintModule sprintModule
+  private StaminaModule staminaModule
+}
+DarkHank --|> UnitController
+class DarkHank {
+    
+  private void Start()
+   new Stopwatch()
+}
+HealthModule --|> Module
+class HealthModule {
+    
+  private void OnDisable()
+}
+HurtModule --|> Module
+class HurtModule {
+    
+  private HealthModule healthModule
+  private MoveModule moveModule
+  private AnimationModule animationModule
+  private CombatModule combatModule
+  private BlockModule blockModule
+  private SpriteRenderer bodyRenderer
+  private SpriteRenderer shadowRenderer
+  private float moveLength
+  private float scaleStart
+  private float leanAlphaTime
+  private float leanMoveTime
+}
+InputModule --|> Module
+class InputModule {
+    
+   void Subscribe()
+}
+Module --|> SerializedMonoBehaviour
+class Module {
+    
+}
+class instead {
+    
+}
+MoveModule --|> Module
+class MoveModule {
+    
+  private AnimationModule animationModule
+  private SprintModule sprintModule
+  private IAstarAI ai
+  private ValueStat speedStat
+   private set
+}
+PunchModule --|> Module
+class PunchModule {
+    
+  private StaminaModule staminaModule
+  private CombatModule combatModule
+  private MoveModule moveModule
+  private AnimationModule animationModule
+  private FloatingDamageNumber damageNumber
+  private GameObject hitEffectNormal
+  private GameObject hitEffectSpecial
+  private BoxCollider2D meleeCollider
+  private CollisionTrigger meleeTrigger
+  private Camera cam
+  private Hank controller
+  private FistType fistType
+  private void OnEnable()
+}
+SprintModule --|> Module
+class SprintModule {
+    
+  private MoveModule moveModule
+  public bool Sprinting
+  public void Activate()
+}
+StaminaModule --|> Module
+class StaminaModule {
+    
+}
+UnitController --|> Unit
+class UnitController {
+    
+  private MoveModule moveModule
+  private CombatModule combatModule
+   void InitializeModules()
+}
+class Inventory {
+    
+}
+_Hank --|> IHank
+class _Hank {
+    
+}
+PositionData --|> SerializedScriptableObject
+class PositionData {
+    
+  public bool Enabled
+   private set
+}

@@ -1,0 +1,16 @@
+classDiagram
+AnimatorBase --|> Animator
+MonoBehaviour --|> MovementModule
+IAttack --|> Attack
+Attack --|> Punch
+Attack --|> Spell
+ICommandFactory --|> CommandFactory
+IMediator --|> ConcreteMediator
+IObserver --|> Observer
+SerializedMonoBehaviour --|> Publisher
+IEnumerable --|> CollectionInstance
+ScriptableObject --|> CollectionPreset
+ScriptableObject --|> ContainerDefinition
+SerializedScriptableObject --|> LockState
+ScriptableObject --|> ShopDefinition
+UnlockableBase --|> ContainerObject

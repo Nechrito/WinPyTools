@@ -1,0 +1,16 @@
+classDiagram
+GlobalConfig --|> SelectedObjectsData
+PropertyDrawer --|> ObjectPoolEditor
+PropertyDrawer --|> SerializableDictionaryDrawer
+AssetModificationProcessor --|> DeleteEmptyFolders
+AssetPostprocessor --|> TextureImportProcessor
+MonoBehaviour --|> HClick
+OdinEditorWindow --|> ObjectExplorer
+OdinEditorWindow --|> ExtractorEditor
+OdinEditorWindow --|> FolderNavigationEditor
+OdinEditorWindow --|> LoggerSettingsEditor
+OdinEditorWindow --|> OpenAllEditors
+OdinEditorWindow --|> SelectionHistoryEditor
+OdinEditorWindow --|> TextureEditor
+OdinEditorWindow --|> ToolsEditor
+PropertyAttribute --|> MinMaxRangeAttribute

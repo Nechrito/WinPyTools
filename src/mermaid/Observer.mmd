@@ -1,0 +1,16 @@
+classDiagram
+Triggerable --|> QuestLine
+Triggerable --|> QuestPart
+SerializedScriptableObject --|> Triggerable
+ScriptableObject --|> ConditionBase
+IQuestCondition --|> ConditionTimeInterval
+ConditionBase --|> ConditionTimer
+Observer --|> DialogueObserver
+Observer --|> InstantObserver
+Observer --|> ItemHeldObserver
+Observer --|> ItemUsedObserver
+Observer --|> KillObserver
+Observer --|> RegionObserver
+Observer --|> SpeakObserver
+Observer --|> TriggerableObserver
+Publisher --|> AnimatorBase
