@@ -1,13 +1,25 @@
+.idea/
 .vscode/
+
+.vs/
+bin/
+obj/
+*.csproj
+*.sln
+
+*.exe
 
 build/
 dist/
 
+/*output
 docs/REMINDER.md
 
+src/csharp/
+src/powershell/
 src/temp.py
 src/open_file_in_vscode.py
 
+__pycache__/
+*.pyc
 *.spec
-
-*.ps1

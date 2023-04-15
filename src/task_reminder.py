@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
@@ -32,6 +33,11 @@ def save_settings(wait_duration_seconds, display_duration_seconds, message):
 
 # Load settings from a file
 def load_settings():
+    
+    # Create a default settings file if it doesn't exist
+    if not os.path.exists("reminder_settings.json"):
+        save_settings(3600, 5, "Don't forget to take a break!")    
+    
     try:
         with open("reminder_settings.json", "r") as f:
             settings_data = json.load(f)
