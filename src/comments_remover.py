@@ -20,3 +20,4 @@ def remove_comments(file_path):
         file.write(content)
         
 # remove_comments("src/unity_code_analyzer.py")
+remove_comments("src/csharp_relationship.py")
