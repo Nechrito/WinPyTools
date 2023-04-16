@@ -15,6 +15,7 @@ dist/
 /*output
 docs/REMINDER.md
 
+mermaid/
 src/mermaid
 src/csharp/
 src/powershell/
