@@ -450,10 +450,8 @@ def print_relationships(directory):
                 file_path = os.path.join(root, file)
                 file_paths.append(file_path)
 
-    # Print the total references and share for each derived class of a base class
     for base_class, derived_classes in grouped_relationships.items():
         derived_class_counter = Counter(derived_classes)
-        total_references = sum(derived_class_counter.values())
 
         total_actual_references = 0
         derived_class_references = {}
@@ -468,10 +466,19 @@ def print_relationships(directory):
         for derived_class, count in derived_class_counter.items():
             references = derived_class_references[derived_class]
             share = references / total_actual_references * 100
-            print(f"  - {derived_class}:")
-            print(f"      - References: {references}")
-            print(f"      - Share: {share:.2f}%")
+            
+            #if share > 50:
+            print(f"    {derived_class}")
+            #else:
+            #print(f"  ({count: >2}) {derived_class}:")
+            print(f"        - References: {references}")
+            print(f"        - Share: {share:.2f}%")
         print()
+        
+    print_most_referenced_relationships(grouped_relationships)
+
+    # Print overall stats
+    print_stats(script_count, len(grouped_relationships))
 
     # # Create a dictionary to store the counts of each base class
     # class_counts = {}
@@ -490,13 +497,6 @@ def print_relationships(directory):
 
     # Print the most referenced base classes and their reference count
     #print_most_referenced_classes(class_counts_list)
-
-    # Print the most common relationships between derived and base classes
-    # Note: we only print the first item of the list of derived classes to save space
-    print_most_referenced_relationships(grouped_relationships)
-
-    # Print overall stats
-    print_stats(script_count, len(grouped_relationships))
     
 def print_stats(script_count, relationship_count):
     print(f"STATS")
