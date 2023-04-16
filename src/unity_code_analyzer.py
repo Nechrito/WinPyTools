@@ -1,7 +1,3 @@
-# https://mermaid.js.org/syntax/classDiagram.html
-        
-
-
 import os
 import shutil
 import sys
@@ -13,7 +9,6 @@ from typing import *
 from sklearn.cluster import KMeans
 
 def find_optimal_clusters(matrix):
-    # Try different values of K
     max_clusters = min(1, len(matrix))
     sum_of_squared_distances = []
 
@@ -21,17 +16,12 @@ def find_optimal_clusters(matrix):
         kmeans = KMeans(n_clusters=k)
         kmeans.fit(matrix)
         sum_of_squared_distances.append(kmeans.inertia_)
-
-    # Find the elbow point
-    # You can use a more advanced elbow detection method if necessary
     optimal_k = sum_of_squared_distances.index(min(sum_of_squared_distances)) + 1
 
     return optimal_k
 
 def group_classes_by_cluster(class_info, clustering_labels):
     grouped_classes = defaultdict(list)
-    
-    # Iterate through class_info keys (class names) and clustering_labels
     for class_name, cluster_label in zip(class_info.keys(), clustering_labels):
         grouped_classes[cluster_label].append(class_name)
 
@@ -41,14 +31,11 @@ def find_most_common_relationship(relationships):
     relationship_counts = defaultdict(int)
     
     for relationship in relationships:
-        #if 'MonoBehaviour' in relationship:
-            #continue
         relationship_counts[relationship[1]] += 1
 
     return max(relationship_counts, key=relationship_counts.get)
 
 def class_info_to_plantuml(class_info):
-    #plantuml_code = "@startuml\n"
     plantuml_code = "classDiagram\n"
 
     for class_name, info in class_info.items():
@@ -58,8 +45,6 @@ def class_info_to_plantuml(class_info):
 
         if base_class_name:
             plantuml_code += f"{class_name} --|> {base_class_name}\n"
-
-        #plantuml_code += f"class {class_name} {{\n"
         plantuml_code += f'class {class_name} {{\n'
         plantuml_code += f"    \n"
         
@@ -72,8 +57,6 @@ def class_info_to_plantuml(class_info):
             plantuml_code += f"  {access.strip()} {return_type} {method_name}()\n"
 
         plantuml_code += "}\n"
-
-    #plantuml_code += "@enduml\n"
 
     return plantuml_code
 
@@ -99,14 +82,7 @@ def unpack_to_mermaid_code(class_info):
 
         if base_class_name:
             mermaid_code += f"{class_name} <|-- {base_class_name}\n"
-
-        #mermaid_code += f"class {class_name} {{\n"
         mermaid_code += f"class {class_name}\n"
-
-        # Add an argument (args) which overrides these values if provided
-        # This is to allow for overriding values for the diagram
-        # For example, if a class is a MonoBehaviour, we should show the MonoBehaviour methods
-        # So we can override the values for that class
         has_members = len(members) > 0
         has_methods = len(methods) > 0
         has_members_and_methods = has_members and has_methods
@@ -123,7 +99,6 @@ def unpack_to_mermaid_code(class_info):
             mermaid_code += f"{class_name} : {access_modifier_to_plantuml(access.strip())} {return_type} {method_name}()\n"
 
         mermaid_code += "\n"
-        # mermaid_code += "}\n"
 
     return mermaid_code.replace('\n\n', '\n').replace('"', "")
 
@@ -196,17 +171,7 @@ def parse_csharp_code(file_path):
 def write_relationships_to_files(grouped_classes, relationships, output_dir, class_info):
     for cluster_label, class_names in grouped_classes.items():
         cluster_relationships = [r for r in relationships if r[0] in class_names and r[1] in class_names]
-
-        #output_file = os.path.join(output_dir, f"cluster_{cluster_label}.mmd")
         
-        # Name the file after the most common relationship in the cluster
-        """
-        # Name the file after the most common relationship in the cluster
-        output_file = os.path.join(output_dir, f"cluster_{cluster_label}.mmd")
-        if len(cluster_relationships) > 0:
-            most_common_relationship = max(set(cluster_relationships), key=cluster_relationships.count)
-            output_file = os.path.join(output_dir, f"{most_common_relationship[0]}_{most_common_relationship[1]}.mmd")
-        """
         
         output_file = os.path.join(output_dir, f"cluster_{cluster_label}.mmd")
         
@@ -216,8 +181,6 @@ def write_relationships_to_files(grouped_classes, relationships, output_dir, cla
             output_file = os.path.join(output_dir, f"{top_relationship[0]}_{top_relationship[1]}.mmd")
 
         cluster_class_info = {class_name: class_info[class_name] for class_name in class_names}
-
-        # Write the class definitions and relationships for each cluster
         mermaid_script = unpack_to_mermaid_code(cluster_class_info)
 
         for relationship in cluster_relationships:
@@ -264,24 +227,12 @@ def get_mermaid_script(relationships: List[Tuple[str, str]]) -> str:
 
 def write_mermaid_script_to_file(mermaid_script: str, output_file: str) -> None:
     mermaid_script = mermaid_script.replace('\n\n', '\n').replace('"', "")
-    
-    # If it exists, append to the file
     if os.path.exists(output_file):
         with open(output_file, "a") as f:
             f.write(mermaid_script)
             return
-    # Redundant?
     with open(output_file, "w") as f:
         f.write(mermaid_script)
-        
-# def unpack_to_mermaid_code(class_info: Dict[str, str]) -> str:
-#     mermaid_script = "classDiagram\n"
-#     for class_name, class_info in class_info.items():
-#         mermaid_script += f"class {class_name} {{\n"
-#         for member in class_info['members']:
-#             mermaid_script += f"    {member}\n"
-#         mermaid_script += "}\n"
-#     return mermaid_script
 
 
 def generate_mermaid_script(relationships, subdir):
@@ -357,16 +308,13 @@ def get_class_info_from_file(file_path: str) -> Tuple[Dict[str, str], List[Tuple
                 member = [re.sub(r'\s+', ' ', m) for m in member]
                 member = [m for m in member if m]
                 member = ' '.join(member)
-                #class_info[class_name]['members'].append(member)
     return class_info, relationships
 import os
 import re
 from collections import defaultdict, Counter
 
 def get_bottom_directory(path):
-    """
-    This function takes in a path and returns the bottom-most subdirectory
-    """
+    
     if not os.path.isdir(path):
         return None
     
@@ -419,8 +367,6 @@ def count_references(file_path, class_name):
 
 def print_most_referenced_classes(class_references):
     class_counts = Counter(class_references.values())
-
-    # Sort the list by count in descending order
     class_counts_list = class_counts.most_common()
 
     print(f"MOST REFERENCED CLASSES")
@@ -431,61 +377,39 @@ def print_relationships(directory):
     relationships = []
     dependencies = []
     script_count = 0
-    
-    #mermaid_script = "flowchart TD\n" 
     mermaid_script = "classDiagram\n"
-    #mermaid_script += "graph TD\n"
-    #mermaid_script += "direction LR\n"
     
     all_relationships = []
     class_info = defaultdict(dict)
+    
     
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith('.cs'):
                 file_path = os.path.join(root, file)
                 rel, file_class_info = parse_csharp_code(file_path)
-                #rel = parse(file_path)
-                all_relationships.append(rel)
+                all_relationships.extend(rel)
                 class_info.update(file_class_info)
-    
-    # extract from this pattern: [[], [('SelectedObjectsData', 'GlobalConfig')], [('ObjectPoolEditor', 'PropertyDrawer')], [('SerializableDictionaryDrawer', 'PropertyDrawer')], [], [], [], [],
-    
-    # TODO: Get all class references to then be used in Mermaid visualization
+                #class_info.update(file_class_info)
+                
     class_references = defaultdict(int)
     for root, dirs, files in os.walk(directory):
        for file in files:
            if file.endswith('.cs'):
                file_path = os.path.join(root, file)
                
-               relationships, class_info = parse_csharp_code(file_path)
+               relationships, s = parse_csharp_code(file_path)
                
-               for class_name in class_info:
+               for class_name in s:
                    class_references[class_name] += count_references(file_path, class_name)
+    #print(class_references)
     
-    # TODO: Unpack the relationships and add them to the Mermaid script
-    # defaultdict(<class 'int'>, {'SelectedObjectsData': 2, 'ObjectPoolEditor': 1, 'SerializableDictionaryDrawer': 1, 'CompilerOptionsEditorScript': 2, 'ScriptExecutionOrder': 6
-    
-    print(class_references)
-    
-    for rel in all_relationships:
-        for r in rel:
-            a, b = r
-            mermaid_script += f"{a} --> {b}\n"
+    # for rel in all_relationships:
+    #     for r in rel:
+    #         a, b = r
+    #         mermaid_script += f"{a} --> {b}\n"
     
     print(mermaid_script)
-    
-    #print(all_relationships)
-    #print(class_info)
-    #exit(1)
-    
-    #for rel in all_relationships:
-    #    for r in rel:
-    #        a, b = r
-    #        print(f"{a} --> {b}\n")
-    #relations = analyze_relationships(directory)
-    #print(all_relationships)
-    #exit(1)
     
     for root, dirs, files in os.walk(directory):
         for file in files:
@@ -494,254 +418,47 @@ def print_relationships(directory):
                 relationships.extend(parse(file_path))
                 script_count += 1
                 dependencies.append(parse_csharp_code(file_path)[0])
-                #dependencies.append(get_class_info_from_file(file_path=file_path))
-    
-    #print(dependencies)
-    #exit(1)
     
     grouped_relationships = defaultdict(list)
     for relationship in relationships:
         derived_class, base_class = relationship
         if base_class != 'MonoBehaviour' and base_class != 'ScriptableObject' and base_class != 'OdinEditorWindow' and not "Serializ" in base_class and not "Singleton" in base_class and not "Editor" in base_class and not "Attribute" in base_class and not "Drawer" in base_class:
             grouped_relationships[base_class].append(derived_class)
-        
-    # class_info = defaultdict(dict)
-    
-    # for root, dirs, files in os.walk(directory):
-    #     for file in files:
-    #         if file.endswith('.cs'):
-    #             file_path = os.path.join(root, file)
-    #             class_info.update(get_class_info_from_file(file_path))
     
     for base_class, derived_classes in grouped_relationships.items():
         derived_classes = list(set(derived_classes))
         derived_classes.sort()
         
         if len(derived_classes) == 1:
-            #print(f"{base_class} <|-- {derived_classes[0]}")
             mermaid_script += f"{base_class} --|> {derived_classes[0]}\n"
         else:
-            #mermaid_script += f"{base_class} --|> {derived_classes[0]}\n"
-            # iterate over the list of derived classes
-            # and add them to the Mermaid script
             for derived_class in derived_classes:
                 mermaid_script += f"{base_class} --> {derived_class}\n"
-                
-                #mermaid_script += f"{base_class} --> {derived_class}\n"
-                #print(f"{base_class} --> {derived_class}")
-                
-            #print(f"{base_class} --> {{ {' '.join(derived_classes)} }}")
-            
-            #mermaid_script += f"{base_class} --> {{ {' '.join(derived_classes)} }}\n"
     
     mermaid_script = mermaid_script \
+    .replace(" --> Singleton", "").replace(" --|> Singleton", "") \
     .replace(" --> Serialized", "").replace(" --|> Serialized", "") \
     .replace(" --> MonoBehaviour", "").replace(" --|> MonoBehaviour", "") \
-    .replace(" --> ScriptableObject", "").replace(" --|> ScriptableObject", "")
+    .replace(" --> ScriptableObject", "").replace(" --|> ScriptableObject", "") \
     
-    print(f"SCRIPT COUNT: {script_count}")
-    
-    #print(mermaid_script)
-    
-    # for rel in all_relationships:
-    #     for r in rel:
-    #         a, b = r
-    #         print(f"{a} --> {b}\n")
-    #relations = analyze_relationships(directory)
-    #print(all_relationships)
-    #exit(1)
-    
-    #for root, dirs, files in os.walk(directory):
-    #    for file in files:
-    #        if file.endswith('.cs'):
-    #            file_path = os.path.join(root, file)
-    #            relationships.extend(parse(file_path))
-    #            script_count += 1
-    #            dependencies.append(parse_csharp_code(file_path)[0])
-    #            #dependencies.append(get_class_info_from_file(file_path=file_path))
-    
-    #print(dependencies)
-    #exit(1)
-    
-    # grouped_relationships = defaultdict(list)
-    # for relationship in relationships:
-    #     derived_class, base_class = relationship
-    #     grouped_relationships[base_class].append(derived_class)
-        
-    # class_counts = {}
-    # for relationship in relationships:
-    #     derived_class, base_class = relationship
-    #     if base_class in class_counts:
-    #         class_counts[base_class] += derived_class + "\n"
-    #     else:
-    #         class_counts[base_class] = derived_class
-
-    # # Create a list of tuples containing the base class and its count
-    # class_counts_list = [(k, v) for k, v in class_counts.items()]
-    
-    # # for k, v in class_counts_list:
-    # #     print(f"{k}\n{v}")
-    # # exit(1)
-
-    # file_paths = []
-    # for root, _, files in os.walk(directory):
-    #     for file in files:
-    #         if file.endswith(".cs"):
-    #             file_path = os.path.join(root, file)
-    #             file_paths.append(file_path)
-    # for base_class, derived_classes in grouped_relationships.items():
-        
-    #     derived_class_counter = Counter(derived_classes)
-
-    #     total_actual_references = 0
-        
-    #     derived_class_references = {}
-        
-    #     for derived_class, count in derived_class_counter.items():
-    #         references = 0
-    #         for file_path in file_paths:
-    #             references += (count_class_occurrences(file_path, derived_class) > 0 and 1 or 0)
-    #         derived_class_references[derived_class] = references
-    #         total_actual_references += references
-
-    #     print(f"{base_class} (total references: {total_actual_references}):")
-        
-    #     #is_blacklisted = False
-    #     is_blacklisted = \
-    #     "Mono" in base_class \
-    #     or "Seriali" in base_class  \
-    #     or "Singlet" in base_class  \
-    #     or "Drawer" in base_class  \
-    #     or "Attrib" in base_class  \
-    #     #or base_class.startswith("I")
-        
-    #     #if not is_blacklisted:
-    #         # Capitalize base class name
-    #         #base_class = base_class[0].upper() + base_class[1:]
-    #     #mermaid_script += f"    subgraph {base_class.lower()}\n"
-    #     #mermaid_script += f"class {base_class}\n"
-        
-    #     c = 0
-    #     j = 1
-    #     for derived_class, count in derived_class_counter.items():
-    #         references = derived_class_references[derived_class]
-    #         share = references / total_actual_references * 100
-            
-    #         print(f"  - {derived_class} ({count} references, {references} actual references, {share:.2f}% share)")
-            
-    #         # TODO: Save to file with Mermaid syntax for graphing relationships
-            
-    #         # classA --|> classB : Inheritance
-    #         # classE --o classF : Aggregation
-            
-    #         if is_blacklisted:
-    #             continue
-    #             #mermaid_script += f"    {base_class} ----> {derived_class}\n"
-    #         else:  
-    #             #mermaid_script += f"    {base_class}-->{derived_class}\n"
-    #             mermaid_script += f"{base_class} --|> {derived_class}\n"
-                
-    #         # c += 1
-    #         # # close subgraph if filled up to 10 classes
-    #         # if c > 5:
-    #         #     mermaid_script += "    end\n"
-    #         #     mermaid_script += f"    subgraph {base_class.lower()}_{j}\n"
-            
-    #         #     #mermaid_script += f"{base_class} --> {derived_class}\n"
-    #         #     #mermaid_script += f"{derived_class} <|-- {base_class}\n"
-    #         #     #mermaid_script += f"{base_class} --|> {derived_class}\n"
-                
-    #         #     j += 1
-    #         #     c = 0
-
-    #     print()
-        
-    #     mermaid_script += "\n"
-        
-        #mermaid_script += "    end\n"
-        
-        # is_first_iteration = False
-    # for k, v in class_counts_list:
-    #     is_blacklisted = \
-    #         "Mono" in k \
-    #         or "Seriali" in k  \
-    #         or "Singlet" in k  \
-    #         or "Drawer" in k  \
-    #         or "Attrib" in k
-        
-    #     if is_blacklisted:
-    #         continue
-        
-    #     res = v.splitlines()
-    #     # for each new line, write "k --> line"
-        
-    #     # dont write if line k --> line is already in the script
-    #     # if mermaid_script.find(f"{k} --") != -1:
-    #     #     continue
-        
-    #     #res = [f"{k} --|> {line}" for line in res]
-        
-        
-    #     res = [f"{k} --> {line}" for line in res]
-    #     res = "\n".join(res)
-        
-    #     #res = [f"{line} --> ???" for line in res]
-    #     #res = "\n".join(res)
-    #     #res = [f"{k} --> {line}" for line in res]
-    #     #res = "\n".join(res)
-        
-    #     print(res)
-        
-    #     mermaid_script += f"{res}\n"
-        
-    #     #res = list(dict.fromkeys(res))
-    #     #v = "\n".join(res)
-    #     #for i in range(len(res)):
-    #     #    res[i] = res[i].replace(" ", "")
-        
-        
-    #for k, v in enumerate(dependencies):
-    #    if k <= 1 or len(v) <= 1:
-    #        continue
-    #    a, b = v
-    #    # Output: ('MinMaxRangeAttribute', 'PropertyAttribute') --> ('MinMaxRangeIntAttributeDrawer', 'PropertyDrawer')
-    #    mermaid_script += f"{a} --> {b}\n"
-    
-        
     print_most_referenced_relationships(grouped_relationships)
+    
+    print_most_referenced_classes([x for x in class_references.items() if x[1] > 0], class_info)
     
     print_stats(script_count, len(grouped_relationships))
     
     with open('mermaid_script.mmd', 'w', encoding='utf-8') as file:
         file.write(mermaid_script)
-
-    # # Create a dictionary to store the counts of each base class
-    # class_counts = {}
-    # for relationship in relationships:
-    #     derived_class, base_class = relationship
-    #     if base_class in class_counts:
-    #         class_counts[base_class] += 1 
-    #     else:
-    #         class_counts[base_class] = 1
-
-    # # Create a list of tuples containing the base class and its count
-    # class_counts_list = [(k, v) for k, v in class_counts.items()]
-
-    # # Sort the list by count in descending order
-    # class_counts_list.sort(key=lambda x: x[1], reverse=True)
-
-    # Print the most referenced base classes and their reference count
-    #print_most_referenced_classes(class_counts_list)
     
 def print_stats(script_count, relationship_count):
     print(f"STATS")
     print(f"  - Script count: {script_count}")
     print(f"  - Unique classes referenced: {relationship_count}\n")
 
-def print_most_referenced_classes(class_counts_list):
+def print_most_referenced_classes(class_counts_list, class_info):
     print("MOST REFERENCED CLASSES")
     for base_class, count in class_counts_list[:12]:
-        print(f"  - {base_class} ({count})")
+        print(f"  - {base_class} ({count}) by {class_info[base_class]}")
 
 def print_most_referenced_relationships(grouped_relationships):
     print("MOST REFERENCED RELATIONSHIPS")
@@ -771,32 +488,11 @@ def main():
                 class_info.update(file_class_info)
                 
     output_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "mermaid")
-    
-    # Remove the output directory if it exists
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
-    # # Create a relationship matrix
-    # relationship_matrix = create_relationship_matrix(class_info, all_relationships)
-    
-    # # Find the optimal number of clusters using K-means algorithm
-    # optimal_clusters = find_optimal_clusters(relationship_matrix)
-
-    # # Perform K-means clustering
-    # kmeans = KMeans(n_clusters=optimal_clusters)
-    # clustering_labels = kmeans.fit_predict(relationship_matrix)
-
-    # # Group the classes based on the clustering result
-    # grouped_classes = group_classes_by_cluster(class_info, clustering_labels)
-
-    # # Write relationships to files
-    # write_relationships_to_files(grouped_classes, all_relationships, output_dir, class_info)
-
-    
-    #get_class_info_from_file()
 
     
 if __name__ == "__main__":
