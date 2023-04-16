@@ -1,272 +1,411 @@
-flowchart TD
-    subgraph globalconfig
-    GlobalConfig-->SelectedObjectsData
-    GlobalConfig-->MusicLibrary
-    GlobalConfig-->SoundEffectLibrary
-    GlobalConfig-->HLoggerSettings
-    GlobalConfig-->GameSettings
-    GlobalConfig-->Clock
-    end
-    subgraph propertydrawer
-    end
-    subgraph assetmodificationprocessor
-    AssetModificationProcessor-->DeleteEmptyFolders
-    end
-    subgraph assetpostprocessor
-    AssetPostprocessor-->TextureImportProcessor
-    end
-    subgraph monobehaviour
-    end
-    subgraph odineditorwindow
-    OdinEditorWindow-->ObjectExplorer
-    OdinEditorWindow-->ExtractorEditor
-    OdinEditorWindow-->FolderNavigationEditor
-    OdinEditorWindow-->LoggerSettingsEditor
-    OdinEditorWindow-->OpenAllEditors
-    OdinEditorWindow-->SelectionHistoryEditor
-    OdinEditorWindow-->SpriteRenamerEditor
-    OdinEditorWindow-->TextureEditor
-    OdinEditorWindow-->ToolsEditor
-    end
-    subgraph propertyattribute
-    end
-    subgraph attribute
-    end
-    subgraph scriptableobjectsingleton
-    end
-    subgraph singleton
-    end
-    subgraph combatunit
-    CombatUnit-->FrogController
-    CombatUnit-->GuardController
-    CombatUnit-->PigController
-    CombatUnit-->NPCUnit
-    CombatUnit-->PunchUnit
-    end
-    subgraph serializedscriptableobject
-    end
-    subgraph frogattackbase
-    FrogAttackBase-->JumpBase
-    FrogAttackBase-->SpitBase
-    FrogAttackBase-->TongueBase
-    end
-    subgraph jumpbase
-    JumpBase-->JumpSlam
-    JumpBase-->JumpToPosition
-    end
-    subgraph spitbase
-    SpitBase-->PoisonMortar
-    SpitBase-->SlimeMortar
-    end
-    subgraph tonguebase
-    TongueBase-->PoisonTongue
-    end
-    subgraph istate
-    IState-->FrogAttackState
-    IState-->GuardAttackState
-    IState-->PigAttackState
-    IState-->EmptyState
-    IState-->FleeState
-    IState-->IdleState
-    IState-->PatrolState
-    end
-    subgraph iobserver
-    IObserver-->Observer
-    end
-    subgraph isubject
-    ISubject-->Subject
-    end
-    subgraph steeringbehaviour
-    SteeringBehaviour-->ObstacleAvoidanceBehaviour
-    SteeringBehaviour-->SeekBehaviour
-    end
-    subgraph detector
-    Detector-->ObstacleDetector
-    Detector-->TargetDetector
-    end
-    subgraph playermovement
-    PlayerMovement-->Controller
-    end
-    subgraph controller
-    Controller-->Hank
-    end
-    subgraph scriptableobject
-    ScriptableObject-->EntityData
-    ScriptableObject-->CollectionPreset
-    ScriptableObject-->ContainerDefinition
-    ScriptableObject-->ShopDefinition
-    ScriptableObject-->ConditionBase
-    ScriptableObject-->DebugSettings
-    ScriptableObject-->TrapData
-    ScriptableObject-->WorldRegion
-    ScriptableObject-->KeyTriggerType
-    end
-    subgraph serializedmonobehaviour
-    end
-    subgraph unit
-    Unit-->AnimatedUnit
-    Unit-->StaticNPCUnit
-    Unit-->UnitController
-    end
-    subgraph sprintunit
-    SprintUnit-->BlockUnit
-    end
-    subgraph hurtunit
-    HurtUnit-->CombatUnit
-    end
-    subgraph moveunit
-    MoveUnit-->HurtUnit
-    end
-    subgraph animatedunit
-    AnimatedUnit-->MoveUnit
-    end
-    subgraph playerunit
-    PlayerUnit-->PlayerItems
-    end
-    subgraph playeritems
-    PlayerItems-->PlayerMovement
-    end
-    subgraph blockunit
-    BlockUnit-->PlayerUnit
-    end
-    subgraph punchunit
-    PunchUnit-->SprintUnit
-    end
-    subgraph globalconfigcollection
-    GlobalConfigCollection-->ItemCollection
-    GlobalConfigCollection-->QuestCollection
-    GlobalConfigCollection-->StatusEffectCollection
-    GlobalConfigCollection-->UnitCollection
-    end
-    subgraph image
-    Image-->CutoutMaskUI
-    end
-    subgraph debugcommandbase
-    DebugCommandBase-->DebugCommand
-    end
-    subgraph icommand
-    ICommand-->AIInput
-    ICommand-->PlayerInput
-    ICommand-->BlockCommand
-    end
-    subgraph observer
-    Observer-->HurtObserver
-    Observer-->MoveObserver
-    Observer-->ObserverCommand
-    Observer-->DialogueObserver
-    Observer-->InstantObserver
-    Observer-->ItemHeldObserver
-    Observer-->ItemUsedObserver
-    Observer-->KillObserver
-    Observer-->RegionObserver
-    Observer-->SpeakObserver
-    Observer-->TriggerableObserver
-    end
-    subgraph ianimation
-    IAnimation-->Animation
-    end
-    subgraph animatorbase
-    AnimatorBase-->Animator
-    AnimatorBase-->SpriteEffect
-    end
-    subgraph iattack
-    IAttack-->Attack
-    end
-    subgraph attack
-    Attack-->Punch
-    Attack-->Spell
-    end
-    subgraph icommandfactory
-    ICommandFactory-->CommandFactory
-    end
-    subgraph imediator
-    IMediator-->ConcreteMediator
-    end
-    subgraph ienumerable
-    IEnumerable-->CollectionInstance
-    end
-    subgraph unlockablebase
-    UnlockableBase-->ContainerObject
-    UnlockableBase-->Door
-    UnlockableBase-->Trap
-    end
-    subgraph lightbase
-    LightBase-->LightFire
-    LightBase-->Luminousity
-    LightBase-->Sun
-    end
-    subgraph triggerable
-    Triggerable-->QuestLine
-    Triggerable-->QuestPart
-    end
-    subgraph iquestcondition
-    IQuestCondition-->ConditionTimeInterval
-    end
-    subgraph conditionbase
-    ConditionBase-->ConditionTimer
-    end
-    subgraph publisher
-    Publisher-->AnimatorBase
-    end
-    subgraph material
-    Material-->SpriteGlowMaterial
-    end
-    subgraph isort
-    ISort-->DynamicYSort
-    ISort-->StaticYSort
-    end
-    subgraph worldtextbase
-    WorldTextBase-->FloatingDamageNumber
-    end
-    subgraph effectbase
-    EffectBase-->BerserkerEffect
-    EffectBase-->BleedEffect
-    EffectBase-->BurnEffect
-    EffectBase-->HealthRegenEffect
-    EffectBase-->HighEffect
-    EffectBase-->LuminiousEffect
-    EffectBase-->PoisonEffect
-    EffectBase-->RecoveryEffect
-    EffectBase-->ShockedEffect
-    EffectBase-->SlowEffect
-    EffectBase-->StaminaRegenerateEffect
-    EffectBase-->StunEffect
-    EffectBase-->WeakenedEffect
-    EffectBase-->WetEffect
-    end
-    subgraph idisposable
-    IDisposable-->EffectBase
-    end
-    subgraph subscribableeventbase
-    SubscribableEventBase-->SubscribableEvent
-    end
-    subgraph iequatable
-    IEquatable-->Orientation
-    end
-    subgraph tickbase
-    TickBase-->TimeTick
-    TickBase-->ValueTick
-    end
-    subgraph lockbase
-    LockBase-->LockEvent
-    LockBase-->LockItem
-    LockBase-->LockLever
-    end
-    subgraph module
-    Module-->AnimationModule
-    Module-->BlockModule
-    Module-->CombatModule
-    Module-->HealthModule
-    Module-->HurtModule
-    Module-->InputModule
-    Module-->MoveModule
-    Module-->PunchModule
-    Module-->SprintModule
-    Module-->StaminaModule
-    end
-    subgraph unitcontroller
-    UnitController-->DarkHank
-    end
-    subgraph ihank
-    IHank-->_Hank
-    end
+classDiagram
+SelectedObjectsData --> GlobalConfig
+ObjectPoolEditor --> PropertyDrawer
+SerializableDictionaryDrawer --> PropertyDrawer
+DeleteEmptyFolders --> AssetModificationProcessor
+TextureImportProcessor --> AssetPostprocessor
+HClick
+ObjectExplorer --> OdinEditorWindow
+ExtractorEditor --> OdinEditorWindow
+FolderNavigationEditor --> OdinEditorWindow
+LoggerSettingsEditor --> OdinEditorWindow
+OpenAllEditors --> OdinEditorWindow
+SelectionHistoryEditor --> OdinEditorWindow
+SpriteRenamerEditor --> OdinEditorWindow
+TextureEditor --> OdinEditorWindow
+ToolsEditor --> OdinEditorWindow
+MinMaxRangeAttribute --> PropertyAttribute
+MinMaxRangeIntAttributeDrawer --> PropertyDrawer
+ScriptExecutionOrder --> Attribute
+AudioPoint
+EntitySFX
+UnitSFX
+MusicLibrary --> GlobalConfig
+SoundEffectLibrary --> GlobalConfig
+SoundUILibrarySingleton
+CameraFollow --> Singleton
+CameraSetup
+FireflyController
+FireflySpawner
+FrogController --> CombatUnit
+FrogAttackBaseScriptableObject
+JumpBase --> FrogAttackBase
+JumpSlam --> JumpBase
+JumpToPosition --> JumpBase
+PoisonMortar --> SpitBase
+SlimeMortar --> SpitBase
+SpitBase --> FrogAttackBase
+SpitProjectileScriptableObject
+PoisonTongue --> TongueBase
+TongueBase --> FrogAttackBase
+FrogDamageCollider
+FrogShockwave
+FrogAttackState --> IState
+GuardAttackState --> IState
+GuardController --> CombatUnit
+PigAttackState --> IState
+PigController --> CombatUnit
+EmptyState --> IState
+FleeState --> IState
+IdleState --> IState
+PatrolState --> IState
+Observer --> IObserver
+Subject --> ISubject
+AIData
+ContextSolver
+Detector
+EnemyAI
+ObstacleAvoidanceBehaviour --> SteeringBehaviour
+ObstacleDetector --> Detector
+SeekBehaviour --> SteeringBehaviour
+SteeringBehaviour
+TargetDetector --> Detector
+Controller --> PlayerMovement
+Hank --> Controller
+AIData
+ContextSolver
+Detector
+EnemyAI
+ObstacleAvoidanceBehaviour --> SteeringBehaviour
+ObstacleDetector --> Detector
+SeekBehaviour --> SteeringBehaviour
+SteeringBehaviour
+TargetDetector --> Detector
+EntityData
+TrackedPositionDataScriptableObject
+UnitMonoBehaviour
+AnimatedUnit --> Unit
+BlockUnit --> SprintUnit
+AttackScriptableObject
+CombatUnit --> HurtUnit
+Throw
+HurtUnit --> MoveUnit
+MoveUnit --> AnimatedUnit
+NPCUnit --> CombatUnit
+StaticNPCUnit --> Unit
+PlayerInteract
+PlayerItems --> PlayerUnit
+PlayerMovement --> PlayerItems
+PlayerUnit --> BlockUnit
+PunchUnit --> CombatUnit
+SprintUnit --> PunchUnit
+HLoggerSettings --> GlobalConfig
+ItemCollection --> GlobalConfigCollection
+QuestCollection --> GlobalConfigCollection
+StatusEffectCollection --> GlobalConfigCollection
+UnitCollection --> GlobalConfigCollection
+CoroutineOwner
+DialogueAnimator
+DialogueChoiceButton
+DialogueHandler
+DialoguePortrait
+DialogueSoundHandler
+DialogueTextBubble
+DialogueTimer
+MonologueColliderEvent
+DialogueLockUnlocker
+DialogueTriggerLockUnlocker
+BossPanel
+GameNotice
+PortraitDamageUI
+QuestTracker --> Singleton
+RegionTextNotice
+StatusEffectIcon
+StatusEffectUI
+TabNavigation --> Singleton
+UIGameMenuItems
+InputActionUI
+InputUISpawner
+InteractFollower
+CoinDisplayUI
+ContainerUI
+DisplayItemPopupUI
+InventoryHandler --> Singleton
+ItemDetailsUI
+ItemSlotUI
+ItemUI
+SelectorUI
+JournalHandler --> Singleton
+PagePairUI
+SinglePageUI
+MainMenuHandler
+MenuHandAnimator
+MenuLoadProgress --> Singleton
+ParallaxScrolling
+PopupPanelUI
+TextPopup
+TextPopupHandlerUI
+Tooltip
+TooltipUI
+CutoutAnimation
+CutoutMaskUI --> Image
+HLogger
+ConsoleController --> Singleton
+DebugCommand --> DebugCommandBase
+ConsoleToGui
+AIInput --> ICommand
+PlayerInput --> ICommand
+BlockCommand --> ICommand
+HurtObserver --> Observer
+MoveObserver --> Observer
+ObserverCommand --> Observer
+Animation --> IAnimation
+Animator --> AnimatorBase
+MovementModule
+Attack --> IAttack
+Punch --> Attack
+Spell --> Attack
+CommandFactory --> ICommandFactory
+ConcreteMediator --> IMediator
+Observer --> IObserver
+PublisherMonoBehaviour
+CollectionInstance --> IEnumerable
+CollectionPreset
+ContainerDefinition
+LockStateScriptableObject
+ShopDefinition
+ContainerObject --> UnlockableBase
+ShopObject
+ItemScriptableObject
+ItemObject
+ItemObjectGroup
+LightBase
+LightFire --> LightBase
+Luminousity --> LightBase
+Sun --> LightBase
+ClockManager --> Singleton
+FMODManager --> Singleton
+InputManager --> Singleton
+QuestManager --> Singleton
+RegionManager --> Singleton
+VideoManager --> Singleton
+MainMenuUI
+QuestLine --> Triggerable
+QuestPart --> Triggerable
+TriggerableScriptableObject
+ConditionBase
+ConditionTimeInterval --> IQuestCondition
+ConditionTimer --> ConditionBase
+DialogueObserver --> Observer
+InstantObserver --> Observer
+ItemHeldObserver --> Observer
+ItemUsedObserver --> Observer
+KillObserver --> Observer
+RegionObserver --> Observer
+SpeakObserver --> Observer
+TriggerableObserver --> Observer
+AnimatorBase --> Publisher
+SpriteEffect --> AnimatorBase
+ColliderGizmo
+GlowColorRandomizer
+SpriteGlowEffect
+SpriteGlowMaterial --> Material
+Rain
+DynamicYSort --> ISort
+ISort
+StaticYSort --> ISort
+FloatingDamageNumber --> WorldTextBase
+TextDisplay
+WorldTextBase
+DebugSettings
+GameSettings --> GlobalConfig
+BerserkerEffect --> EffectBase
+BleedEffect --> EffectBase
+BurnEffect --> EffectBase
+HealthRegenEffect --> EffectBase
+HighEffect --> EffectBase
+LuminiousEffect --> EffectBase
+PoisonEffect --> EffectBase
+RecoveryEffect --> EffectBase
+ShockedEffect --> EffectBase
+SlowEffect --> EffectBase
+StaminaRegenerateEffect --> EffectBase
+StunEffect --> EffectBase
+WeakenedEffect --> EffectBase
+WetEffect --> EffectBase
+EffectBase --> IDisposable
+ActivateOnStart
+CollisionTrigger
+DestroyAfter
+DisableOnStart
+SubscribableEvent --> SubscribableEventBase
+Orientation --> IEquatable
+Hank --> Singleton
+DelayTicker --> Singleton
+TimeTick --> TickBase
+ValueTick --> TickBase
+Delevation
+DigZone
+Elevation
+Punchable
+Bush
+Clock --> GlobalConfig
+HouseCamera
+HouseDoor
+HouseTeleportTrigger
+ShroomExplosion
+Door --> UnlockableBase
+DoorDataScriptableObject
+KeyControlGroup
+Lever
+LockBase
+LockEvent --> LockBase
+LockItem --> LockBase
+LockLever --> LockBase
+PressurePlate
+UnlockableBase
+WorldKey
+Trap --> UnlockableBase
+TrapData
+WorldRegion
+ForestTeleportTrigger
+LayerTrigger
+RegionTrigger
+TriggerCollider
+KeyTrigger
+KeyTriggerType
+Init
+Main
+UI --> Singleton
+Visualization
+AnimationModule --> Module
+BlockModule --> Module
+CombatModule --> Module
+DarkHank --> UnitController
+HealthModule --> Module
+HurtModule --> Module
+InputModule --> Module
+ModuleMonoBehaviour
+MoveModule --> Module
+PunchModule --> Module
+SprintModule --> Module
+StaminaModule --> Module
+UnitController --> Unit
+_Hank --> IHank
+PositionDataScriptableObject
+UnitMonoBehaviour
+GlobalConfig --> Clock
+GlobalConfig --> GameSettings
+GlobalConfig --> HLoggerSettings
+GlobalConfig --> MusicLibrary
+GlobalConfig --> SelectedObjectsData
+GlobalConfig --> SoundEffectLibrary
+AssetModificationProcessor --|> DeleteEmptyFolders
+AssetPostprocessor --|> TextureImportProcessor
+CombatUnit --> FrogController
+CombatUnit --> GuardController
+CombatUnit --> NPCUnit
+CombatUnit --> PigController
+CombatUnit --> PunchUnit
+FrogAttackBase --> JumpBase
+FrogAttackBase --> SpitBase
+FrogAttackBase --> TongueBase
+JumpBase --> JumpSlam
+JumpBase --> JumpToPosition
+SpitBase --> PoisonMortar
+SpitBase --> SlimeMortar
+TongueBase --|> PoisonTongue
+IState --> EmptyState
+IState --> FleeState
+IState --> FrogAttackState
+IState --> GuardAttackState
+IState --> IdleState
+IState --> PatrolState
+IState --> PigAttackState
+IObserver --|> Observer
+ISubject --|> Subject
+SteeringBehaviour --> ObstacleAvoidanceBehaviour
+SteeringBehaviour --> SeekBehaviour
+Detector --> ObstacleDetector
+Detector --> TargetDetector
+PlayerMovement --|> Controller
+Controller --|> Hank
+Unit --> AnimatedUnit
+Unit --> StaticNPCUnit
+Unit --> UnitController
+SprintUnit --|> BlockUnit
+HurtUnit --|> CombatUnit
+MoveUnit --|> HurtUnit
+AnimatedUnit --|> MoveUnit
+PlayerUnit --|> PlayerItems
+PlayerItems --|> PlayerMovement
+BlockUnit --|> PlayerUnit
+PunchUnit --|> SprintUnit
+GlobalConfigCollection --> ItemCollection
+GlobalConfigCollection --> QuestCollection
+GlobalConfigCollection --> StatusEffectCollection
+GlobalConfigCollection --> UnitCollection
+Image --|> CutoutMaskUI
+DebugCommandBase --|> DebugCommand
+ICommand --> AIInput
+ICommand --> BlockCommand
+ICommand --> PlayerInput
+Observer --> DialogueObserver
+Observer --> HurtObserver
+Observer --> InstantObserver
+Observer --> ItemHeldObserver
+Observer --> ItemUsedObserver
+Observer --> KillObserver
+Observer --> MoveObserver
+Observer --> ObserverCommand
+Observer --> RegionObserver
+Observer --> SpeakObserver
+Observer --> TriggerableObserver
+IAnimation --|> Animation
+AnimatorBase --> Animator
+AnimatorBase --> SpriteEffect
+IAttack --|> Attack
+Attack --> Punch
+Attack --> Spell
+ICommandFactory --|> CommandFactory
+IMediator --|> ConcreteMediator
+IEnumerable --|> CollectionInstance
+UnlockableBase --> ContainerObject
+UnlockableBase --> Door
+UnlockableBase --> Trap
+LightBase --> LightFire
+LightBase --> Luminousity
+LightBase --> Sun
+Triggerable --> QuestLine
+Triggerable --> QuestPart
+IQuestCondition --|> ConditionTimeInterval
+ConditionBase --|> ConditionTimer
+Publisher --|> AnimatorBase
+Material --|> SpriteGlowMaterial
+ISort --> DynamicYSort
+ISort --> StaticYSort
+WorldTextBase --|> FloatingDamageNumber
+EffectBase --> BerserkerEffect
+EffectBase --> BleedEffect
+EffectBase --> BurnEffect
+EffectBase --> HealthRegenEffect
+EffectBase --> HighEffect
+EffectBase --> LuminiousEffect
+EffectBase --> PoisonEffect
+EffectBase --> RecoveryEffect
+EffectBase --> ShockedEffect
+EffectBase --> SlowEffect
+EffectBase --> StaminaRegenerateEffect
+EffectBase --> StunEffect
+EffectBase --> WeakenedEffect
+EffectBase --> WetEffect
+IDisposable --|> EffectBase
+SubscribableEventBase --|> SubscribableEvent
+IEquatable --|> Orientation
+TickBase --> TimeTick
+TickBase --> ValueTick
+LockBase --> LockEvent
+LockBase --> LockItem
+LockBase --> LockLever
+Module --> AnimationModule
+Module --> BlockModule
+Module --> CombatModule
+Module --> HealthModule
+Module --> HurtModule
+Module --> InputModule
+Module --> MoveModule
+Module --> PunchModule
+Module --> SprintModule
+Module --> StaminaModule
+UnitController --|> DarkHank
+IHank --|> _Hank
