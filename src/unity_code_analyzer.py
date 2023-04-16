@@ -436,14 +436,14 @@ def print_relationships(directory):
                 mermaid_script += f"{base_class} --> {derived_class}\n"
     
     mermaid_script = mermaid_script \
-    .replace(" --> Singleton", "").replace(" --|> Singleton", "") \
     .replace(" --> Serialized", "").replace(" --|> Serialized", "") \
+    .replace(" --> Singleton", "").replace(" --|> Singleton", "") \
     .replace(" --> MonoBehaviour", "").replace(" --|> MonoBehaviour", "") \
     .replace(" --> ScriptableObject", "").replace(" --|> ScriptableObject", "") \
     
     print_most_referenced_relationships(grouped_relationships)
     
-    print_most_referenced_classes([x for x in class_references.items() if x[1] > 0], class_info)
+    #print_most_referenced_classes([x for x in class_references.items() if x[1] > 0], class_info)
     
     print_stats(script_count, len(grouped_relationships))
     
