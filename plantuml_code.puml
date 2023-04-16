@@ -1,630 +1,9 @@
-flowchart LR
-subgraph Editor
-  AssemblyInfo
-end
-subgraph Editor_Data
-  SelectedObjectsData
-end
-subgraph Editor_Drawers
-  ObjectPoolEditor
-  SerializableDictionaryDrawer
-end
-subgraph Editor_InitializeOnLoad
-  CompilerOptionsEditorScript
-  ScriptExecutionOrder
-  ScriptOptions
-  SelectionHistoryPersistent
-end
-subgraph Editor_Processors
-  DeleteEmptyFolders
-  TextureImportProcessor
-end
-subgraph Editor_Utils
-  HClick
-  InkEditorUtils
-  MetaFixer
-  ObjectExplorer
-  QuickOpener
-end
-subgraph Editor_Window
-  CharacterCreatorEditor
-  ExtractorEditor
-  FolderNavigationEditor
-  LoggerSettingsEditor
-  OpenAllEditors
-  SelectionHistoryEditor
-  SpriteRenameEditor
-  TextureEditor
-  ToolsEditor
-end
-subgraph Runtime
-  AssemblyInfo
-end
-subgraph Runtime_Attributes
-  MinMaxRangeAttribute
-  ScriptExecutionOrder
-  SerializableDictionary
-end
-subgraph Runtime_Audio
-  AudioPoint
-  EntitySFX
-  FadeMixerGroup
-  PlayWithVolume
-  UnitSFX
-end
-subgraph Runtime_Audio_Cache
-  MusicLibrary
-  SoundEffectLibrary
-  SoundUILibrary
-end
-subgraph Runtime_Cameras
-  CameraFollow
-  CameraSetup
-end
-subgraph Runtime_Character_AI_Firefly
-  FireflyController
-  FireflySpawner
-end
-subgraph Runtime_Character_AI_Frog
-  FrogController
-end
-subgraph Runtime_Character_AI_Frog_Attacks
-  FrogAttackBase
-end
-subgraph Runtime_Character_AI_Frog_Attacks_Jump
-  JumpBase
-  JumpSlam
-  JumpToPosition
-end
-subgraph Runtime_Character_AI_Frog_Attacks_Spit
-  PoisonMortar
-  SlimeMortar
-  SpitBase
-  SpitProjectile
-end
-subgraph Runtime_Character_AI_Frog_Attacks_Tongue
-  PoisonTongue
-  TongueBase
-end
-subgraph Runtime_Character_AI_Frog_Colliders
-  FrogDamageCollider
-  FrogShockwave
-end
-subgraph Runtime_Character_AI_Frog_States
-  FrogAttackState
-end
-subgraph Runtime_Character_AI_Guard
-  GuardAttackState
-  GuardController
-end
-subgraph Runtime_Character_AI_Pig
-  PigAttackState
-  PigController
-end
-subgraph Runtime_Character_AI_SM
-  EmptyState
-  FleeState
-  IdleState
-  IState
-  PatrolState
-  StateMachine
-end
-subgraph Runtime_Character_Modules
-  IInteract
-end
-subgraph Runtime_Character_Modules_ObserverPattern
-  IObserver
-  ISubject
-  Observer
-  Subject
-end
-subgraph Runtime_Character_Modules_Steering
-  AIData
-  ContextSolver
-  Detector
-  EnemyAI
-  ObstacleAvoidanceBehaviour
-  ObstacleDetector
-  SeekBehaviour
-  SteeringBehaviour
-  TargetDetector
-end
-subgraph Runtime_Character_Player
-  Controller
-  Hank
-end
-subgraph Runtime_Character_Steering
-  AIData
-  ContextSolver
-  Detector
-  Directions
-  EnemyAI
-  ObstacleAvoidanceBehaviour
-  ObstacleDetector
-  SeekBehaviour
-  SteeringBehaviour
-  TargetDetector
-end
-subgraph Runtime_Character_Units
-  EntityData
-  TrackedPositionData
-  Unit
-end
-subgraph Runtime_Character_Units_Animated
-  AnimatedUnit
-end
-subgraph Runtime_Character_Units_Block
-  BlockUnit
-end
-subgraph Runtime_Character_Units_Combat
-  Attack
-  CombatUnit
-  Throw
-end
-subgraph Runtime_Character_Units_Hurt
-  HurtUnit
-  StatusEffectModule
-end
-subgraph Runtime_Character_Units_Movement
-  MoveUnit
-end
-subgraph Runtime_Character_Units_NPC
-  NPCUnit
-  StaticNPCUnit
-end
-subgraph Runtime_Character_Units_Player
-  PlayerInteract
-  PlayerItems
-  PlayerMovement
-  PlayerUnit
-end
-subgraph Runtime_Character_Units_Punch
-  PunchUnit
-end
-subgraph Runtime_Character_Units_Sprint
-  SprintUnit
-end
-subgraph Runtime_Collections
-  GlobalConfigCollection
-  HLoggerSettings
-  ItemCollection
-  QuestCollection
-  StatusEffectCollection
-  UnitCollection
-end
-subgraph Runtime_Enums
-  AnimationType
-  AttackType
-  ContractType
-  DestructionMethod
-  GroundTile
-  IdleMode
-  ItemCollectionType
-  LockStateType
-  LockThreeWay
-  MenuTabType
-  NotebookCategory
-  PageType
-  QuestState
-  SignalType
-  StaminaTypes
-  TabNavigationType
-  ToggleType
-  WorldKeyType
-end
-subgraph Runtime_Extensions
-  CollectionsExtension
-  ColorExtension
-  ComponentExtension
-  CoroutineExtension
-  EnumExtension
-  GameObjectExtension
-  GenericExtensions
-  MonoBehaviourExtensions
-  NumberExtension
-  RectExtension
-  Rigidbody2DExtension
-  SerializationExtension
-  SpriteExtension
-  SpriteRendererExtensions
-  StringExtension
-  Texture2DExtension
-  TilemapExtension
-  TransformExtension
-  UnitExtensions
-  Vector2Extension
-end
-subgraph Runtime_GameUI_Dialogue
-  DialogueAnimator
-  DialogueChoiceButton
-  DialogueHandler
-  DialoguePortrait
-  DialogueSoundHandler
-  DialogueTextBubble
-  DialogueTimer
-  MonologueColliderEvent
-end
-subgraph Runtime_GameUI_Dialogue_Helpers
-  DialogueGlobals
-  DialogueLockUnlocker
-  DialogueTags
-  DialogueTriggerLockUnlocker
-  DialogueVariables
-end
-subgraph Runtime_GameUI_Events
-  GameEvents
-  GuiEvents
-end
-subgraph Runtime_GameUI_GameMenu
-  BossPanel
-  GameNotice
-  PortraitDamageUI
-  QuestTracker
-  RegionTextNotice
-  StatusEffectIcon
-  StatusEffectUI
-  TabNavigation
-  UIGameMenuItems
-end
-subgraph Runtime_GameUI_Input
-  GamepadIcons
-  InputActionUI
-  InputUISpawner
-  InteractFollower
-end
-subgraph Runtime_GameUI_Inventory
-  CoinDisplayUI
-  ContainerUI
-  DisplayItemPopupUI
-  InventoryHandler
-  ItemDetailsUI
-  ItemSlotUI
-  ItemUI
-  SelectorUI
-end
-subgraph Runtime_GameUI_Journal
-  ImageObjectSettings
-  JournalHandler
-  PageCollection
-  PagePairUI
-  SinglePageUI
-  TextObjectSettings
-end
-subgraph Runtime_GameUI_MainMenu
-  MainMenuHandler
-  MenuHandAnimator
-  MenuLoadProgress
-  ParallaxScrolling
-end
-subgraph Runtime_GameUI_Popup
-  PopupPanelUI
-  TextPopup
-  TextPopupHandlerUI
-end
-subgraph Runtime_GameUI_Tooltip
-  Tooltip
-  TooltipUI
-end
-subgraph Runtime_GameUI_TransitionEffects
-  CutoutAnimation
-  CutoutMaskUI
-end
-subgraph Runtime_HDebug
-  HExtractor
-  HLogger
-end
-subgraph Runtime_HDebug_Console
-  ConsoleController
-  DebugCommandBase
-end
-subgraph Runtime_HDebug_Display
-  ConsoleToGUI
-end
-subgraph Runtime_Interfaces
-  Execution
-  IDelayed
-  IRequirement
-end
-subgraph Runtime_Interfaces_Inputs
-  AIInput
-  PlayerInput
-end
-subgraph Runtime_Interfaces_Listeners
-  BlockCommand
-  HurtObserver
-  MoveObserver
-  ObserverCommand
-end
-subgraph Runtime_Interfaces_Modules
-  IOrientation
-end
-subgraph Runtime_Interfaces_Modules_Animation
-  Animation
-  Animator
-  IAnimation
-  IAnimator
-end
-subgraph Runtime_Interfaces_Modules_Interaction
-  IDialogue
-  IInteract
-end
-subgraph Runtime_Interfaces_Modules_Movement
-  IMove
-  IMoveDirectional
-  IMovementModule
-  IMovePathfinding
-  MovementModule
-end
-subgraph Runtime_Interfaces_Modules_Physical
-  Attack
-  IAttack
-  IAttacker
-  IBlock
-  IHurt
-  IPunch
-  Punch
-  Spell
-end
-subgraph Runtime_Interfaces_Patterns_Commands
-  CommandFactory
-  ICommand
-  ICommandFactory
-end
-subgraph Runtime_Interfaces_Patterns_Mediation
-  BaseComponent
-  ConcreteMediator
-  IMediator
-  Mediator
-end
-subgraph Runtime_Interfaces_Patterns_Observe
-  IObserver
-  ISubject
-  Observer
-  Publisher
-end
-subgraph Runtime_Inventory_Main
-  CollectionInstance
-  CollectionPreset
-  ContainerDefinition
-  LockState
-  ShopDefinition
-end
-subgraph Runtime_Inventory_WorldObjects
-  ContainerObject
-  ShopObject
-end
-subgraph Runtime_Items
-  Item
-  ItemConsumeAttribute
-  ItemObject
-  ItemObjectGroup
-  ItemThrowAttribute
-  Rarity
-  UsageType
-end
-subgraph Runtime_Lightning
-  LightBase
-  LightFire
-  Luminousity
-  Sun
-end
-subgraph Runtime_Managers
-  ClockManager
-  FMODManager
-  InputManager
-  QuestManager
-  RegionManager
-  SaveSettings
-  VideoManager
-end
-subgraph Runtime_Menu
-  MainMenuUI
-end
-subgraph Runtime_Quest
-  BadTrigger
-  Note
-  QuestLine
-  QuestPart
-  Trigger
-  Triggerable
-  TriggerGroup
-end
-subgraph Runtime_Quest_Conditions
-  ConditionBase
-  ConditionTimeInterval
-  ConditionTimer
-end
-subgraph Runtime_Quest_Enums
-  InkValueTypes
-  NumberComparer
-  NumberComparerSource
-  TriggerableState
-  TriggerTypes
-end
-subgraph Runtime_Quest_Observers
-  DialogueObserver
-  InstantObserver
-  ItemHeldObserver
-  ItemUsedObserver
-  KillObserver
-  Observer
-  RegionObserver
-  SpeakObserver
-  TriggerableObserver
-end
-subgraph Runtime_Rendering
-  AnimatorBase
-  SpriteEffect
-end
-subgraph Runtime_Rendering_Gizmos
-  ColliderGizmo
-  GizmosDebug
-end
-subgraph Runtime_Rendering_Glow
-  GlowColorRandomizer
-  SpriteGlowEffect
-  SpriteGlowMaterial
-end
-subgraph Runtime_Rendering_ShaderEffects
-  Rain
-end
-subgraph Runtime_Rendering_Sorting
-  DynamicYSort
-  ISort
-  StaticYSort
-end
-subgraph Runtime_Rendering_Text
-  FloatingDamageNumber
-  TextDisplay
-  WorldTextBase
-end
-subgraph Runtime_Settings
-  DebugSettings
-  GameSettings
-  PlayerControls
-end
-subgraph Runtime_StatusEffects_Effects
-  BerserkerEffect
-  BleedEffect
-  BurnEffect
-  HealthRegenEffect
-  HighEffect
-  LuminiousEffect
-  PoisonEffect
-  RecoveryEffect
-  ShockedEffect
-  SlowEffect
-  StaminaRegenerateEffect
-  StunEffect
-  WeakenedEffect
-  WetEffect
-end
-subgraph Runtime_StatusEffects_Models
-  EffectBase
-  EntityState
-  StatusType
-end
-subgraph Runtime_Utilities
-  ActivateOnStart
-  CollisionTrigger
-  ComponentUtils
-  DestroyAfter
-  DisableOnStart
-  GraphicUtility
-  LayerMaskBuilder
-  MaskUtils
-  ObjectPool
-  ObjectUtils
-  ResourceUtility
-  SceneUtility
-  SubscribableEvent
-  TypeHelpers
-  VectorUtils
-end
-subgraph Runtime_Utilities_Singletons
-  ScriptableObjectSingleton
-  Singleton
-  SingletonPerLevel
-end
-subgraph Runtime_Utilities_Stats
-  StatModifier
-  ValueStat
-end
-subgraph Runtime_Utilities_Tickers
-  DelayAction
-  DelayTicker
-  FixedTimer
-  TickBase
-  TimeTick
-  ValueTick
-end
-subgraph Runtime_World
-  Delevation
-  DigZone
-  Elevation
-  Punchable
-end
-subgraph Runtime_World_Doodads
-  Bush
-end
-subgraph Runtime_World_GameClock
-  Clock
-  GameClockData
-  SeasonStates
-  TimeState
-end
-subgraph Runtime_World_House
-  HouseCamera
-  HouseDoor
-  HouseTeleportTrigger
-end
-subgraph Runtime_World_Interactables
-  ShroomExplosion
-end
-subgraph Runtime_World_LockKey
-  Door
-  DoorData
-  KeyControlGroup
-  Lever
-  LockBase
-  LockEvent
-  LockItem
-  LockLever
-  PressurePlate
-  UnlockableBase
-  WorldKey
-end
-subgraph Runtime_World_LockKey_Trap
-  Trap
-  TrapData
-end
-subgraph Runtime_World_Region
-  RegionTriggerData
-  WorldRegion
-end
-subgraph Runtime_World_Triggers
-  ForestTeleportTrigger
-  LayerTrigger
-  RegionTrigger
-  TriggerCollider
-end
-subgraph Runtime_World_Triggers_KeyTrigger
-  KeyTrigger
-  KeyTriggerType
-end
-subgraph Runtime__Application
-  Init
-  Main
-  UI
-  Visualization
-end
-subgraph Runtime__New_DarkHank
-  AnimationModule
-  AttackData
-  BlockModule
-  CombatModule
-  DarkHank
-  HealthModule
-  HurtModule
-  InputModule
-  Module
-  MoveModule
-  PunchModule
-  SprintModule
-  StaminaModule
-  UnitController
-end
-subgraph Runtime__New_Data
-  IUnit
-  PositionData
-  Unit
-end
+flowchart RL
 SelectedObjectsData --> GlobalConfig
 ObjectPoolEditor --> PropertyDrawer
 SerializableDictionaryDrawer --> PropertyDrawer
 DeleteEmptyFolders --> AssetModificationProcessor
 TextureImportProcessor --> AssetPostprocessor
-HClick --> MonoBehaviour
 ObjectExplorer --> OdinEditorWindow
 ExtractorEditor --> OdinEditorWindow
 FolderNavigationEditor --> OdinEditorWindow
@@ -637,29 +16,18 @@ ToolsEditor --> OdinEditorWindow
 MinMaxRangeAttribute --> PropertyAttribute
 MinMaxRangeAttribute --> PropertyDrawer
 ScriptExecutionOrder --> Attribute
-AudioPoint --> MonoBehaviour
-EntitySFX --> MonoBehaviour
-UnitSFX --> MonoBehaviour
 MusicLibrary --> GlobalConfig
 SoundEffectLibrary --> GlobalConfig
-SoundUILibrary --> ScriptableObjectSingleton
 CameraFollow --> Singleton
-CameraSetup --> MonoBehaviour
-FireflyController --> MonoBehaviour
-FireflySpawner --> MonoBehaviour
 FrogController --> CombatUnit
-FrogAttackBase --> SerializedScriptableObject
 JumpBase --> FrogAttackBase
 JumpSlam --> JumpBase
 JumpToPosition --> JumpBase
 PoisonMortar --> SpitBase
 SlimeMortar --> SpitBase
 SpitBase --> FrogAttackBase
-SpitProjectile --> SerializedScriptableObject
 PoisonTongue --> TongueBase
 TongueBase --> FrogAttackBase
-FrogDamageCollider --> MonoBehaviour
-FrogShockwave --> MonoBehaviour
 FrogAttackState --> IState
 GuardAttackState --> IState
 GuardController --> CombatUnit
@@ -671,39 +39,23 @@ IdleState --> IState
 PatrolState --> IState
 Observer --> IObserver
 Subject --> ISubject
-AIData --> MonoBehaviour
-ContextSolver --> MonoBehaviour
-Detector --> MonoBehaviour
-EnemyAI --> MonoBehaviour
 ObstacleAvoidanceBehaviour --> SteeringBehaviour
 ObstacleDetector --> Detector
 SeekBehaviour --> SteeringBehaviour
-SteeringBehaviour --> MonoBehaviour
 TargetDetector --> Detector
 Controller --> PlayerMovement
 Hank --> Controller
-AIData --> MonoBehaviour
-ContextSolver --> MonoBehaviour
-Detector --> MonoBehaviour
-EnemyAI --> MonoBehaviour
 ObstacleAvoidanceBehaviour --> SteeringBehaviour
 ObstacleDetector --> Detector
 SeekBehaviour --> SteeringBehaviour
-SteeringBehaviour --> MonoBehaviour
 TargetDetector --> Detector
-EntityData --> ScriptableObject
-TrackedPositionData --> SerializedScriptableObject
-Unit --> SerializedMonoBehaviour
 AnimatedUnit --> Unit
 BlockUnit --> SprintUnit
-Attack --> SerializedScriptableObject
 CombatUnit --> HurtUnit
-Throw --> MonoBehaviour
 HurtUnit --> MoveUnit
 MoveUnit --> AnimatedUnit
 NPCUnit --> CombatUnit
 StaticNPCUnit --> Unit
-PlayerInteract --> MonoBehaviour
 PlayerItems --> PlayerUnit
 PlayerMovement --> PlayerItems
 PlayerUnit --> BlockUnit
@@ -714,55 +66,14 @@ ItemCollection --> GlobalConfigCollection
 QuestCollection --> GlobalConfigCollection
 StatusEffectCollection --> GlobalConfigCollection
 UnitCollection --> GlobalConfigCollection
-CoroutineExtension --> MonoBehaviour
-DialogueAnimator --> MonoBehaviour
-DialogueChoiceButton --> MonoBehaviour
-DialogueHandler --> MonoBehaviour
-DialoguePortrait --> MonoBehaviour
-DialogueSoundHandler --> MonoBehaviour
-DialogueTextBubble --> MonoBehaviour
-DialogueTimer --> MonoBehaviour
-MonologueColliderEvent --> MonoBehaviour
-DialogueLockUnlocker --> MonoBehaviour
-DialogueTriggerLockUnlocker --> MonoBehaviour
-BossPanel --> MonoBehaviour
-GameNotice --> MonoBehaviour
-PortraitDamageUI --> MonoBehaviour
 QuestTracker --> Singleton
-RegionTextNotice --> MonoBehaviour
-StatusEffectIcon --> MonoBehaviour
-StatusEffectUI --> MonoBehaviour
 TabNavigation --> Singleton
-UIGameMenuItems --> MonoBehaviour
-InputActionUI --> MonoBehaviour
-InputUISpawner --> MonoBehaviour
-InteractFollower --> MonoBehaviour
-CoinDisplayUI --> MonoBehaviour
-ContainerUI --> MonoBehaviour
-DisplayItemPopupUI --> MonoBehaviour
 InventoryHandler --> Singleton
-ItemDetailsUI --> MonoBehaviour
-ItemSlotUI --> MonoBehaviour
-ItemUI --> MonoBehaviour
-SelectorUI --> MonoBehaviour
 JournalHandler --> Singleton
-PagePairUI --> MonoBehaviour
-SinglePageUI --> MonoBehaviour
-MainMenuHandler --> MonoBehaviour
-MenuHandAnimator --> MonoBehaviour
 MenuLoadProgress --> Singleton
-ParallaxScrolling --> MonoBehaviour
-PopupPanelUI --> MonoBehaviour
-TextPopup --> MonoBehaviour
-TextPopupHandlerUI --> MonoBehaviour
-Tooltip --> MonoBehaviour
-TooltipUI --> MonoBehaviour
-CutoutAnimation --> MonoBehaviour
 CutoutMaskUI --> Image
-HLogger --> MonoBehaviour
 ConsoleController --> Singleton
 DebugCommandBase --> DebugCommandBase
-ConsoleToGUI --> MonoBehaviour
 AIInput --> ICommand
 PlayerInput --> ICommand
 BlockCommand --> ICommand
@@ -771,25 +82,14 @@ MoveObserver --> Observer
 ObserverCommand --> Observer
 Animation --> IAnimation
 Animator --> AnimatorBase
-MovementModule --> MonoBehaviour
 Attack --> IAttack
 Punch --> Attack
 Spell --> Attack
 CommandFactory --> ICommandFactory
 ConcreteMediator --> IMediator
 Observer --> IObserver
-Publisher --> SerializedMonoBehaviour
 CollectionInstance --> IEnumerable
-CollectionPreset --> ScriptableObject
-ContainerDefinition --> ScriptableObject
-LockState --> SerializedScriptableObject
-ShopDefinition --> ScriptableObject
 ContainerObject --> UnlockableBase
-ShopObject --> MonoBehaviour
-Item --> SerializedScriptableObject
-ItemObject --> MonoBehaviour
-ItemObjectGroup --> MonoBehaviour
-LightBase --> MonoBehaviour
 LightFire --> LightBase
 Luminousity --> LightBase
 Sun --> LightBase
@@ -799,11 +99,8 @@ InputManager --> Singleton
 QuestManager --> Singleton
 RegionManager --> Singleton
 VideoManager --> Singleton
-MainMenuUI --> MonoBehaviour
 QuestLine --> Triggerable
 QuestPart --> Triggerable
-Triggerable --> SerializedScriptableObject
-ConditionBase --> ScriptableObject
 ConditionTimeInterval --> IQuestCondition
 ConditionTimer --> ConditionBase
 DialogueObserver --> Observer
@@ -816,18 +113,10 @@ SpeakObserver --> Observer
 TriggerableObserver --> Observer
 AnimatorBase --> Publisher
 SpriteEffect --> AnimatorBase
-ColliderGizmo --> MonoBehaviour
-GlowColorRandomizer --> MonoBehaviour
-SpriteGlowEffect --> MonoBehaviour
 SpriteGlowMaterial --> Material
-Rain --> MonoBehaviour
 DynamicYSort --> ISort
-ISort --> MonoBehaviour
 StaticYSort --> ISort
 FloatingDamageNumber --> WorldTextBase
-TextDisplay --> MonoBehaviour
-WorldTextBase --> MonoBehaviour
-DebugSettings --> ScriptableObject
 GameSettings --> GlobalConfig
 BerserkerEffect --> EffectBase
 BleedEffect --> EffectBase
@@ -843,51 +132,19 @@ StaminaRegenerateEffect --> EffectBase
 StunEffect --> EffectBase
 WeakenedEffect --> EffectBase
 WetEffect --> EffectBase
-EffectBase --> IDisposable
-ActivateOnStart --> MonoBehaviour
-CollisionTrigger --> MonoBehaviour
-DestroyAfter --> MonoBehaviour
-DisableOnStart --> MonoBehaviour
 SubscribableEvent --> SubscribableEventBase
 VectorUtils --> IEquatable
 Singleton --> Singleton
 DelayTicker --> Singleton
 TimeTick --> TickBase
 ValueTick --> TickBase
-Delevation --> MonoBehaviour
-DigZone --> MonoBehaviour
-Elevation --> MonoBehaviour
-Punchable --> MonoBehaviour
-Bush --> MonoBehaviour
 Clock --> GlobalConfig
-HouseCamera --> MonoBehaviour
-HouseDoor --> MonoBehaviour
-HouseTeleportTrigger --> MonoBehaviour
-ShroomExplosion --> MonoBehaviour
 Door --> UnlockableBase
-DoorData --> SerializedScriptableObject
-KeyControlGroup --> MonoBehaviour
-Lever --> MonoBehaviour
-LockBase --> MonoBehaviour
 LockEvent --> LockBase
 LockItem --> LockBase
 LockLever --> LockBase
-PressurePlate --> MonoBehaviour
-UnlockableBase --> MonoBehaviour
-WorldKey --> MonoBehaviour
 Trap --> UnlockableBase
-TrapData --> ScriptableObject
-WorldRegion --> ScriptableObject
-ForestTeleportTrigger --> MonoBehaviour
-LayerTrigger --> MonoBehaviour
-RegionTrigger --> MonoBehaviour
-TriggerCollider --> MonoBehaviour
-KeyTrigger --> MonoBehaviour
-KeyTriggerType --> ScriptableObject
-Init --> MonoBehaviour
-Main --> MonoBehaviour
 UI --> Singleton
-Visualization --> MonoBehaviour
 AnimationModule --> Module
 BlockModule --> Module
 CombatModule --> Module
@@ -895,12 +152,748 @@ DarkHank --> UnitController
 HealthModule --> Module
 HurtModule --> Module
 InputModule --> Module
-Module --> SerializedMonoBehaviour
 MoveModule --> Module
 PunchModule --> Module
 SprintModule --> Module
 StaminaModule --> Module
 UnitController --> Unit
 IUnit --> IHank
-PositionData --> SerializedScriptableObject
-Unit --> SerializedMonoBehaviour
+AssemblyInfo -.-> System.Runtime.CompilerServices
+ObjectPoolEditor -.-> HandyHank.Scripts.Runtime.Utilities
+SerializableDictionaryDrawer -.-> HandyHank.Scripts.Runtime.Attributes
+SelectionHistoryPersistent -.-> HandyHank.Scripts.Runtime._New.Modules
+SelectionHistoryPersistent -.-> HandyHank.Scripts.Runtime.Extensions
+SelectionHistoryPersistent -.-> HandyHank.Scripts.Runtime.Items
+HClick -.-> HandyHank.Scripts.Runtime.Utilities
+CharacterCreatorEditor -.-> HandyHank.Scripts.Runtime.Character.Units
+CharacterCreatorEditor -.-> HandyHank.Scripts.Runtime.HDebug
+ExtractorEditor -.-> HandyHank.Scripts.Runtime.HDebug
+FolderNavigationEditor -.-> HandyHank.Scripts.Runtime.HDebug
+LoggerSettingsEditor -.-> HandyHank.Scripts.Runtime.Collections
+SelectionHistoryEditor -.-> HandyHank.Scripts.Runtime._New.Modules
+SelectionHistoryEditor -.-> HandyHank.Scripts.Runtime.Extensions
+SelectionHistoryEditor -.-> HandyHank.Scripts.Runtime.Items
+SpriteRenameEditor -.-> HandyHank.Scripts.Runtime.HDebug
+TextureEditor -.-> HandyHank.Scripts.Runtime.Extensions
+TextureEditor -.-> HandyHank.Scripts.Runtime.HDebug
+ToolsEditor -.-> HandyHank.Scripts.Runtime.Extensions
+ToolsEditor -.-> HandyHank.Scripts.Runtime.HDebug
+ToolsEditor -.-> HandyHank.Scripts.Runtime.Items
+ToolsEditor -.-> HandyHank.Scripts.Runtime.Rendering.Sorting
+AssemblyInfo -.-> System.Runtime.CompilerServices
+EntitySFX -.-> HandyHank.Scripts.Runtime.Audio.Cache
+EntitySFX -.-> HandyHank.Scripts.Runtime.Managers
+PlayWithVolume -.-> HandyHank.Scripts.Runtime.HDebug
+UnitSFX -.-> HandyHank.Scripts.Runtime.Audio.Cache
+UnitSFX -.-> HandyHank.Scripts.Runtime.Managers
+SoundUILibrary -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+CameraFollow -.-> HandyHank.Scripts.Runtime.HDebug
+CameraFollow -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+FireflyController -.-> HandyHank.Scripts.Runtime.Extensions
+FireflySpawner -.-> HandyHank.Scripts.Runtime._Application
+FireflySpawner -.-> HandyHank.Scripts.Runtime.Extensions
+FireflySpawner -.-> HandyHank.Scripts.Runtime.Managers
+FireflySpawner -.-> HandyHank.Scripts.Runtime.Rendering.Glow
+FireflySpawner -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+FrogController -.-> HandyHank.Scripts.Runtime._Application
+FrogController -.-> HandyHank.Scripts.Runtime.Attributes
+FrogController -.-> HandyHank.Scripts.Runtime.Audio.Cache
+FrogController -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Attacks
+FrogController -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Colliders
+FrogController -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.States
+FrogController -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+FrogController -.-> HandyHank.Scripts.Runtime.Character.Units
+FrogController -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+FrogController -.-> HandyHank.Scripts.Runtime.Extensions
+FrogController -.-> HandyHank.Scripts.Runtime.GameUI.GameMenu
+FrogController -.-> HandyHank.Scripts.Runtime.HDebug
+FrogAttackBase -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+FrogAttackBase -.-> HandyHank.Scripts.Runtime.Enums
+FrogAttackBase -.-> HandyHank.Scripts.Runtime.Extensions
+FrogAttackBase -.-> HandyHank.Scripts.Runtime.HDebug
+JumpBase -.-> HandyHank.Scripts.Runtime.Attributes
+JumpBase -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Colliders
+JumpSlam -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Colliders
+JumpSlam -.-> HandyHank.Scripts.Runtime.Extensions
+JumpSlam -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+JumpToPosition -.-> HandyHank.Scripts.Runtime._Application
+JumpToPosition -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+SpitBase -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Colliders
+SpitBase -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+SpitBase -.-> HandyHank.Scripts.Runtime.HDebug
+SpitBase -.-> HandyHank.Scripts.Runtime.StatusEffects.Effects
+SpitBase -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+SpitBase -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+SpitProjectile -.-> HandyHank.Scripts.Runtime.Extensions
+SpitProjectile -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+PoisonTongue -.-> HandyHank.Scripts.Runtime.Extensions
+PoisonTongue -.-> HandyHank.Scripts.Runtime.HDebug
+PoisonTongue -.-> HandyHank.Scripts.Runtime.StatusEffects.Effects
+PoisonTongue -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+TongueBase -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Colliders
+FrogDamageCollider -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+FrogDamageCollider -.-> HandyHank.Scripts.Runtime.Extensions
+FrogDamageCollider -.-> HandyHank.Scripts.Runtime.HDebug
+FrogShockwave -.-> HandyHank.Scripts.Runtime.Utilities
+FrogAttackState -.-> HandyHank.Scripts.Runtime.Character.AI.Frog.Attacks
+FrogAttackState -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+FrogAttackState -.-> HandyHank.Scripts.Runtime.Extensions
+FrogAttackState -.-> HandyHank.Scripts.Runtime.HDebug
+FrogAttackState -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+GuardAttackState -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+GuardController -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+GuardController -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+PigAttackState -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+PigController -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+PigController -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+FleeState -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+IdleState -.-> HandyHank.Scripts.Runtime.Character.Units.Animated
+PatrolState -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+StateMachine -.-> HandyHank.Scripts.Runtime.Extensions
+StateMachine -.-> HandyHank.Scripts.Runtime.HDebug
+IInteract -.-> HandyHank.Scripts.Runtime.Character.Player
+Observer -.-> HandyHank.Scripts.Runtime.Extensions
+Subject -.-> HandyHank.Scripts.Runtime.Extensions
+Subject -.-> HandyHank.Scripts.Runtime.HDebug
+Controller -.-> HandyHank.Scripts.Runtime.Character.Units.Player
+Controller -.-> HandyHank.Scripts.Runtime.Managers
+Hank -.-> HandyHank.Scripts.Runtime.Character.Units.Player
+Hank -.-> HandyHank.Scripts.Runtime.Extensions
+EntityData -.-> Ink.Runtime
+Unit -.-> HandyHank.Scripts.Runtime.Audio
+Unit -.-> HandyHank.Scripts.Runtime.Character.AI.SM
+Unit -.-> HandyHank.Scripts.Runtime.Character.Modules
+Unit -.-> HandyHank.Scripts.Runtime.Character.Player
+Unit -.-> HandyHank.Scripts.Runtime.Collections
+Unit -.-> HandyHank.Scripts.Runtime.Extensions
+Unit -.-> HandyHank.Scripts.Runtime.GameUI.Events
+Unit -.-> HandyHank.Scripts.Runtime.HDebug
+Unit -.-> HandyHank.Scripts.Runtime.Inventory.Main
+Unit -.-> HandyHank.Scripts.Runtime.Items
+Unit -.-> HandyHank.Scripts.Runtime.Utilities
+Unit -.-> HandyHank.Scripts.Runtime.World.Region
+AnimatedUnit -.-> HandyHank.Scripts.Runtime.Attributes
+AnimatedUnit -.-> HandyHank.Scripts.Runtime.Enums
+AnimatedUnit -.-> HandyHank.Scripts.Runtime.Extensions
+AnimatedUnit -.-> HandyHank.Scripts.Runtime.HDebug
+AnimatedUnit -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+BlockUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Sprint
+BlockUnit -.-> HandyHank.Scripts.Runtime.Enums
+Attack -.-> HandyHank.Scripts.Runtime.Extensions
+Attack -.-> HandyHank.Scripts.Runtime.Utilities
+Attack -.-> HandyHank.Scripts.Runtime.World
+CombatUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+CombatUnit -.-> HandyHank.Scripts.Runtime.Items
+CombatUnit -.-> HandyHank.Scripts.Runtime.Utilities
+CombatUnit -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+Throw -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+Throw -.-> HandyHank.Scripts.Runtime.Extensions
+Throw -.-> HandyHank.Scripts.Runtime.Items
+Throw -.-> HandyHank.Scripts.Runtime.Managers
+Throw -.-> HandyHank.Scripts.Runtime.World.Triggers
+HurtUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+HurtUnit -.-> HandyHank.Scripts.Runtime.Extensions
+HurtUnit -.-> HandyHank.Scripts.Runtime.Utilities
+HurtUnit -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+HurtUnit -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+StatusEffectModule -.-> HandyHank.Scripts.Runtime.Extensions
+StatusEffectModule -.-> HandyHank.Scripts.Runtime.HDebug
+StatusEffectModule -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+StatusEffectModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+MoveUnit -.-> HandyHank.Scripts.Runtime.Audio
+MoveUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Animated
+MoveUnit -.-> HandyHank.Scripts.Runtime.Enums
+MoveUnit -.-> HandyHank.Scripts.Runtime.Extensions
+MoveUnit -.-> HandyHank.Scripts.Runtime.Utilities
+MoveUnit -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+MoveUnit -.-> HandyHank.Scripts.Runtime.World.House
+NPCUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+NPCUnit -.-> HandyHank.Scripts.Runtime.Enums
+NPCUnit -.-> HandyHank.Scripts.Runtime.Items
+NPCUnit -.-> HandyHank.Scripts.Runtime.Utilities
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Character.Modules
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Character.Player
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Extensions
+PlayerInteract -.-> HandyHank.Scripts.Runtime.GameUI.GameMenu
+PlayerInteract -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+PlayerInteract -.-> HandyHank.Scripts.Runtime.HDebug
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Inventory.WorldObjects
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Items
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Managers
+PlayerInteract -.-> HandyHank.Scripts.Runtime.Utilities
+PlayerItems -.-> HandyHank.Scripts.Runtime._Application
+PlayerItems -.-> HandyHank.Scripts.Runtime.Extensions
+PlayerItems -.-> HandyHank.Scripts.Runtime.GameUI.Events
+PlayerItems -.-> HandyHank.Scripts.Runtime.HDebug
+PlayerItems -.-> HandyHank.Scripts.Runtime.Inventory.Main
+PlayerItems -.-> HandyHank.Scripts.Runtime.Items
+PlayerItems -.-> HandyHank.Scripts.Runtime.Managers
+PlayerItems -.-> HandyHank.Scripts.Runtime.StatusEffects.Effects
+PlayerItems -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+PlayerItems -.-> HandyHank.Scripts.Runtime.Utilities
+PlayerItems -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+PlayerMovement -.-> HandyHank.Scripts.Runtime.Extensions
+PlayerMovement -.-> HandyHank.Scripts.Runtime.HDebug
+PlayerMovement -.-> HandyHank.Scripts.Runtime.Utilities
+PlayerUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Block
+PlayerUnit -.-> HandyHank.Scripts.Runtime.Extensions
+PlayerUnit -.-> HandyHank.Scripts.Runtime.HDebug
+PunchUnit -.-> HandyHank.Scripts.Runtime._Application
+PunchUnit -.-> HandyHank.Scripts.Runtime._New.DarkHank
+PunchUnit -.-> HandyHank.Scripts.Runtime.Character.Player
+PunchUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+PunchUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+PunchUnit -.-> HandyHank.Scripts.Runtime.Enums
+PunchUnit -.-> HandyHank.Scripts.Runtime.Extensions
+PunchUnit -.-> HandyHank.Scripts.Runtime.Rendering.Text
+PunchUnit -.-> HandyHank.Scripts.Runtime.Utilities
+PunchUnit -.-> HandyHank.Scripts.Runtime.World
+SprintUnit -.-> HandyHank.Scripts.Runtime.Character.Units.Punch
+GlobalConfigCollection -.-> HandyHank.Scripts.Runtime.Extensions
+GlobalConfigCollection -.-> HandyHank.Scripts.Runtime.HDebug
+HLoggerSettings -.-> HandyHank.Scripts.Runtime.Attributes
+HLoggerSettings -.-> HandyHank.Scripts.Runtime.Extensions
+HLoggerSettings -.-> HandyHank.Scripts.Runtime.HDebug
+ItemCollection -.-> HandyHank.Scripts.Runtime.Items
+QuestCollection -.-> HandyHank.Scripts.Runtime.Quest
+StatusEffectCollection -.-> HandyHank.Scripts.Runtime.Attributes
+StatusEffectCollection -.-> HandyHank.Scripts.Runtime.Extensions
+StatusEffectCollection -.-> HandyHank.Scripts.Runtime.HDebug
+UnitCollection -.-> HandyHank.Scripts.Runtime.Character.Units
+SpriteExtension -.-> HandyHank.Scripts.Runtime.HDebug
+UnitExtensions -.-> HandyHank.Scripts.Runtime.Character.Units
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.Attributes
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.Character.Player
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.Character.Units
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.Managers
+DialogueAnimator -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+DialogueHandler -.-> HandyHank.Scripts.Runtime._Application
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Character.Player
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Character.Units
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Collections
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Extensions
+DialogueHandler -.-> HandyHank.Scripts.Runtime.GameUI.Dialogue.Helpers
+DialogueHandler -.-> HandyHank.Scripts.Runtime.GameUI.Events
+DialogueHandler -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+DialogueHandler -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Managers
+DialogueHandler -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+DialogueHandler -.-> Ink.Runtime
+DialogueSoundHandler -.-> HandyHank.Scripts.Runtime.Extensions
+DialogueSoundHandler -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueSoundHandler -.-> HandyHank.Scripts.Runtime.Managers
+MonologueColliderEvent -.-> HandyHank.Scripts.Runtime.Character.Player
+MonologueColliderEvent -.-> HandyHank.Scripts.Runtime.GameUI.Events
+MonologueColliderEvent -.-> Ink.Runtime
+DialogueGlobals -.-> HandyHank.Scripts.Runtime.Extensions
+DialogueGlobals -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueGlobals -.-> Ink.Runtime
+DialogueLockUnlocker -.-> HandyHank.Scripts.Runtime.Character.Player
+DialogueLockUnlocker -.-> Ink.Runtime
+DialogueTags -.-> HandyHank.Scripts.Runtime.Collections
+DialogueTags -.-> HandyHank.Scripts.Runtime.GameUI.Events
+DialogueTags -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueTriggerLockUnlocker -.-> HandyHank.Scripts.Runtime.Quest
+DialogueTriggerLockUnlocker -.-> Ink.Runtime
+DialogueVariables -.-> HandyHank.Scripts.Runtime.Character.Units
+DialogueVariables -.-> Ink.Runtime
+GuiEvents -.-> HandyHank.Scripts.Runtime.Character.Units
+GuiEvents -.-> HandyHank.Scripts.Runtime.Inventory.Main
+GuiEvents -.-> HandyHank.Scripts.Runtime.Items
+GuiEvents -.-> Ink.Runtime
+BossPanel -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+GameNotice -.-> HandyHank.Scripts.Runtime.Enums
+GameNotice -.-> HandyHank.Scripts.Runtime.GameUI.Input
+GameNotice -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+GameNotice -.-> HandyHank.Scripts.Runtime.Managers
+GameNotice -.-> HandyHank.Scripts.Runtime.Quest
+PortraitDamageUI -.-> HandyHank.Scripts.Runtime.Extensions
+QuestTracker -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+QuestTracker -.-> HandyHank.Scripts.Runtime.HDebug
+QuestTracker -.-> HandyHank.Scripts.Runtime.Managers
+QuestTracker -.-> HandyHank.Scripts.Runtime.Quest
+QuestTracker -.-> HandyHank.Scripts.Runtime.Utilities
+QuestTracker -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+RegionTextNotice -.-> HandyHank.Scripts.Runtime.GameUI.Events
+StatusEffectIcon -.-> HandyHank.Scripts.Runtime.Collections
+StatusEffectIcon -.-> HandyHank.Scripts.Runtime.Extensions
+StatusEffectIcon -.-> HandyHank.Scripts.Runtime.Rendering
+StatusEffectIcon -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+StatusEffectUI -.-> HandyHank.Scripts.Runtime.Character.Player
+StatusEffectUI -.-> HandyHank.Scripts.Runtime.Extensions
+StatusEffectUI -.-> HandyHank.Scripts.Runtime.HDebug
+StatusEffectUI -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+TabNavigation -.-> HandyHank.Scripts.Runtime.Enums
+TabNavigation -.-> HandyHank.Scripts.Runtime.GameUI.Events
+TabNavigation -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+TabNavigation -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+TabNavigation -.-> HandyHank.Scripts.Runtime.HDebug
+TabNavigation -.-> HandyHank.Scripts.Runtime.Inventory.Main
+TabNavigation -.-> HandyHank.Scripts.Runtime.Managers
+TabNavigation -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+UIGameMenuItems -.-> HandyHank.Scripts.Runtime.Character.Player
+UIGameMenuItems -.-> HandyHank.Scripts.Runtime.GameUI.Events
+UIGameMenuItems -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+InputActionUI -.-> HandyHank.Scripts.Runtime.Managers
+InputUISpawner -.-> HandyHank.Scripts.Runtime.Extensions
+InputUISpawner -.-> HandyHank.Scripts.Runtime.Managers
+InputUISpawner -.-> HandyHank.Scripts.Runtime.Utilities
+InteractFollower -.-> HandyHank.Scripts.Runtime.Character.Player
+InteractFollower -.-> HandyHank.Scripts.Runtime.Character.Units.Player
+InteractFollower -.-> HandyHank.Scripts.Runtime.Managers
+CoinDisplayUI -.-> HandyHank.Scripts.Runtime.Character.Player
+CoinDisplayUI -.-> HandyHank.Scripts.Runtime.Items
+ContainerUI -.-> HandyHank.Scripts.Runtime.Inventory.Main
+ContainerUI -.-> HandyHank.Scripts.Runtime.Items
+ContainerUI -.-> HandyHank.Scripts.Runtime.Utilities
+DisplayItemPopupUI -.-> HandyHank.Scripts.Runtime.Character.Player
+DisplayItemPopupUI -.-> HandyHank.Scripts.Runtime.Items
+DisplayItemPopupUI -.-> HandyHank.Scripts.Runtime.Managers
+InventoryHandler -.-> HandyHank.Scripts.Runtime._Application
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Character.Player
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Inventory.Main
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Items
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Managers
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Settings
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Utilities
+InventoryHandler -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+ItemDetailsUI -.-> HandyHank.Scripts.Runtime.HDebug
+ItemDetailsUI -.-> HandyHank.Scripts.Runtime.Items
+ItemDetailsUI -.-> HandyHank.Scripts.Runtime.Settings
+ItemUI -.-> HandyHank.Scripts.Runtime.Items
+ItemUI -.-> HandyHank.Scripts.Runtime.Settings
+JournalHandler -.-> HandyHank.Scripts.Runtime.GameUI.Input
+JournalHandler -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+JournalHandler -.-> HandyHank.Scripts.Runtime.Items
+JournalHandler -.-> HandyHank.Scripts.Runtime.Managers
+JournalHandler -.-> HandyHank.Scripts.Runtime.Quest
+JournalHandler -.-> HandyHank.Scripts.Runtime.Utilities
+JournalHandler -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+PageCollection -.-> HandyHank.Scripts.Runtime.HDebug
+PageCollection -.-> HandyHank.Scripts.Runtime.Quest
+PageCollection -.-> HandyHank.Scripts.Runtime.Utilities
+SinglePageUI -.-> HandyHank.Scripts.Runtime.Quest
+SinglePageUI -.-> HandyHank.Scripts.Runtime.Utilities
+MainMenuHandler -.-> HandyHank.Scripts.Runtime.HDebug
+MainMenuHandler -.-> HandyHank.Scripts.Runtime.Managers
+MenuLoadProgress -.-> HandyHank.Scripts.Runtime.HDebug
+MenuLoadProgress -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+TextPopup -.-> HandyHank.Scripts.Runtime.Character.Modules
+TextPopup -.-> HandyHank.Scripts.Runtime.Character.Player
+TextPopupHandlerUI -.-> HandyHank.Scripts.Runtime.Character.Player
+TextPopupHandlerUI -.-> HandyHank.Scripts.Runtime.GameUI.Input
+TextPopupHandlerUI -.-> HandyHank.Scripts.Runtime.Managers
+HLogger -.-> System.Runtime.CompilerServices
+HLogger -.-> HandyHank.Scripts.Runtime._Application
+HLogger -.-> HandyHank.Scripts.Runtime.Collections
+HLogger -.-> HandyHank.Scripts.Runtime.Extensions
+ConsoleController -.-> HandyHank.Scripts.Runtime.Character.Player
+ConsoleController -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+ConsoleController -.-> HandyHank.Scripts.Runtime.Extensions
+ConsoleController -.-> HandyHank.Scripts.Runtime.Managers
+ConsoleController -.-> HandyHank.Scripts.Runtime.StatusEffects.Effects
+ConsoleController -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+ConsoleController -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+AIInput -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+PlayerInput -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+BlockCommand -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+BlockCommand -.-> HandyHank.Scripts.Runtime._New.Modules.Physical
+BlockCommand -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+HurtObserver -.-> HandyHank.Scripts.Runtime._New.Modules.Physical
+HurtObserver -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+HurtObserver -.-> HandyHank.Scripts.Runtime.Audio
+MoveObserver -.-> HandyHank.Runtime.Character.Pattern
+ObserverCommand -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+ObserverCommand -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IOrientation -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IOrientation -.-> HandyHank.Scripts.Runtime.Utilities
+Animator -.-> HandyHank.Scripts.Runtime.Rendering
+Animator -.-> HandyHank.Scripts.Runtime.Utilities
+IAnimator -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IAnimator -.-> HandyHank.Scripts.Runtime.Utilities
+IDialogue -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IMove -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+IMovementModule -.-> HandyHank.Scripts.Runtime._New.Inputs
+IMovementModule -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+MovementModule -.-> HandyHank.Scripts.Runtime._New.Inputs
+MovementModule -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+MovementModule -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+MovementModule -.-> HandyHank.Scripts.Runtime.Utilities
+MovementModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+Attack -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+Attack -.-> HandyHank.Scripts.Runtime.Character.Units.Punch
+IAttack -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IAttacker -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+IAttacker -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IAttacker -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+IBlock -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+IBlock -.-> HandyHank.Scripts.Runtime.Utilities
+IHurt -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IHurt -.-> HandyHank.Scripts.Runtime.Utilities
+IHurt -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+Punch -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+Punch -.-> HandyHank.Scripts.Runtime.Character.Units.Punch
+Punch -.-> HandyHank.Scripts.Runtime.Utilities
+Mediator -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+Observer -.-> HandyHank.Scripts.Runtime.HDebug
+Publisher -.-> HandyHank.Scripts.Runtime.Extensions
+Publisher -.-> HandyHank.Scripts.Runtime.HDebug
+CollectionInstance -.-> HandyHank.Scripts.Runtime.Attributes
+CollectionInstance -.-> HandyHank.Scripts.Runtime.HDebug
+CollectionInstance -.-> HandyHank.Scripts.Runtime.Items
+CollectionPreset -.-> HandyHank.Scripts.Runtime.Attributes
+CollectionPreset -.-> HandyHank.Scripts.Runtime.Items
+LockState -.-> HandyHank.Scripts.Runtime.Enums
+ContainerObject -.-> HandyHank.Runtime.World.LockKey
+ContainerObject -.-> HandyHank.Scripts.Runtime.Character.Player
+ContainerObject -.-> HandyHank.Scripts.Runtime.Enums
+ContainerObject -.-> HandyHank.Scripts.Runtime.Extensions
+ContainerObject -.-> HandyHank.Scripts.Runtime.GameUI.Events
+ContainerObject -.-> HandyHank.Scripts.Runtime.HDebug
+ContainerObject -.-> HandyHank.Scripts.Runtime.Inventory.Main
+ContainerObject -.-> HandyHank.Scripts.Runtime.World.LockKey
+ShopObject -.-> HandyHank.Scripts.Runtime.Character.Modules
+ShopObject -.-> HandyHank.Scripts.Runtime.Character.Player
+ShopObject -.-> HandyHank.Scripts.Runtime.GameUI.Events
+ShopObject -.-> HandyHank.Scripts.Runtime.Inventory.Main
+Item -.-> HandyHank.Scripts.Runtime.Enums
+Item -.-> HandyHank.Scripts.Runtime.Extensions
+Item -.-> HandyHank.Scripts.Runtime.GameUI.GameMenu
+Item -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+Item -.-> HandyHank.Scripts.Runtime.HDebug
+Item -.-> HandyHank.Scripts.Runtime.Quest
+Item -.-> HandyHank.Scripts.Runtime.Utilities
+ItemConsumeAttribute -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+ItemObject -.-> HandyHank.Scripts.Runtime.Character.Modules
+ItemObject -.-> HandyHank.Scripts.Runtime.Character.Player
+ItemObject -.-> HandyHank.Scripts.Runtime.Collections
+ItemObject -.-> HandyHank.Scripts.Runtime.Extensions
+ItemObject -.-> HandyHank.Scripts.Runtime.GameUI.Events
+ItemObject -.-> HandyHank.Scripts.Runtime.HDebug
+ItemObjectGroup -.-> HandyHank.Scripts.Runtime.Character.Modules
+ItemObjectGroup -.-> HandyHank.Scripts.Runtime.Character.Player
+ItemObjectGroup -.-> HandyHank.Scripts.Runtime.Extensions
+ItemObjectGroup -.-> HandyHank.Scripts.Runtime.Inventory.Main
+ItemThrowAttribute -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+LightBase -.-> HandyHank.Scripts.Runtime.Audio
+LightBase -.-> HandyHank.Scripts.Runtime.World.GameClock
+LightFire -.-> HandyHank.Scripts.Runtime.Rendering.Glow
+Sun -.-> HandyHank.Scripts.Runtime.Attributes
+Sun -.-> HandyHank.Scripts.Runtime.Extensions
+Sun -.-> HandyHank.Scripts.Runtime.HDebug
+Sun -.-> HandyHank.Scripts.Runtime.World.GameClock
+ClockManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+ClockManager -.-> HandyHank.Scripts.Runtime.World.GameClock
+FMODManager -.-> HandyHank.Scripts.Runtime.GameUI.Dialogue
+FMODManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+InputManager -.-> HandyHank.Scripts.Runtime.Attributes
+InputManager -.-> HandyHank.Scripts.Runtime.Character.Player
+InputManager -.-> HandyHank.Scripts.Runtime.Extensions
+InputManager -.-> HandyHank.Scripts.Runtime.GameUI.Input
+InputManager -.-> HandyHank.Scripts.Runtime.HDebug
+InputManager -.-> HandyHank.Scripts.Runtime.Items
+InputManager -.-> HandyHank.Scripts.Runtime.Settings
+InputManager -.-> HandyHank.Scripts.Runtime.Utilities
+InputManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+QuestManager -.-> HandyHank.Scripts.Runtime.Collections
+QuestManager -.-> HandyHank.Scripts.Runtime.Enums
+QuestManager -.-> HandyHank.Scripts.Runtime.Extensions
+QuestManager -.-> HandyHank.Scripts.Runtime.HDebug
+QuestManager -.-> HandyHank.Scripts.Runtime.Quest
+QuestManager -.-> HandyHank.Scripts.Runtime.Utilities
+QuestManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+RegionManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+RegionManager -.-> HandyHank.Scripts.Runtime.World.Region
+VideoManager -.-> HandyHank.Scripts.Runtime.Extensions
+VideoManager -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+MainMenuUI -.-> HandyHank.Scripts.Runtime.HDebug
+BadTrigger -.-> HandyHank.Scripts.Runtime.Character.Units
+BadTrigger -.-> HandyHank.Scripts.Runtime.HDebug
+BadTrigger -.-> HandyHank.Scripts.Runtime.Items
+BadTrigger -.-> HandyHank.Scripts.Runtime.Quest.Enums
+BadTrigger -.-> HandyHank.Scripts.Runtime.Quest.Observers
+BadTrigger -.-> HandyHank.Scripts.Runtime.World.Region
+BadTrigger -.-> Ink.Runtime
+Note -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+Note -.-> HandyHank.Scripts.Runtime.Quest.Enums
+QuestLine -.-> HandyHank.Scripts.Runtime.Extensions
+Trigger -.-> HandyHank.Scripts.Runtime.Character.Units
+Trigger -.-> HandyHank.Scripts.Runtime.HDebug
+Trigger -.-> HandyHank.Scripts.Runtime.Items
+Trigger -.-> HandyHank.Scripts.Runtime.Managers
+Trigger -.-> HandyHank.Scripts.Runtime.Quest.Enums
+Trigger -.-> HandyHank.Scripts.Runtime.Quest.Observers
+Trigger -.-> HandyHank.Scripts.Runtime.World.Region
+Trigger -.-> Ink.Runtime
+Triggerable -.-> HandyHank.Scripts.Runtime.Enums
+Triggerable -.-> HandyHank.Scripts.Runtime.Extensions
+Triggerable -.-> HandyHank.Scripts.Runtime.HDebug
+Triggerable -.-> HandyHank.Scripts.Runtime.Managers
+Triggerable -.-> HandyHank.Scripts.Runtime.Quest.Enums
+TriggerGroup -.-> HandyHank.Scripts.Runtime.Attributes
+TriggerGroup -.-> HandyHank.Scripts.Runtime.Character.Player
+TriggerGroup -.-> HandyHank.Scripts.Runtime.Extensions
+TriggerGroup -.-> HandyHank.Scripts.Runtime.HDebug
+TriggerGroup -.-> HandyHank.Scripts.Runtime.Items
+TriggerGroup -.-> HandyHank.Scripts.Runtime.Quest.Enums
+ConditionTimeInterval -.-> HandyHank.Scripts.Runtime.Managers
+ConditionTimeInterval -.-> HandyHank.Scripts.Runtime.World.GameClock
+ConditionTimer -.-> HandyHank.Scripts.Runtime.World.GameClock
+DialogueObserver -.-> HandyHank.Scripts.Runtime.Character.Units
+DialogueObserver -.-> HandyHank.Scripts.Runtime.HDebug
+DialogueObserver -.-> HandyHank.Scripts.Runtime.Quest.Enums
+DialogueObserver -.-> Ink.Runtime
+ItemHeldObserver -.-> HandyHank.Scripts.Runtime.Character.Player
+ItemHeldObserver -.-> HandyHank.Scripts.Runtime.Items
+ItemHeldObserver -.-> HandyHank.Scripts.Runtime.Quest.Enums
+ItemUsedObserver -.-> HandyHank.Scripts.Runtime.Items
+ItemUsedObserver -.-> HandyHank.Scripts.Runtime.Quest.Enums
+KillObserver -.-> HandyHank.Scripts.Runtime.Character.Units
+KillObserver -.-> HandyHank.Scripts.Runtime.Quest.Enums
+Observer -.-> HandyHank.Scripts.Runtime.Quest.Enums
+Observer -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+RegionObserver -.-> HandyHank.Scripts.Runtime.Character.Player
+RegionObserver -.-> HandyHank.Scripts.Runtime.World.Region
+SpeakObserver -.-> HandyHank.Scripts.Runtime.Character.Units
+SpeakObserver -.-> HandyHank.Scripts.Runtime.HDebug
+TriggerableObserver -.-> HandyHank.Scripts.Runtime.Quest.Enums
+AnimatorBase -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+AnimatorBase -.-> HandyHank.Scripts.Runtime.Extensions
+AnimatorBase -.-> HandyHank.Scripts.Runtime.HDebug
+SpriteGlowEffect -.-> HandyHank.Scripts.Runtime.Extensions
+SpriteGlowEffect -.-> HandyHank.Scripts.Runtime.HDebug
+DynamicYSort -.-> HandyHank.Scripts.Runtime.Extensions
+StaticYSort -.-> HandyHank.Scripts.Runtime.Extensions
+FloatingDamageNumber -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+FloatingDamageNumber -.-> HandyHank.Scripts.Runtime.Extensions
+WorldTextBase -.-> HandyHank.Scripts.Runtime.Character.Player
+DebugSettings -.-> HandyHank.Scripts.Runtime.Attributes
+DebugSettings -.-> HandyHank.Scripts.Runtime.HDebug
+GameSettings -.-> HandyHank.Scripts.Runtime.Attributes
+GameSettings -.-> HandyHank.Scripts.Runtime.Items
+BerserkerEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+BerserkerEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+BerserkerEffect -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+BerserkerEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+BleedEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+BleedEffect -.-> HandyHank.Scripts.Runtime.Rendering
+BleedEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+BleedEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+BurnEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+BurnEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+BurnEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+HealthRegenEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+HealthRegenEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+HealthRegenEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+HighEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+HighEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+HighEffect -.-> HandyHank.Scripts.Runtime.Utilities
+HighEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+LuminiousEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+LuminiousEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+LuminiousEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+PoisonEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+PoisonEffect -.-> HandyHank.Scripts.Runtime.HDebug
+PoisonEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+PoisonEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+RecoveryEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+RecoveryEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+RecoveryEffect -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+RecoveryEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+ShockedEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+ShockedEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+ShockedEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+SlowEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+SlowEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+SlowEffect -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+SlowEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+StaminaRegenerateEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+StaminaRegenerateEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+StaminaRegenerateEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+StunEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+StunEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+StunEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+WeakenedEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Combat
+WeakenedEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+WeakenedEffect -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+WeakenedEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+WetEffect -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+WetEffect -.-> HandyHank.Scripts.Runtime.StatusEffects.Models
+WetEffect -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+EffectBase -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+EffectBase -.-> HandyHank.Scripts.Runtime.Collections
+EffectBase -.-> HandyHank.Scripts.Runtime.Extensions
+EffectBase -.-> HandyHank.Scripts.Runtime.HDebug
+EffectBase -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+CollisionTrigger -.-> HandyHank.Scripts.Runtime.Extensions
+ResourceUtility -.-> HandyHank.Scripts.Runtime.Character.Units
+ResourceUtility -.-> HandyHank.Scripts.Runtime.Extensions
+ResourceUtility -.-> HandyHank.Scripts.Runtime.Items
+ResourceUtility -.-> HandyHank.Scripts.Runtime.Quest
+VectorUtils -.-> HandyHank.Scripts.Runtime.Extensions
+Singleton -.-> HandyHank.Scripts.Runtime.Extensions
+Singleton -.-> HandyHank.Scripts.Runtime.HDebug
+ValueStat -.-> HandyHank.Scripts.Runtime.Extensions
+ValueStat -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+DelayTicker -.-> HandyHank.Scripts.Runtime.HDebug
+DelayTicker -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+Delevation -.-> HandyHank.Scripts.Runtime.Extensions
+DigZone -.-> HandyHank.Scripts.Runtime.Character.Modules
+DigZone -.-> HandyHank.Scripts.Runtime.Character.Player
+DigZone -.-> HandyHank.Scripts.Runtime.Extensions
+DigZone -.-> HandyHank.Scripts.Runtime.HDebug
+DigZone -.-> HandyHank.Scripts.Runtime.Inventory.Main
+DigZone -.-> HandyHank.Scripts.Runtime.Inventory.WorldObjects
+DigZone -.-> HandyHank.Scripts.Runtime.Items
+DigZone -.-> HandyHank.Scripts.Runtime.Rendering
+DigZone -.-> HandyHank.Scripts.Runtime.Utilities
+Elevation -.-> HandyHank.Scripts.Runtime.Extensions
+Elevation -.-> HandyHank.Scripts.Runtime.HDebug
+Punchable -.-> HandyHank.Scripts.Runtime.Extensions
+Bush -.-> HandyHank.Scripts.Runtime.Character.Modules
+Bush -.-> HandyHank.Scripts.Runtime.Character.Player
+Bush -.-> HandyHank.Scripts.Runtime.Items
+Clock -.-> HandyHank.Scripts.Runtime.Attributes
+HouseCamera -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+HouseTeleportTrigger -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+HouseTeleportTrigger -.-> HandyHank.Scripts.Runtime.GameUI.TransitionEffects
+HouseTeleportTrigger -.-> HandyHank.Scripts.Runtime.HDebug
+ShroomExplosion -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+ShroomExplosion -.-> HandyHank.Scripts.Runtime.Extensions
+ShroomExplosion -.-> HandyHank.Scripts.Runtime.StatusEffects.Effects
+ShroomExplosion -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+Door -.-> HandyHank.Scripts.Runtime.Character.Modules
+Door -.-> HandyHank.Scripts.Runtime.Character.Player
+Door -.-> HandyHank.Scripts.Runtime.Enums
+Door -.-> HandyHank.Scripts.Runtime.Extensions
+Door -.-> HandyHank.Scripts.Runtime.HDebug
+Door -.-> HandyHank.Scripts.Runtime.Inventory.Main
+KeyControlGroup -.-> HandyHank.Scripts.Runtime.Attributes
+Lever -.-> HandyHank.Scripts.Runtime.HDebug
+LockBase -.-> HandyHank.Scripts.Runtime.Character.Player
+LockBase -.-> HandyHank.Scripts.Runtime.Extensions
+LockBase -.-> HandyHank.Scripts.Runtime.HDebug
+LockBase -.-> HandyHank.Scripts.Runtime.Inventory.Main
+LockEvent -.-> HandyHank.Scripts.Runtime.Extensions
+LockEvent -.-> HandyHank.Scripts.Runtime.HDebug
+LockItem -.-> HandyHank.Scripts.Runtime.Attributes
+LockItem -.-> HandyHank.Scripts.Runtime.Character.Player
+LockItem -.-> HandyHank.Scripts.Runtime.Enums
+LockItem -.-> HandyHank.Scripts.Runtime.Extensions
+LockItem -.-> HandyHank.Scripts.Runtime.HDebug
+LockItem -.-> HandyHank.Scripts.Runtime.Items
+LockLever -.-> HandyHank.Scripts.Runtime.Enums
+LockLever -.-> HandyHank.Scripts.Runtime.Inventory.Main
+LockLever -.-> HandyHank.Scripts.Runtime.Inventory.WorldObjects
+PressurePlate -.-> HandyHank.Scripts.Runtime.HDebug
+UnlockableBase -.-> HandyHank.Scripts.Runtime.Character.Modules
+UnlockableBase -.-> HandyHank.Scripts.Runtime.Character.Player
+Trap -.-> HandyHank.Scripts.Runtime.World.LockKey
+Trap -.-> HandyHank.Scripts.Runtime.Inventory.Main
+Trap -.-> HandyHank.Scripts.Runtime.HDebug
+Trap -.-> HandyHank.Scripts.Runtime.Extensions
+Trap -.-> HandyHank.Scripts.Runtime.Character.Player
+RegionTriggerData -.-> HandyHank.Scripts.Runtime.Character.Units
+RegionTriggerData -.-> HandyHank.Scripts.Runtime.Utilities
+ForestTeleportTrigger -.-> HandyHank.Scripts.Runtime.Character.Player
+ForestTeleportTrigger -.-> HandyHank.Scripts.Runtime.Extensions
+ForestTeleportTrigger -.-> HandyHank.Scripts.Runtime.HDebug
+LayerTrigger -.-> HandyHank.Scripts.Runtime.HDebug
+RegionTrigger -.-> HandyHank.Scripts.Runtime._Application
+RegionTrigger -.-> HandyHank.Scripts.Runtime.Character.Player
+RegionTrigger -.-> HandyHank.Scripts.Runtime.Character.Units
+RegionTrigger -.-> HandyHank.Scripts.Runtime.Character.Units.Movement
+RegionTrigger -.-> HandyHank.Scripts.Runtime.Extensions
+RegionTrigger -.-> HandyHank.Scripts.Runtime.GameUI.Events
+RegionTrigger -.-> HandyHank.Scripts.Runtime.HDebug
+RegionTrigger -.-> HandyHank.Scripts.Runtime.World.Region
+KeyTrigger -.-> HandyHank.Scripts.Runtime.Character.Modules
+KeyTrigger -.-> HandyHank.Scripts.Runtime.Character.Player
+KeyTrigger -.-> HandyHank.Scripts.Runtime.Enums
+KeyTrigger -.-> HandyHank.Scripts.Runtime.World.LockKey
+Init -.-> HandyHank.Scripts.Runtime.Attributes
+Init -.-> HandyHank.Scripts.Runtime.GameUI.Inventory
+Init -.-> HandyHank.Scripts.Runtime.GameUI.Journal
+Init -.-> HandyHank.Scripts.Runtime.HDebug
+Init -.-> HandyHank.Scripts.Runtime.Managers
+Init -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+Main -.-> HandyHank.Scripts.Runtime.HDebug
+Main -.-> HandyHank.Scripts.Runtime.Items
+UI -.-> HandyHank.Scripts.Runtime.Character.Player
+UI -.-> HandyHank.Scripts.Runtime.GameUI.GameMenu
+UI -.-> HandyHank.Scripts.Runtime.GameUI.TransitionEffects
+UI -.-> HandyHank.Scripts.Runtime.HDebug
+UI -.-> HandyHank.Scripts.Runtime.Utilities.Singletons
+AnimationModule -.-> HandyHank.Scripts.Runtime.Attributes
+AnimationModule -.-> HandyHank.Scripts.Runtime.Enums
+AnimationModule -.-> HandyHank.Scripts.Runtime.Extensions
+AnimationModule -.-> HandyHank.Scripts.Runtime.HDebug
+AnimationModule -.-> HandyHank.Scripts.Runtime.Utilities
+AnimationModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+AttackData -.-> HandyHank.Scripts.Runtime.Enums
+AttackData -.-> HandyHank.Scripts.Runtime.Utilities
+BlockModule -.-> HandyHank.Scripts.Runtime.Attributes
+BlockModule -.-> HandyHank.Scripts.Runtime.Enums
+BlockModule -.-> HandyHank.Scripts.Runtime.Extensions
+BlockModule -.-> HandyHank.Scripts.Runtime.HDebug
+BlockModule -.-> HandyHank.Scripts.Runtime.Utilities
+BlockModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+CombatModule -.-> HandyHank.Scripts.Runtime.HDebug
+CombatModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+DarkHank -.-> HandyHank.Scripts.Runtime._New.Modules
+DarkHank -.-> HandyHank.Scripts.Runtime.HDebug
+DarkHank -.-> HandyHank.Scripts.Runtime.Items
+DarkHank -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+HealthModule -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+HurtModule -.-> HandyHank.Scripts.Runtime.Extensions
+HurtModule -.-> HandyHank.Scripts.Runtime.Utilities
+HurtModule -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+Module -.-> HandyHank.Scripts.Runtime._New.Modules
+Module -.-> HandyHank.Scripts.Runtime.Character.Player
+Module -.-> HandyHank.Scripts.Runtime.Character.Units
+Module -.-> HandyHank.Scripts.Runtime.Enums
+Module -.-> HandyHank.Scripts.Runtime.Extensions
+Module -.-> HandyHank.Scripts.Runtime.HDebug
+Module -.-> HandyHank.Scripts.Runtime.Utilities
+MoveModule -.-> HandyHank.Scripts.Runtime.Extensions
+MoveModule -.-> HandyHank.Scripts.Runtime.HDebug
+MoveModule -.-> HandyHank.Scripts.Runtime.Utilities
+MoveModule -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+PunchModule -.-> HandyHank.Scripts.Runtime.Character.Player
+PunchModule -.-> HandyHank.Scripts.Runtime.Character.Units.Hurt
+PunchModule -.-> HandyHank.Scripts.Runtime.Enums
+PunchModule -.-> HandyHank.Scripts.Runtime.Extensions
+PunchModule -.-> HandyHank.Scripts.Runtime.HDebug
+PunchModule -.-> HandyHank.Scripts.Runtime.Rendering.Text
+PunchModule -.-> HandyHank.Scripts.Runtime.Utilities
+PunchModule -.-> HandyHank.Scripts.Runtime.World
+StaminaModule -.-> HandyHank.Scripts.Runtime.Attributes
+StaminaModule -.-> HandyHank.Scripts.Runtime.Enums
+StaminaModule -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+UnitController -.-> HandyHank.Scripts.Runtime._New.Modules
+UnitController -.-> HandyHank.Scripts.Runtime.Enums
+UnitController -.-> HandyHank.Scripts.Runtime.HDebug
+UnitController -.-> HandyHank.Scripts.Runtime.Utilities.Tickers
+IUnit -.-> HandyHank.Scripts.Runtime._New.Data
+IUnit -.-> HandyHank.Scripts.Runtime._New.Modules.Animation
+IUnit -.-> HandyHank.Scripts.Runtime._New.Patterns.Commands
+IUnit -.-> HandyHank.Scripts.Runtime._New.Patterns.Observe
+IUnit -.-> HandyHank.Scripts.Runtime.Attributes
+IUnit -.-> HandyHank.Scripts.Runtime.Audio
+IUnit -.-> HandyHank.Scripts.Runtime.Character.Units
+IUnit -.-> HandyHank.Scripts.Runtime.Inventory.Main
+IUnit -.-> HandyHank.Scripts.Runtime.Items
+IUnit -.-> HandyHank.Scripts.Runtime.Utilities
+IUnit -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+IUnit -.-> HandyHank.Scripts.Runtime.World.Region
+Unit -.-> HandyHank.Scripts.Runtime._New.DarkHank
+Unit -.-> HandyHank.Scripts.Runtime._New.Data
+Unit -.-> HandyHank.Scripts.Runtime.Character.Units
+Unit -.-> HandyHank.Scripts.Runtime.HDebug
+Unit -.-> HandyHank.Scripts.Runtime.Inventory.Main
+Unit -.-> HandyHank.Scripts.Runtime.Items
+Unit -.-> HandyHank.Scripts.Runtime.Utilities
+Unit -.-> HandyHank.Scripts.Runtime.Utilities.Stats
+Unit -.-> HandyHank.Scripts.Runtime.World.Region
