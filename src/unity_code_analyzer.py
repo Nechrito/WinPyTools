@@ -430,7 +430,9 @@ def print_most_referenced_classes(class_references):
 def print_relationships(directory):
     relationships = []
     script_count = 0
-
+    
+    mermaid_script = "flowchart TD\n" #"classDiagram\ngraph TD\n"
+    
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith('.cs'):
@@ -449,12 +451,13 @@ def print_relationships(directory):
             if file.endswith(".cs"):
                 file_path = os.path.join(root, file)
                 file_paths.append(file_path)
-
     for base_class, derived_classes in grouped_relationships.items():
         derived_class_counter = Counter(derived_classes)
 
         total_actual_references = 0
+        
         derived_class_references = {}
+        
         for derived_class, count in derived_class_counter.items():
             references = 0
             for file_path in file_paths:
@@ -463,22 +466,70 @@ def print_relationships(directory):
             total_actual_references += references
 
         print(f"{base_class} (total references: {total_actual_references}):")
+        
+        #is_blacklisted = False
+        is_blacklisted = "Mono" in base_class \
+        or "Seriali" in base_class  \
+        or "Singlet" in base_class  \
+        or "Drawer" in base_class  \
+        or "Attrib" in base_class  \
+        #or base_class.startswith("I")
+        
+        #if not is_blacklisted:
+            # Capitalize base class name
+            #base_class = base_class[0].upper() + base_class[1:]
+        mermaid_script += f"    subgraph {base_class.lower()}\n"
+            #mermaid_script += f"class {base_class}\n"
+        
+        c = 0
+        j = 1
         for derived_class, count in derived_class_counter.items():
             references = derived_class_references[derived_class]
             share = references / total_actual_references * 100
             
-            #if share > 50:
-            print(f"    {derived_class}")
-            #else:
-            #print(f"  ({count: >2}) {derived_class}:")
-            print(f"        - References: {references}")
-            print(f"        - Share: {share:.2f}%")
+            print(f"  - {derived_class} ({count} references, {references} actual references, {share:.2f}% share)")
+            
+            # TODO: Save to file with Mermaid syntax for graphing relationships
+            #if not is_blacklisted:
+                
+            if is_blacklisted:
+                continue
+                #mermaid_script += f"    {base_class} ----> {derived_class}\n"
+            else:  
+                mermaid_script += f"    {base_class}-->{derived_class}\n"
+                
+            # c += 1
+            # # close subgraph if filled up to 10 classes
+            # if c > 5:
+            #     mermaid_script += "    end\n"
+            #     mermaid_script += f"    subgraph {base_class.lower()}_{j}\n"
+            
+            #     #mermaid_script += f"{base_class} --> {derived_class}\n"
+            #     #mermaid_script += f"{derived_class} <|-- {base_class}\n"
+            #     #mermaid_script += f"{base_class} --|> {derived_class}\n"
+                
+            #     j += 1
+            #     c = 0
+
         print()
+        
+        #mermaid_script += "\n"
+        
+        mermaid_script += "    end\n"
+        
+        is_first_iteration = False
+        
+    #mermaid_script = mermaid_script.replace("Serialized", "").replace("Mono", "").replace("Scriptable", "")
+    
+    #mermaid_script = "```mermaid\n" + mermaid_script + "```\n"
         
     print_most_referenced_relationships(grouped_relationships)
 
     # Print overall stats
     print_stats(script_count, len(grouped_relationships))
+    
+    with open('mermaid_script.mmd', 'w', encoding='utf-8') as file:
+        file.write(mermaid_script)
 
     # # Create a dictionary to store the counts of each base class
     # class_counts = {}
