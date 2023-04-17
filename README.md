@@ -33,7 +33,7 @@ pip install pyinstaller
 The second command converts the Python code into an executable (.exe) file.
 
 ```ps1
-pyinstaller --onefile --noconsole --windowed --add-data="res;res" src/task_reminder.py
+pyinstaller --onefile --noconsole --windowed src/task_reminder.py
 ```
 
 The third command moves the executable file into the main directory of the project.
