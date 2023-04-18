@@ -1,28 +1,62 @@
 import os
 import re
 import subprocess
-from class_info import ClassInfo, get_package_name, get_class_name
-from plantuml import PlantUML
-
-project_path = "C:\Apps\The-Prophecy-of-Hank\HandyHank\Assets\HandyHank\Scripts\Runtime" #input("Enter the project path: ")
-
 import networkx as nx
 import community as community_louvain
+from collections import defaultdict
+from matplotlib import pyplot as plt
+import matplotlib
 
+project_path = r"C:\Apps\The-Prophecy-of-Hank\HandyHank\Assets\HandyHank\Scripts\Runtime"
+
+def parse_relationships(cs_file):
+    with open(cs_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+        
+    using_statements = re.findall(r'using (\w+(?:\.\w+)*);', content)
+    class_inheritance = re.findall(r'class \w+\s*:\s*(\w+)', content)
+    
+    return using_statements, class_inheritance
+
+def find_cs_files(path):
+    cs_files = []
+    for root, _, files in os.walk(path):
+        for file in files:
+            if file.endswith('.cs'):
+                cs_files.append(os.path.join(root, file))
+    return cs_files
 def suggest_folder_structure(cs_files):
     # Create a directed graph to represent dependencies between classes
     dependency_graph = nx.DiGraph()
 
     for cs_file in cs_files:
         using_statements, class_inheritance = parse_relationships(cs_file)
+        
         class_name = os.path.splitext(os.path.basename(cs_file))[0]
 
         dependency_graph.add_node(class_name)
-        for inheritance in class_inheritance:
-            dependency_graph.add_edge(class_name, inheritance)
+        
+        # for inheritance in class_inheritance:
+        #     dependency_graph.add_edge(class_name, inheritance)
+            
+        for using_statement in using_statements:
+            dependency_graph.add_edge(class_name, using_statement)
 
+    G = dependency_graph.to_undirected()
+    
     # Detect communities in the graph using the Louvain method
-    partition = community_louvain.best_partition(dependency_graph.to_undirected())
+    partition = community_louvain.best_partition(G)
+    
+    # Draw the graph
+    pos = nx.spring_layout(G)
+    
+    # Color the nodes according to their partition
+    #cmap = cm.get_cmap('viridis', max(partition.values()) + 1)  # Deprecated method
+    cmap = matplotlib.colormaps.get_cmap('viridis')  # Recommended method
+    nx.draw_networkx_nodes(G, pos, partition.keys(), node_size=40,
+                        cmap=cmap, node_color=list(partition.values()))
+    nx.draw_networkx_edges(G, pos, alpha=0.5)
+    plt.show()
 
     # Create a dictionary to store the suggested folder structure
     folder_structure = defaultdict(list)
@@ -31,6 +65,7 @@ def suggest_folder_structure(cs_files):
         folder_structure[folder_id].append(class_name)
 
     return folder_structure
+
 
 def generate_mermaid_diagram_group(cs_files, group_name):
     chart = ["classDiagram"]
@@ -156,12 +191,9 @@ def unity_format(code):
     res = re.sub(r'(?m)^\s+', '', res)
     return res
 
-cs_files = find_cs_files(project_path)
-mermaid_diagram = generate_mermaid_diagram_chunks(cs_files, project_path)
-mermaid_diagram = re.sub(r'(?m)^\s+', '', mermaid_diagram)
 
-import pyperclip
-pyperclip.copy(mermaid_diagram)
+# Find all .cs files in the project path
+cs_files = find_cs_files(project_path)
 
 # Call the function to suggest an improved folder structure
 suggested_folders = suggest_folder_structure(cs_files)
@@ -169,5 +201,8 @@ suggested_folders = suggest_folder_structure(cs_files)
 # Print the suggested folder structure
 for folder_id, classes in suggested_folders.items():
     print(f"Folder {folder_id}: {', '.join(classes)}")
+    
+print(generate_mermaid_diagram_group(cs_files, "."))
+
 
 # TODO: Suggest, after analyzing .cs files, an improved folder structure for the project based on the dependencies between classes
