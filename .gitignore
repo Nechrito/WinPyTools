@@ -9,6 +9,9 @@ docs/REMINDER.md
 # src/csharp/
 # src/powershell/
 
+*build/
+*dist/
+
 __pycache__/
 *.pyc
 *.spec
