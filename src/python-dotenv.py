@@ -41,15 +41,16 @@ for root, _, files in os.walk(directory):
             
             # Replace absolute paths with environment variable references
             new_content = path_pattern.sub(replace_abs_path, content)
+            new_content = new_content.replace('r"os.getenv("PROJECT_PATH")"', 'os.getenv("PROJECT_PATH")')
             
             # Add imports if necessary
             if new_content != content:
-                if "from dotenv import load_dotenv" not in content:
-                    new_content = "from dotenv import load_dotenv\n" + new_content
-                if "from pathlib import Path" not in content:
-                    new_content = "from pathlib import Path\n" + new_content
                 if "load_dotenv()" not in content:
                     new_content = "load_dotenv()\n" + new_content
+                if "from pathlib import Path" not in content:
+                    new_content = "from pathlib import Path\n" + new_content
+                if "from dotenv import load_dotenv" not in content:
+                    new_content = "from dotenv import load_dotenv\n" + new_content
                     
                 print(f'Added imports to {file_path} and replaced absolute paths with environment variables for {len(new_env_vars)} paths')
             
