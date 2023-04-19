@@ -1,6 +1,9 @@
 import os
 import re
-import subprocess
+from class_info import ClassInfo, get_package_name, get_class_name
+
+project_path = "C:\\Users\\Magical Moe\\Desktop\\Scripts\\The-Prophecy-of-Hank\\HandyHank\\Assets\\HandyHank\\Scripts\\Runtime\\Character\\Units" #input("Enter the project path: ")
+
 import networkx as nx
 import community as community_louvain
 from collections import defaultdict
@@ -197,12 +200,10 @@ cs_files = find_cs_files(project_path)
 
 # Call the function to suggest an improved folder structure
 suggested_folders = suggest_folder_structure(cs_files)
+# suggested_folders = suggest_folder_structure(cs_files)
 
-# Print the suggested folder structure
-for folder_id, classes in suggested_folders.items():
-    print(f"Folder {folder_id}: {', '.join(classes)}")
-    
-print(generate_mermaid_diagram_group(cs_files, "."))
-
+# # Print the suggested folder structure
+# for folder_id, classes in suggested_folders.items():
+#     print(f"Folder {folder_id}: {', '.join(classes)}")
 
 # TODO: Suggest, after analyzing .cs files, an improved folder structure for the project based on the dependencies between classes
