@@ -1,49 +1,91 @@
 import os
 import sys
 
+from typing import List
+
 import print_to_json
+class FilePrinter:
+    def __init__(self, hide_directory_name=False, hide_file_name=False):
+        self.hide_directory_name = hide_directory_name
+        self.hide_file_name = hide_file_name
 
-hide_directory_name = False
-hide_file_name = False
+    def print_file(self, prefix: str, entry: str):
+        if self.hide_file_name:
+            entry = ""
+        text = prefix + "├── 📄 " + entry
+        print(text)
+        return text
 
-def print_file(prefix: str, entry: str):
-    if hide_file_name:
-        entry = ""
+    def print_directory(self, prefix: str, entry: str):
+        if self.hide_directory_name:
+            entry = ""
+        text = prefix + "├── 📁 " + entry
+        print(text)
+        return text
+class FolderStructureProcessor:
+    def __init__(self, depth_limit: int=None, line_limit: int=None, word_limit: int=3159):
+        self.printer = FilePrinter()
         
-    print(prefix + "├── 📄 " + entry)
+        self.depth_limit = depth_limit
+        self.line_limit = line_limit
+        self.word_limit = word_limit
+        
+        self.total_depth_count = 0
+        self.total_line_count = 0
+        self.total_word_count = 0
+        
+    def summarize(self):
+        print(f"\n\n ----- SUMMARY ----- \n")
+        
+        print("Total depth count: " + str(self.total_depth_count))
+        print("Total line count: " + str(self.total_line_count))
+        print("Total word count: " + str(self.total_word_count))
 
-def print_directory(prefix: str, entry: str):
-    if hide_directory_name:
-        entry = ""
+    def get_structure(self, directory, prefix="", blacklisted_dirs=None, whitelisted_filetypes: List[str] = None, depth: int=0, lines: int=0, words: int=0):
+        printed_lines = 0
+        word_count = 0
 
-    print(prefix + "├── 📁 " + entry)
+        # Use 'self' to access instance variables
+        self.total_depth_count += depth
+        self.total_line_count += lines
+        self.total_word_count += words
 
-def print_file_structure(directory, prefix="", blacklisted_dirs=None, whitelisted_filetypes: list[str] = None, chunk_size=None):
-    printed_lines = 0
-    
-    with os.scandir(directory) as entries:
-        sorted_entries = sorted(entries, key=lambda e: e.name.lower())
+        if self.word_limit and self.total_word_count >= self.word_limit:
+            return printed_lines, word_count
 
-        for entry in sorted_entries:
-            # Skip blacklisted directories and hidden files
-            if blacklisted_dirs and entry.name in blacklisted_dirs or entry.name.startswith("."):
-                continue
+        with os.scandir(directory) as entries:
+            sorted_entries = sorted(entries, key=lambda e: e.name.lower())
 
-            try:
+            for entry in sorted_entries:
+                # Skip blacklisted directories and hidden files
+                if blacklisted_dirs and entry.name in blacklisted_dirs or entry.name.startswith("."):
+                    continue
+
                 if entry.is_dir():
-                    if entry.is_dir() and chunk_size and printed_lines >= chunk_size:
+                    if self.depth_limit and depth > self.depth_limit:
+                        return printed_lines, word_count
+
+                    if self.line_limit and printed_lines >= self.line_limit:
                         print("\n-----\n\n")
                         printed_lines = 0
-                        
-                    print_directory(prefix, entry.name)
+
+                    text = self.printer.print_directory(prefix, entry.name)
+
                     printed_lines += 1
-                    
-                    
-                    printed_lines += print_file_structure(entry.path, prefix + "│   ", blacklisted_dirs, whitelisted_filetypes, chunk_size)
+
+                    word_count = len(text.split(' '))
+
+                    printed_lines_sub, word_count_sub = self.get_structure(entry.path, prefix + "│   ", blacklisted_dirs, whitelisted_filetypes, depth + 1)
+
+                    word_count += word_count_sub
+                    printed_lines += printed_lines_sub
+
                 else:
-                    # Skip files not of whitelisted filetypes
+                    # Skip files that are not of whitelisted filetypes
                     if whitelisted_filetypes:
+
                         foundMatch = False
+
                         for filetype in whitelisted_filetypes:
                             if entry.name.endswith(filetype):
                                 foundMatch = True
@@ -51,30 +93,27 @@ def print_file_structure(directory, prefix="", blacklisted_dirs=None, whiteliste
 
                         if not foundMatch:
                             continue
-                    print_file(prefix, entry.name)
+
+                    text = self.printer.print_file(prefix, entry.name)
+
                     printed_lines += 1
-                    
-            except PermissionError as e:
-                print(prefix + "├── 📄 " + entry.name + " (Permission Denied)")
-                printed_lines += 1
-                
-            except FileNotFoundError as e:
-                print(prefix + "├── 📄 " + entry.name + " (File Not Found)")
-                printed_lines += 1
-                
-            except OSError as e:
-                print(prefix + "├── 📄 " + entry.name + " (OS Error)")
-                printed_lines += 1
 
-            
+                    word_count = len(text.split(' '))
 
-    return printed_lines
+
+        return printed_lines, word_count
 
 if __name__ == "__main__":
-
-    directory_to_scan = "The-Prophecy-of-Hank/HandyHank/Assets/HandyHank/Scripts"
-    chunk_size = 30 # Adjust this value according to your needs
-
-    print_directory("", directory_to_scan)
     
-    print_file_structure(os.getcwd() + "../../" + directory_to_scan, prefix='│   ', whitelisted_filetypes=[".cs"], chunk_size=chunk_size)
+    # directory_to_scan = os.path.join(os.getcwd(), directory_to_scan)
+    directory_to_process = "The-Prophecy-of-Hank/HandyHank/Assets/HandyHank/Scripts"
+    
+    file_printer = FilePrinter()
+    file_printer.print_directory("", directory_to_process)
+
+    directory_to_scan = os.getcwd() + "../../" + directory_to_process
+
+    processor = FolderStructureProcessor(depth_limit=3, line_limit=20, word_limit=1000)
+    printed_lines, word_count = processor.get_structure(directory_to_scan, prefix='│   ', whitelisted_filetypes=[".cs"], depth=0, lines=0, words=0)
+
+    processor.summarize()
