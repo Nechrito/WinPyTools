@@ -20,9 +20,6 @@
 │   │   │   ├── 📄 MetaFixer.cs
 │   │   │   ├── 📄 ObjectExplorer.cs
 │   │   │   ├── 📄 QuickOpener.cs
-
------
-
 │   │   ├── 📁 Window
 │   │   │   ├── 📄 CharacterCreatorEditor.cs
 │   │   │   ├── 📄 ExtractorEditor.cs
@@ -65,9 +62,6 @@
 │   │   │   ├── 📄 MoveState.cs
 │   │   │   ├── 📄 MoveType.cs
 │   │   ├── 📄 AssemblyInfo.cs
-
------
-
 │   │   ├── 📁 Attributes
 │   │   │   ├── 📄 MinMaxRangeAttribute.cs
 │   │   │   ├── 📄 ScriptExecutionOrder.cs
@@ -91,6 +85,26 @@
 │   │   │   │   │   ├── 📄 FireflyController.cs
 │   │   │   │   │   ├── 📄 FireflySpawner.cs
 │   │   │   │   ├── 📁 Frog
+│   │   │   │   │   ├── 📁 Attacks
+│   │   │   │   │   │   ├── 📄 FrogAttackBase.cs
+│   │   │   │   │   │   ├── 📁 Jump
+│   │   │   │   │   │   │   ├── 📄 JumpBase.cs
+│   │   │   │   │   │   │   ├── 📄 JumpSlam.cs
+│   │   │   │   │   │   │   ├── 📄 JumpToPosition.cs
+│   │   │   │   │   │   ├── 📁 Spit
+│   │   │   │   │   │   │   ├── 📄 PoisonMortar.cs
+│   │   │   │   │   │   │   ├── 📄 SlimeMortar.cs
+│   │   │   │   │   │   │   ├── 📄 SpitBase.cs
+│   │   │   │   │   │   │   ├── 📄 SpitProjectile.cs
+│   │   │   │   │   │   ├── 📁 Tongue
+│   │   │   │   │   │   │   ├── 📄 PoisonTongue.cs
+│   │   │   │   │   │   │   ├── 📄 TongueBase.cs
+│   │   │   │   │   ├── 📁 Colliders
+│   │   │   │   │   │   ├── 📄 FrogDamageCollider.cs
+│   │   │   │   │   │   ├── 📄 FrogShockwave.cs
+│   │   │   │   │   ├── 📄 FrogController.cs
+│   │   │   │   │   ├── 📁 States
+│   │   │   │   │   │   ├── 📄 FrogAttackState.cs
 │   │   │   │   ├── 📁 Guard
 │   │   │   │   │   ├── 📄 GuardAttackState.cs
 │   │   │   │   │   ├── 📄 GuardController.cs
@@ -110,9 +124,12 @@
 │   │   │   │   ├── 📁 ToolUsage
 │   │   │   │   │   ├── 📄 ClearableObstacle.cs
 │   │   │   │   │   ├── 📄 ClearableObstacleData.cs
-
------
-
+│   │   │   │   │   ├── 📁 ObstacleData
+│   │   │   │   │   ├── 📄 ToolBase.cs
+│   │   │   │   │   ├── 📁 ToolData
+│   │   │   │   │   ├── 📄 ToolData.cs
+│   │   │   │   │   ├── 📁 ToolModules
+│   │   │   │   │   │   ├── 📄 ToolObstacleClearing.cs
 │   │   │   ├── 📁 Steering
 │   │   │   │   ├── 📄 AIData.cs
 │   │   │   │   ├── 📄 ContextSolver.cs
@@ -148,18 +165,12 @@
 │   │   │   │   │   ├── 📄 PlayerItems.cs
 │   │   │   │   │   ├── 📄 PlayerMovement.cs
 │   │   │   │   │   ├── 📄 PlayerUnit.cs
-
------
-
 │   │   │   │   ├── 📁 Punch
 │   │   │   │   │   ├── 📄 PunchUnit.cs
 │   │   │   │   ├── 📁 Sprint
 │   │   │   │   │   ├── 📄 SprintUnit.cs
 │   │   │   │   ├── 📄 TrackedPositionData.cs
 │   │   │   │   ├── 📄 Unit.cs
-
------
-
 │   │   ├── 📁 Collections
 │   │   │   ├── 📄 GlobalConfigCollection.cs
 │   │   │   ├── 📄 HLoggerSettings.cs
@@ -186,9 +197,6 @@
 │   │   │   ├── 📄 TabNavigationType.cs
 │   │   │   ├── 📄 ToggleType.cs
 │   │   │   ├── 📄 WorldKeyType.cs
-
------
-
 │   │   ├── 📁 Extensions
 │   │   │   ├── 📄 CollectionsExtension.cs
 │   │   │   ├── 📄 ColorExtension.cs
@@ -210,9 +218,6 @@
 │   │   │   ├── 📄 TransformExtension.cs
 │   │   │   ├── 📄 UnitExtensions.cs
 │   │   │   ├── 📄 Vector2Extension.cs
-
------
-
 │   │   ├── 📁 GameUI
 │   │   │   ├── 📁 Dialogue
 │   │   │   │   ├── 📄 DialogueAnimator.cs
@@ -242,9 +247,6 @@
 │   │   │   │   ├── 📄 StatusEffectUI.cs
 │   │   │   │   ├── 📄 TabNavigation.cs
 │   │   │   │   ├── 📄 UIGameMenuItems.cs
-
------
-
 │   │   │   ├── 📁 Input
 │   │   │   │   ├── 📄 GamepadIcons.cs
 │   │   │   │   ├── 📄 InputActionUI.cs
@@ -266,9 +268,6 @@
 │   │   │   │   ├── 📄 PagePairUI.cs
 │   │   │   │   ├── 📄 SinglePageUI.cs
 │   │   │   │   ├── 📄 TextObjectSettings.cs
-
------
-
 │   │   │   ├── 📁 MainMenu
 │   │   │   │   ├── 📄 MainMenuHandler.cs
 │   │   │   │   ├── 📄 MenuHandAnimator.cs
@@ -293,9 +292,6 @@
 │   │   │   ├── 📄 HExtractor.cs
 │   │   │   ├── 📄 HLogger.cs
 │   │   │   ├── 📄 HLogType.cs
-
------
-
 │   │   ├── 📁 Inventory
 │   │   │   ├── 📁 Main
 │   │   │   │   ├── 📄 CollectionInstance.cs
@@ -319,9 +315,6 @@
 │   │   │   ├── 📄 LightFire.cs
 │   │   │   ├── 📄 Luminousity.cs
 │   │   │   ├── 📄 Sun.cs
-
------
-
 │   │   ├── 📁 Managers
 │   │   │   ├── 📄 ClockManager.cs
 │   │   │   ├── 📄 FMODManager.cs
@@ -360,9 +353,6 @@
 │   │   │   ├── 📄 Trigger.cs
 │   │   │   ├── 📄 Triggerable.cs
 │   │   │   ├── 📄 TriggerGroup.cs
-
------
-
 │   │   ├── 📁 Rendering
 │   │   │   ├── 📄 AnimatorBase.cs
 │   │   │   ├── 📁 Gizmos
@@ -383,9 +373,6 @@
 │   │   │   │   ├── 📄 FloatingDamageNumber.cs
 │   │   │   │   ├── 📄 TextDisplay.cs
 │   │   │   │   ├── 📄 WorldTextBase.cs
-
------
-
 │   │   ├── 📁 Settings
 │   │   │   ├── 📄 DebugSettings.cs
 │   │   │   ├── 📄 GameSettings.cs
@@ -410,9 +397,6 @@
 │   │   │   │   ├── 📄 EffectBase.cs
 │   │   │   │   ├── 📄 EntityState.cs
 │   │   │   │   ├── 📄 StatusType.cs
-
------
-
 │   │   ├── 📁 Utilities
 │   │   │   ├── 📄 ActivateOnStart.cs
 │   │   │   ├── 📄 CollisionTrigger.cs
@@ -434,9 +418,6 @@
 │   │   │   │   ├── 📄 StatModifier.cs
 │   │   │   │   ├── 📄 ValueStat.cs
 │   │   │   ├── 📄 SubscribableEvent.cs
-
------
-
 │   │   │   ├── 📁 Tickers
 │   │   │   │   ├── 📄 DelayAction.cs
 │   │   │   │   ├── 📄 DelayTicker.cs
@@ -476,9 +457,6 @@
 │   │   │   │   ├── 📄 UnlockableBase.cs
 │   │   │   │   ├── 📄 WorldKey.cs
 │   │   │   ├── 📄 Punchable.cs
-
------
-
 │   │   │   ├── 📁 Region
 │   │   │   │   ├── 📄 RegionTriggerData.cs
 │   │   │   │   ├── 📄 WorldRegion.cs
@@ -490,12 +468,7 @@
 │   │   │   │   ├── 📁 KeyTrigger
 │   │   │   │   │   ├── 📄 KeyTrigger.cs
 │   │   │   │   │   ├── 📄 KeyTriggerType.cs
+│   │   │   │   │   ├── 📁 SO
 │   │   │   │   ├── 📄 LayerTrigger.cs
 │   │   │   │   ├── 📄 RegionTrigger.cs
 │   │   │   │   ├── 📄 TriggerCollider.cs
-
-
- ----- SUMMARY ----- 
-Total depth count: 255
-Total line count: 0
-Total word count: 0
