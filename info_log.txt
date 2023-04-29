@@ -1,0 +1,513 @@
+├── 📁 The-Prophecy-of-Hank/HandyHank/Assets/HandyHank/Scripts
+│   ├── 📁 Editor
+│   │   ├── 📄 AssemblyInfo.cs
+│   │   ├── 📁 Data
+│   │   │   ├── 📄 SelectedObjectsData.cs
+│   │   ├── 📁 Drawers
+│   │   │   ├── 📄 ObjectPoolEditor.cs
+│   │   │   ├── 📄 SerializableDictionaryDrawer.cs
+│   │   ├── 📁 InitializeOnLoad
+│   │   │   ├── 📄 CompilerOptionsEditorScript.cs
+│   │   │   ├── 📄 ScriptExecutionOrder.cs
+│   │   │   ├── 📄 ScriptOptions.cs
+│   │   │   ├── 📄 SelectionHistoryPersistent.cs
+│   │   ├── 📁 Processors
+│   │   │   ├── 📄 DeleteEmptyFolders.cs
+│   │   │   ├── 📄 TextureImportProcessor.cs
+│   │   ├── 📁 Utils
+│   │   │   ├── 📄 HClick.cs
+│   │   │   ├── 📄 InkEditorUtils.cs
+│   │   │   ├── 📄 MetaFixer.cs
+│   │   │   ├── 📄 ObjectExplorer.cs
+│   │   │   ├── 📄 QuickOpener.cs
+│   │   ├── 📁 Window
+│   │   │   ├── 📄 CharacterCreatorEditor.cs
+│   │   │   ├── 📄 ExtractorEditor.cs
+│   │   │   ├── 📄 FolderNavigationEditor.cs
+│   │   │   ├── 📄 LoggerSettingsEditor.cs
+│   │   │   ├── 📄 OpenAllEditors.cs
+│   │   │   ├── 📄 SelectionHistoryEditor.cs
+│   │   │   ├── 📄 SpriteRenameEditor.cs
+│   │   │   ├── 📄 TextureEditor.cs
+│   │   │   ├── 📄 ToolsEditor.cs
+
+-----
+
+│   ├── 📁 Runtime
+│   │   ├── 📁 _Application
+│   │   │   ├── 📄 Init.cs
+│   │   │   ├── 📄 Main.cs
+│   │   │   ├── 📄 UI.cs
+│   │   │   ├── 📄 Visualization.cs
+│   │   ├── 📁 _New
+│   │   │   ├── 📁 DarkHank
+│   │   │   │   ├── 📄 AIController.cs
+│   │   │   │   ├── 📄 AnimationModule.cs
+│   │   │   │   ├── 📄 AttackData.cs
+│   │   │   │   ├── 📄 BlockModule.cs
+│   │   │   │   ├── 📄 CombatModule.cs
+│   │   │   │   ├── 📄 DarkHank.cs
+│   │   │   │   ├── 📄 HealthModule.cs
+│   │   │   │   ├── 📄 HurtModule.cs
+│   │   │   │   ├── 📄 Module.cs
+│   │   │   │   ├── 📄 MoveModule.cs
+│   │   │   │   ├── 📄 PunchModule.cs
+│   │   │   │   ├── 📄 SprintModule.cs
+│   │   │   │   ├── 📄 StaminaModule.cs
+│   │   │   ├── 📁 Data
+│   │   │   │   ├── 📄 IUnit.cs
+│   │   │   │   ├── 📄 PositionData.cs
+│   │   │   │   ├── 📄 Unit.cs
+│   │   │   ├── 📁 Input
+│   │   │   │   ├── 📄 InputController.cs
+│   │   │   │   ├── 📄 InputModule.cs
+│   │   │   │   ├── 📄 InputMoveModule.cs
+│   │   │   ├── 📄 MoveState.cs
+│   │   │   ├── 📄 MoveType.cs
+│   │   ├── 📄 AssemblyInfo.cs
+
+-----
+
+│   │   ├── 📁 Attributes
+│   │   │   ├── 📄 MinMaxRangeAttribute.cs
+│   │   │   ├── 📄 ScriptExecutionOrder.cs
+│   │   │   ├── 📄 SerializableDictionary.cs
+│   │   ├── 📁 Audio
+│   │   │   ├── 📄 AudioPoint.cs
+│   │   │   ├── 📁 Cache
+│   │   │   │   ├── 📄 MusicLibrary.cs
+│   │   │   │   ├── 📄 SoundEffectLibrary.cs
+│   │   │   │   ├── 📄 SoundUILibrary.cs
+│   │   │   ├── 📄 EntitySFX.cs
+│   │   │   ├── 📄 FadeMixerGroup.cs
+│   │   │   ├── 📄 PlayWithVolume.cs
+│   │   │   ├── 📄 UnitSFX.cs
+│   │   ├── 📁 Cameras
+│   │   │   ├── 📄 CameraFollow.cs
+│   │   │   ├── 📄 CameraSetup.cs
+│   │   ├── 📁 Character
+│   │   │   ├── 📁 AI
+│   │   │   │   ├── 📁 Firefly
+│   │   │   │   │   ├── 📄 FireflyController.cs
+│   │   │   │   │   ├── 📄 FireflySpawner.cs
+│   │   │   │   ├── 📁 Frog
+│   │   │   │   │   ├── 📁 Attacks
+│   │   │   │   │   │   ├── 📄 FrogAttackBase.cs
+│   │   │   │   │   │   ├── 📁 Jump
+│   │   │   │   │   │   │   ├── 📄 JumpBase.cs
+│   │   │   │   │   │   │   ├── 📄 JumpSlam.cs
+│   │   │   │   │   │   │   ├── 📄 JumpToPosition.cs
+│   │   │   │   │   │   ├── 📁 Spit
+│   │   │   │   │   │   │   ├── 📄 PoisonMortar.cs
+│   │   │   │   │   │   │   ├── 📄 SlimeMortar.cs
+│   │   │   │   │   │   │   ├── 📄 SpitBase.cs
+│   │   │   │   │   │   │   ├── 📄 SpitProjectile.cs
+│   │   │   │   │   │   ├── 📁 Tongue
+│   │   │   │   │   │   │   ├── 📄 PoisonTongue.cs
+│   │   │   │   │   │   │   ├── 📄 TongueBase.cs
+│   │   │   │   │   ├── 📁 Colliders
+│   │   │   │   │   │   ├── 📄 FrogDamageCollider.cs
+│   │   │   │   │   │   ├── 📄 FrogShockwave.cs
+│   │   │   │   │   ├── 📄 FrogController.cs
+│   │   │   │   │   ├── 📁 States
+│   │   │   │   │   │   ├── 📄 FrogAttackState.cs
+│   │   │   │   ├── 📁 Guard
+│   │   │   │   │   ├── 📄 GuardAttackState.cs
+│   │   │   │   │   ├── 📄 GuardController.cs
+│   │   │   │   ├── 📁 Pig
+│   │   │   │   │   ├── 📄 PigAttackState.cs
+│   │   │   │   │   ├── 📄 PigController.cs
+
+-----
+
+│   │   │   │   ├── 📁 SM
+│   │   │   │   │   ├── 📄 EmptyState.cs
+│   │   │   │   │   ├── 📄 FleeState.cs
+│   │   │   │   │   ├── 📄 IdleState.cs
+│   │   │   │   │   ├── 📄 IState.cs
+│   │   │   │   │   ├── 📄 PatrolState.cs
+│   │   │   │   │   ├── 📄 StateMachine.cs
+│   │   │   ├── 📁 Player
+│   │   │   │   ├── 📄 Controller.cs
+│   │   │   │   ├── 📄 Hank.cs
+│   │   │   │   ├── 📁 ToolUsage
+│   │   │   │   │   ├── 📄 ClearableObstacle.cs
+│   │   │   │   │   ├── 📄 ClearableObstacleData.cs
+│   │   │   │   │   ├── 📁 ObstacleData
+│   │   │   │   │   ├── 📄 ToolBase.cs
+│   │   │   │   │   ├── 📁 ToolData
+│   │   │   │   │   ├── 📄 ToolData.cs
+│   │   │   │   │   ├── 📁 ToolModules
+│   │   │   │   │   │   ├── 📄 ToolObstacleClearing.cs
+│   │   │   ├── 📁 Steering
+│   │   │   │   ├── 📄 AIData.cs
+│   │   │   │   ├── 📄 ContextSolver.cs
+│   │   │   │   ├── 📄 Detector.cs
+│   │   │   │   ├── 📄 Directions.cs
+│   │   │   │   ├── 📄 EnemyAI.cs
+│   │   │   │   ├── 📄 ObstacleAvoidanceBehaviour.cs
+│   │   │   │   ├── 📄 ObstacleDetector.cs
+│   │   │   │   ├── 📄 SeekBehaviour.cs
+│   │   │   │   ├── 📄 SteeringBehaviour.cs
+│   │   │   │   ├── 📄 TargetDetector.cs
+
+-----
+
+│   │   │   ├── 📁 Units
+│   │   │   │   ├── 📁 Animated
+│   │   │   │   │   ├── 📄 AnimatedUnit.cs
+│   │   │   │   ├── 📁 Block
+│   │   │   │   │   ├── 📄 BlockUnit.cs
+│   │   │   │   ├── 📁 Combat
+│   │   │   │   │   ├── 📄 Attack.cs
+│   │   │   │   │   ├── 📄 CombatUnit.cs
+│   │   │   │   │   ├── 📄 Throw.cs
+│   │   │   │   ├── 📄 EntityData.cs
+│   │   │   │   ├── 📁 Hurt
+│   │   │   │   │   ├── 📄 HurtUnit.cs
+│   │   │   │   │   ├── 📄 StatusEffectModule.cs
+│   │   │   │   ├── 📄 IInteract.cs
+│   │   │   │   ├── 📁 Movement
+│   │   │   │   │   ├── 📄 MoveUnit.cs
+│   │   │   │   ├── 📁 NPC
+│   │   │   │   │   ├── 📄 NPCUnit.cs
+│   │   │   │   │   ├── 📄 StaticNPCUnit.cs
+│   │   │   │   ├── 📁 Player
+│   │   │   │   │   ├── 📄 PlayerInteract.cs
+│   │   │   │   │   ├── 📄 PlayerItems.cs
+│   │   │   │   │   ├── 📄 PlayerMovement.cs
+│   │   │   │   │   ├── 📄 PlayerUnit.cs
+│   │   │   │   ├── 📁 Punch
+│   │   │   │   │   ├── 📄 PunchUnit.cs
+│   │   │   │   ├── 📁 Sprint
+│   │   │   │   │   ├── 📄 SprintUnit.cs
+│   │   │   │   ├── 📄 TrackedPositionData.cs
+│   │   │   │   ├── 📄 Unit.cs
+
+-----
+
+│   │   ├── 📁 Collections
+│   │   │   ├── 📄 GlobalConfigCollection.cs
+│   │   │   ├── 📄 HLoggerSettings.cs
+│   │   │   ├── 📄 ItemCollection.cs
+│   │   │   ├── 📄 QuestCollection.cs
+│   │   │   ├── 📄 StatusEffectCollection.cs
+│   │   │   ├── 📄 UnitCollection.cs
+│   │   ├── 📁 Enums
+│   │   │   ├── 📄 AnimationType.cs
+│   │   │   ├── 📄 AttackType.cs
+│   │   │   ├── 📄 ContractType.cs
+│   │   │   ├── 📄 DestructionMethod.cs
+│   │   │   ├── 📄 GroundTile.cs
+│   │   │   ├── 📄 IdleMode.cs
+│   │   │   ├── 📄 ItemCollectionType.cs
+│   │   │   ├── 📄 LockStateType.cs
+│   │   │   ├── 📄 LockThreeWay.cs
+│   │   │   ├── 📄 MenuTabType.cs
+│   │   │   ├── 📄 NotebookCategory.cs
+│   │   │   ├── 📄 PageType.cs
+│   │   │   ├── 📄 QuestState.cs
+│   │   │   ├── 📄 SignalType.cs
+│   │   │   ├── 📄 StaminaTypes.cs
+│   │   │   ├── 📄 TabNavigationType.cs
+│   │   │   ├── 📄 ToggleType.cs
+│   │   │   ├── 📄 WorldKeyType.cs
+│   │   ├── 📁 Extensions
+│   │   │   ├── 📄 CollectionsExtension.cs
+│   │   │   ├── 📄 ColorExtension.cs
+│   │   │   ├── 📄 ComponentExtension.cs
+│   │   │   ├── 📄 CoroutineExtension.cs
+│   │   │   ├── 📄 EnumExtension.cs
+│   │   │   ├── 📄 GameObjectExtension.cs
+│   │   │   ├── 📄 GenericExtensions.cs
+│   │   │   ├── 📄 MonoBehaviourExtensions.cs
+│   │   │   ├── 📄 NumberExtension.cs
+│   │   │   ├── 📄 RectExtension.cs
+│   │   │   ├── 📄 Rigidbody2DExtension.cs
+│   │   │   ├── 📄 SerializationExtension.cs
+│   │   │   ├── 📄 SpriteExtension.cs
+│   │   │   ├── 📄 SpriteRendererExtensions.cs
+│   │   │   ├── 📄 StringExtension.cs
+│   │   │   ├── 📄 Texture2DExtension.cs
+│   │   │   ├── 📄 TilemapExtension.cs
+│   │   │   ├── 📄 TransformExtension.cs
+│   │   │   ├── 📄 UnitExtensions.cs
+│   │   │   ├── 📄 Vector2Extension.cs
+
+-----
+
+│   │   ├── 📁 GameUI
+│   │   │   ├── 📁 Dialogue
+│   │   │   │   ├── 📄 DialogueAnimator.cs
+│   │   │   │   ├── 📄 DialogueChoiceButton.cs
+│   │   │   │   ├── 📄 DialogueHandler.cs
+│   │   │   │   ├── 📄 DialoguePortrait.cs
+│   │   │   │   ├── 📄 DialogueSoundHandler.cs
+│   │   │   │   ├── 📄 DialogueTextBubble.cs
+│   │   │   │   ├── 📄 DialogueTimer.cs
+│   │   │   │   ├── 📁 Helpers
+│   │   │   │   │   ├── 📄 DialogueGlobals.cs
+│   │   │   │   │   ├── 📄 DialogueLockUnlocker.cs
+│   │   │   │   │   ├── 📄 DialogueTags.cs
+│   │   │   │   │   ├── 📄 DialogueTriggerLockUnlocker.cs
+│   │   │   │   │   ├── 📄 DialogueVariables.cs
+│   │   │   │   ├── 📄 MonologueColliderEvent.cs
+│   │   │   ├── 📁 Events
+│   │   │   │   ├── 📄 GameEvents.cs
+│   │   │   │   ├── 📄 GuiEvents.cs
+│   │   │   ├── 📁 GameMenu
+│   │   │   │   ├── 📄 BossPanel.cs
+│   │   │   │   ├── 📄 GameNotice.cs
+│   │   │   │   ├── 📄 PortraitDamageUI.cs
+│   │   │   │   ├── 📄 QuestTracker.cs
+│   │   │   │   ├── 📄 RegionTextNotice.cs
+│   │   │   │   ├── 📄 StatusEffectIcon.cs
+│   │   │   │   ├── 📄 StatusEffectUI.cs
+│   │   │   │   ├── 📄 TabNavigation.cs
+│   │   │   │   ├── 📄 UIGameMenuItems.cs
+│   │   │   ├── 📁 Input
+│   │   │   │   ├── 📄 GamepadIcons.cs
+│   │   │   │   ├── 📄 InputActionUI.cs
+│   │   │   │   ├── 📄 InputUISpawner.cs
+│   │   │   │   ├── 📄 InteractFollower.cs
+
+-----
+
+│   │   │   ├── 📁 Inventory
+│   │   │   │   ├── 📄 CoinDisplayUI.cs
+│   │   │   │   ├── 📄 ContainerUI.cs
+│   │   │   │   ├── 📄 DisplayItemPopupUI.cs
+│   │   │   │   ├── 📄 InventoryHandler.cs
+│   │   │   │   ├── 📄 ItemDetailsUI.cs
+│   │   │   │   ├── 📄 ItemSlotUI.cs
+│   │   │   │   ├── 📄 ItemUI.cs
+│   │   │   │   ├── 📄 SelectorUI.cs
+│   │   │   ├── 📁 Journal
+│   │   │   │   ├── 📄 ImageObjectSettings.cs
+│   │   │   │   ├── 📄 JournalHandler.cs
+│   │   │   │   ├── 📄 PageCollection.cs
+│   │   │   │   ├── 📄 PagePairUI.cs
+│   │   │   │   ├── 📄 SinglePageUI.cs
+│   │   │   │   ├── 📄 TextObjectSettings.cs
+│   │   │   ├── 📁 MainMenu
+│   │   │   │   ├── 📄 MainMenuHandler.cs
+│   │   │   │   ├── 📄 MenuHandAnimator.cs
+│   │   │   │   ├── 📄 MenuLoadProgress.cs
+│   │   │   │   ├── 📄 ParallaxScrolling.cs
+│   │   │   ├── 📁 Popup
+│   │   │   │   ├── 📄 PopupPanelUI.cs
+│   │   │   │   ├── 📄 TextPopup.cs
+│   │   │   │   ├── 📄 TextPopupHandlerUI.cs
+│   │   │   ├── 📁 Tooltip
+│   │   │   │   ├── 📄 Tooltip.cs
+│   │   │   │   ├── 📄 TooltipUI.cs
+│   │   │   ├── 📁 TransitionEffects
+│   │   │   │   ├── 📄 CutoutAnimation.cs
+│   │   │   │   ├── 📄 CutoutMaskUI.cs
+
+-----
+
+│   │   ├── 📁 HDebug
+│   │   │   ├── 📁 Console
+│   │   │   │   ├── 📄 ConsoleController.cs
+│   │   │   │   ├── 📄 DebugCommandBase.cs
+│   │   │   ├── 📁 Display
+│   │   │   │   ├── 📄 ConsoleToGUI.cs
+│   │   │   ├── 📄 HExtractor.cs
+│   │   │   ├── 📄 HLogger.cs
+│   │   │   ├── 📄 HLogType.cs
+│   │   ├── 📁 Inventory
+│   │   │   ├── 📁 Main
+│   │   │   │   ├── 📄 CollectionInstance.cs
+│   │   │   │   ├── 📄 CollectionPreset.cs
+│   │   │   │   ├── 📄 ContainerDefinition.cs
+│   │   │   │   ├── 📄 LockState.cs
+│   │   │   │   ├── 📄 ShopDefinition.cs
+│   │   │   ├── 📁 WorldObjects
+│   │   │   │   ├── 📄 ContainerObject.cs
+│   │   │   │   ├── 📄 ShopObject.cs
+│   │   ├── 📁 Items
+│   │   │   ├── 📄 Item.cs
+│   │   │   ├── 📄 ItemConsumeAttribute.cs
+│   │   │   ├── 📄 ItemObject.cs
+│   │   │   ├── 📄 ItemObjectGroup.cs
+│   │   │   ├── 📄 ItemThrowAttribute.cs
+│   │   │   ├── 📄 Rarity.cs
+│   │   │   ├── 📄 UsageType.cs
+│   │   ├── 📁 Lightning
+│   │   │   ├── 📄 LightBase.cs
+│   │   │   ├── 📄 LightFire.cs
+│   │   │   ├── 📄 Luminousity.cs
+│   │   │   ├── 📄 Sun.cs
+
+-----
+
+│   │   ├── 📁 Managers
+│   │   │   ├── 📄 ClockManager.cs
+│   │   │   ├── 📄 FMODManager.cs
+│   │   │   ├── 📄 InputManager.cs
+│   │   │   ├── 📄 QuestManager.cs
+│   │   │   ├── 📄 RegionManager.cs
+│   │   │   ├── 📄 SaveSettings.cs
+│   │   │   ├── 📄 VideoManager.cs
+│   │   ├── 📁 Menu
+│   │   │   ├── 📄 MainMenuUI.cs
+│   │   ├── 📁 Quest
+│   │   │   ├── 📄 BadTrigger.cs
+│   │   │   ├── 📁 Conditions
+│   │   │   │   ├── 📄 ConditionBase.cs
+│   │   │   │   ├── 📄 ConditionTimeInterval.cs
+│   │   │   │   ├── 📄 ConditionTimer.cs
+│   │   │   ├── 📁 Enums
+│   │   │   │   ├── 📄 InkValueTypes.cs
+│   │   │   │   ├── 📄 NumberComparer.cs
+│   │   │   │   ├── 📄 NumberComparerSource.cs
+│   │   │   │   ├── 📄 TriggerableState.cs
+│   │   │   │   ├── 📄 TriggerTypes.cs
+│   │   │   ├── 📄 Note.cs
+│   │   │   ├── 📁 Observers
+│   │   │   │   ├── 📄 DialogueObserver.cs
+│   │   │   │   ├── 📄 InstantObserver.cs
+│   │   │   │   ├── 📄 ItemHeldObserver.cs
+│   │   │   │   ├── 📄 ItemUsedObserver.cs
+│   │   │   │   ├── 📄 KillObserver.cs
+│   │   │   │   ├── 📄 Observer.cs
+│   │   │   │   ├── 📄 RegionObserver.cs
+│   │   │   │   ├── 📄 SpeakObserver.cs
+│   │   │   │   ├── 📄 TriggerableObserver.cs
+│   │   │   ├── 📄 QuestLine.cs
+│   │   │   ├── 📄 QuestPart.cs
+│   │   │   ├── 📄 Trigger.cs
+│   │   │   ├── 📄 Triggerable.cs
+│   │   │   ├── 📄 TriggerGroup.cs
+
+-----
+
+│   │   ├── 📁 Rendering
+│   │   │   ├── 📄 AnimatorBase.cs
+│   │   │   ├── 📁 Gizmos
+│   │   │   │   ├── 📄 ColliderGizmo.cs
+│   │   │   │   ├── 📄 GizmosDebug.cs
+│   │   │   ├── 📁 Glow
+│   │   │   │   ├── 📄 GlowColorRandomizer.cs
+│   │   │   │   ├── 📄 SpriteGlowEffect.cs
+│   │   │   │   ├── 📄 SpriteGlowMaterial.cs
+│   │   │   ├── 📁 ShaderEffects
+│   │   │   │   ├── 📄 Rain.cs
+│   │   │   ├── 📁 Sorting
+│   │   │   │   ├── 📄 DynamicYSort.cs
+│   │   │   │   ├── 📄 ISort.cs
+│   │   │   │   ├── 📄 StaticYSort.cs
+│   │   │   ├── 📄 SpriteEffect.cs
+│   │   │   ├── 📁 Text
+│   │   │   │   ├── 📄 FloatingDamageNumber.cs
+│   │   │   │   ├── 📄 TextDisplay.cs
+│   │   │   │   ├── 📄 WorldTextBase.cs
+│   │   ├── 📁 Settings
+│   │   │   ├── 📄 DebugSettings.cs
+│   │   │   ├── 📄 GameSettings.cs
+│   │   │   ├── 📄 PlayerControls.cs
+│   │   ├── 📁 StatusEffects
+│   │   │   ├── 📁 Effects
+│   │   │   │   ├── 📄 BerserkerEffect.cs
+│   │   │   │   ├── 📄 BleedEffect.cs
+│   │   │   │   ├── 📄 BurnEffect.cs
+│   │   │   │   ├── 📄 HealthRegenEffect.cs
+│   │   │   │   ├── 📄 HighEffect.cs
+│   │   │   │   ├── 📄 LuminiousEffect.cs
+│   │   │   │   ├── 📄 PoisonEffect.cs
+│   │   │   │   ├── 📄 RecoveryEffect.cs
+│   │   │   │   ├── 📄 ShockedEffect.cs
+│   │   │   │   ├── 📄 SlowEffect.cs
+│   │   │   │   ├── 📄 StaminaRegenerateEffect.cs
+│   │   │   │   ├── 📄 StunEffect.cs
+│   │   │   │   ├── 📄 WeakenedEffect.cs
+│   │   │   │   ├── 📄 WetEffect.cs
+│   │   │   ├── 📁 Models
+│   │   │   │   ├── 📄 EffectBase.cs
+│   │   │   │   ├── 📄 EntityState.cs
+│   │   │   │   ├── 📄 StatusType.cs
+
+-----
+
+│   │   ├── 📁 Utilities
+│   │   │   ├── 📄 ActivateOnStart.cs
+│   │   │   ├── 📄 CollisionTrigger.cs
+│   │   │   ├── 📄 ComponentUtils.cs
+│   │   │   ├── 📄 DestroyAfter.cs
+│   │   │   ├── 📄 DisableOnStart.cs
+│   │   │   ├── 📄 GraphicUtility.cs
+│   │   │   ├── 📄 LayerMaskBuilder.cs
+│   │   │   ├── 📄 MaskUtils.cs
+│   │   │   ├── 📄 ObjectPool.cs
+│   │   │   ├── 📄 ObjectUtils.cs
+│   │   │   ├── 📄 ResourceUtility.cs
+│   │   │   ├── 📄 SceneUtility.cs
+│   │   │   ├── 📁 Singletons
+│   │   │   │   ├── 📄 ScriptableObjectSingleton.cs
+│   │   │   │   ├── 📄 Singleton.cs
+│   │   │   │   ├── 📄 SingletonPerLevel.cs
+│   │   │   ├── 📁 Stats
+│   │   │   │   ├── 📄 StatModifier.cs
+│   │   │   │   ├── 📄 ValueStat.cs
+│   │   │   ├── 📄 SubscribableEvent.cs
+│   │   │   ├── 📁 Tickers
+│   │   │   │   ├── 📄 DelayAction.cs
+│   │   │   │   ├── 📄 DelayTicker.cs
+│   │   │   │   ├── 📄 FixedTimer.cs
+│   │   │   │   ├── 📄 TickBase.cs
+│   │   │   │   ├── 📄 TimeTick.cs
+│   │   │   │   ├── 📄 ValueTick.cs
+│   │   │   ├── 📄 TypeHelpers.cs
+│   │   │   ├── 📄 VectorUtils.cs
+
+-----
+
+│   │   ├── 📁 World
+│   │   │   ├── 📄 Delevation.cs
+│   │   │   ├── 📄 DigZone.cs
+│   │   │   ├── 📁 Doodads
+│   │   │   │   ├── 📄 Bush.cs
+│   │   │   ├── 📄 Elevation.cs
+│   │   │   ├── 📁 GameClock
+│   │   │   │   ├── 📄 Clock.cs
+│   │   │   │   ├── 📄 GameClockData.cs
+│   │   │   │   ├── 📄 SeasonStates.cs
+│   │   │   │   ├── 📄 TimeState.cs
+│   │   │   ├── 📁 House
+│   │   │   │   ├── 📄 HouseCamera.cs
+│   │   │   │   ├── 📄 HouseDoor.cs
+│   │   │   │   ├── 📄 HouseTeleportTrigger.cs
+│   │   │   ├── 📁 Interactables
+│   │   │   │   ├── 📄 ShroomExplosion.cs
+│   │   │   ├── 📁 LockKey
+│   │   │   │   ├── 📄 Door.cs
+│   │   │   │   ├── 📄 DoorData.cs
+│   │   │   │   ├── 📄 KeyControlGroup.cs
+│   │   │   │   ├── 📄 Lever.cs
+│   │   │   │   ├── 📄 LockBase.cs
+│   │   │   │   ├── 📄 LockEvent.cs
+│   │   │   │   ├── 📄 LockItem.cs
+│   │   │   │   ├── 📄 LockLever.cs
+│   │   │   │   ├── 📄 PressurePlate.cs
+│   │   │   │   ├── 📄 UnlockableBase.cs
+│   │   │   │   ├── 📄 WorldKey.cs
+│   │   │   ├── 📄 Punchable.cs
+│   │   │   ├── 📁 Region
+│   │   │   │   ├── 📄 RegionTriggerData.cs
+│   │   │   │   ├── 📄 WorldRegion.cs
+
+-----
+
+│   │   │   ├── 📁 Trap
+│   │   │   │   ├── 📄 Trap.cs
+│   │   │   │   ├── 📄 TrapData.cs
+│   │   │   ├── 📁 Triggers
+│   │   │   │   ├── 📄 ForestTeleportTrigger.cs
+│   │   │   │   ├── 📁 KeyTrigger
+│   │   │   │   │   ├── 📄 KeyTrigger.cs
+│   │   │   │   │   ├── 📄 KeyTriggerType.cs
+│   │   │   │   │   ├── 📁 SO
+│   │   │   │   ├── 📄 LayerTrigger.cs
+│   │   │   │   ├── 📄 RegionTrigger.cs
+│   │   │   │   ├── 📄 TriggerCollider.cs
