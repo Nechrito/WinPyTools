@@ -1,5 +1,5 @@
 .idea/
-.vscode/
+# .vscode/
 
 /*output
 docs/REMINDER.md
