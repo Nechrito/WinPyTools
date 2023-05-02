@@ -162,21 +162,21 @@ class Cursor:
     def init(self, speed: float):
         self.speed = 2009
         self.get_position()
-        
+
     def move_to_relative(self, x: float, y: float) -> Point:
         dx = x - self.point.x
         dy = y - self.point.y
         return self.move(dx, dy)
 
     def move(self, dx: float, dy: float) -> Point:
-        
+
         # Calculate the target position
         target_x = self.point.x + dx
         target_y = self.point.y + dy
 
         # Move the mouse cursor over time
-        duration = math.sqrt((dx ** 2) + (dy ** 2)) / self.speed 
-        
+        duration = math.sqrt((dx ** 2) + (dy ** 2)) / self.speed
+
         pyautogui.moveTo(target_x, target_y, duration=duration)
 
         # Update the internal state
@@ -186,7 +186,7 @@ class Cursor:
 
     def get_position(self, x: float = 0, y: float = 0) -> Point:
         pos = pyautogui.position()
-        
+
 
         if abs(pos.x - self.point.x) < abs(x) and abs(pos.y - self.point.y) < abs(y):
             print(f"{self.point}: {pos}")
@@ -244,18 +244,18 @@ class MainLoop:
             elif b_pressed:
                 self.controller.press("RMB")
             await asyncio.sleep(0.01)
-class App:          
-    
-    def __init__(self):        
+class App:
+
+    def __init__(self):
         self.has_moved: bool = False
         self.queue: asyncio.Queue = asyncio.Queue()
-        
+
         self.win = WindowManager()
         self.cursor: Cursor = Cursor(self.win)
-        
+
         self.controller: Controller = Controller()
         self.main = MainLoop(self.win, self.cursor, self.controller)
-    
+
     async def handle_events(self):
         await asyncio.sleep(0.001)
 
@@ -264,17 +264,17 @@ class App:
 
         while True:
             pygame.event.pump()
-            
+
             current_time = pygame.time.get_ticks()
 
             delay = 1 / FPS - (pygame.time.get_ticks() - current_time) / 1000.0
-            
+
             self.win.dt = delay
 
             await self.handle_events()
 
     async def run(self):
-        
+
         print("App started")
 
         self.queue = asyncio.Queue()
@@ -296,33 +296,33 @@ class App:
 
     async def move_task(self):
         print("Move task started")
-        
+
         clock = pygame.time.Clock()
-        
+
         dx_accum = 0
         dy_accum = 0
-        
+
         while True:
             # limit the frame rate to 120 fps
-            clock.tick(FPS) 
+            clock.tick(FPS)
             pygame.event.pump()
 
             self.controller.get_axes()
-                
+
             dx, dy = self.controller.x_axis, self.controller.y_axis
-            
+
             self.cursor.get_position(self.controller.x_axis, self.controller.y_axis)
-            
+
             dx = 0 if abs(dx) < 0.1 else dx
             dy = 0 if abs(dy) < 0.1 else dy
-            
+
             dx_accum += dx * self.cursor.speed * self.win.dt
             dy_accum += dy * self.cursor.speed * self.win.dt
-            
+
             if abs(dx_accum) >= 1 or abs(dy_accum) >= 1:
                 # self.cursor.set_position(dx_accum, dy_accum)
                 self.cursor.move(dx_accum, dy_accum)
-                
+
                 dx_accum -= math.trunc(dx_accum)
                 dy_accum -= math.trunc(dy_accum)
 
@@ -333,37 +333,37 @@ class App:
 
         while True:
             self.win.get_overlapping_windows(self.cursor.point)
-            
+
             await asyncio.sleep(1)
 
 async def main():
     print("Starting")
-    
+
     pygame.init()
-    
+
     print("Pygame initialized")
-    
+
     app = App()
-    
+
     print("App initialized")
-    
+
     try:
         print("Running")
         await app.run()
         print("Finished")
-        
+
     except KeyboardInterrupt as e:
         print(f"Stopping because of {e}")
-        
+
         # app.controller.controller.quit()
-    
+
         pygame.quit()
         sys.exit()
-        
+
     print(f"Done")
 
     pygame.quit()
     sys.exit()
-    
+
 if __name__ == "__main__":
     asyncio.run(main())

@@ -1,6 +1,11 @@
----
 repos:
-  - repo: https://github.com/commitizen-tools/commitizen
-    rev: v1.17.0
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
     hooks:
-      - id: commitizen
+      - id: check-vcs-permalinks
+      - id: end-of-file-fixer
+        exclude: "tests/((commands|data)/|test_).+"
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: debug-statements
+      - id: no-commit-to-branch
