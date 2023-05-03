@@ -64,7 +64,7 @@ class PixelArtAnalyzer:
         resized_image = self.resize_image()
         width, height = resized_image.size
 
-        ascii_symbols = " .:-=+*%@#"
+        ascii_symbols = "         #" # " .:-=+*%@#"
         num_symbols = len(ascii_symbols)
 
         for y in range(height):
@@ -82,8 +82,6 @@ class PixelArtAnalyzer:
                     index = int(brightness * num_symbols / 256)
                     print(ascii_symbols[index], end="")
             print()
-
-
 
 
 
