@@ -44,7 +44,7 @@ class PixelArtAnalyzer:
             frame_grid.append(row)
 
         return frame_grid
-    
+
     def resize_image(self):
         image_no_alpha = self.remove_transparency()
         new_width = self.width // self.pixel_size
@@ -66,7 +66,7 @@ class PixelArtAnalyzer:
 
         ascii_symbols = " .:-=+*%@#"
         num_symbols = len(ascii_symbols)
-        
+
         for y in range(height):
             for x in range(width):
                 pixel = resized_image.getpixel((x, y))
