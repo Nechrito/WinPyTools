@@ -1,3 +1,4 @@
+import os
 import sys
 from PIL import Image
 import string
@@ -78,7 +79,7 @@ class PixelArtAnalyzer:
         rgba_char_map = {}
         for i, rgba_value in enumerate(self.unique_rgba_values):
             rgba_char_map[rgba_value] = chars[i %
-                                              len(chars)].replace("p", " ")
+                                              len(chars)]  # .replace("p", " ")
 
         return rgba_char_map
 
@@ -98,8 +99,63 @@ class PixelArtAnalyzer:
         print(f"Pixel size: {self.pixel_size}")
         print(f"Sprite size: {self.sprite_size[0]}x{self.sprite_size[1]}")
 
+    # def generate_uv_map(self):
+    #     print("\nGenerating UV map...\n")
+    #     uv_map = []
+    #     for y in range(self.height):
+    #         row = []
+    #         for x in range(self.width):
+    #             pixel = self.image.getpixel((x, y))
+    #             if pixel in self.rgba_char_map:
+    #                 char = self.rgba_char_map[pixel]
+    #                 u = ord(char) / len(self.rgba_char_map)
+    #                 v = y / self.height
+    #                 row.append((round(u, 2), round(v, 2)))
+    #             else:
+    #                 row.append(None)
+    #         uv_map.append(row)
+    #     return uv_map
 
-if __name__ == "__main__":
+    def generate_uv_map(self):
+        uv_map_image = Image.new(
+            'RGBA', (self.width, self.height), (0, 0, 0, 0))
+        uv_map = [[' ' for _ in range(self.width)] for _ in range(self.height)]
+        used_colors = list(self.unique_rgba_values)
+        for y in range(self.height):
+            for x in range(self.width):
+                pixel = self.image.getpixel((x, y))
+                color_index = used_colors.index(pixel)
+                uv_x, uv_y = x % len(used_colors), color_index
+                uv_map_image.putpixel((uv_x, uv_y), pixel)
+                uv_map[uv_y][uv_x] = self.rgba_char_map[pixel]
+
+        uv_map_image.save("uv_map.png", "PNG")
+        return uv_map
+
+
+def write_output(uv_map, frame_grid, output):
+    file_path = sys.argv[1]
+
+    # Write to text file with the same name as the file extracted from the path (without the extension)
+    file_name = file_path.split("\\")[-1].split(".")[0]
+
+    # Create a directory called "sprites" if it doesn't exist
+    if not os.path.exists("sprites"):
+        os.mkdir("sprites")
+
+    # Write the UV map to a text file in the "sprites" directory
+    uv_map_path = os.path.join("sprites", f"{file_name}_uv_map.txt")
+    with open(uv_map_path, "w") as f:
+        for row in uv_map:
+            f.write(''.join(row) + "\n")
+
+    # Write the text file to the "sprites" directory
+    path = os.path.join("sprites", f"{file_name}.txt")
+    with open(path, "w") as f:
+        f.write(str(frame_grid))
+
+
+def main():
     if len(sys.argv) < 2:
         print(
             "Usage: python pixel_art_analyzer.py <image_file_path> [pixel_size]")
@@ -112,19 +168,14 @@ if __name__ == "__main__":
         pixel_size = int(sys.argv[2])
 
     analyzer = PixelArtAnalyzer(file_path, pixel_size)
-
     analyzer.print_info()
     analyzer.print_ascii_art()
+    uv_map = analyzer.generate_uv_map()
+    output = print(repr(analyzer))
+    print("\nDone!")
 
-    # Write to text file with the same name as the file extracted from the path (without the extension)
-    file_name = file_path.split("\\")[-1].split(".")[0]
+    write_output(uv_map, analyzer.frame_grid, output)
 
-    # Create a directory called "sprites" if it doesn't exist
-    import os
-    if not os.path.exists("sprites"):
-        os.mkdir("sprites")
 
-    # Write the text file to the "sprites" directory
-    path = os.path.join("sprites", f"{file_name}.txt")
-    with open(path, "w") as f:
-        f.write(str(analyzer.frame_grid))
+if __name__ == "__main__":
+    main()
