@@ -1,78 +1,83 @@
 # WinPyTools
 
-## About
+This repository contains a collection of Python scripts for Windows automation and productivity. The scripts are designed to be executed from the command line and can be used to automate repetitive tasks, manage files and directories, and improve productivity.
 
-This code is for productivity-boosting Python tools for Windows. The author believes that identifying bottlenecks and patching productivity flaws can make them more productive as a developer.
+The repo contains wildly different scripts for my personal use.
 
-### Task Reminder
+<!-- Showcase res/taskreminder.gif -->
+[![Task Reminder](res/taskreminder.gif)](src/task_reminder.py)
 
-*This is a script to remind me to take a break*
-*from coding and do some exercise.*
+## Installation
 
-![Depressed Reminder](res/reminder%20comDepressed.gif)
-
-### Build Commands
-
-#### Setup
-
-This command runs the setup script which installs the necessary packages for the project. This is only needed to be run once after cloning the project.
-If the project is already cloned, then this command is not needed
+To install the required dependencies, run the following command:
 
 ```ps1
-python setup.py install
+pip install -r requirements.txt
 ```
 
-#### Convert into an executable (.exe)
+## Create executable
 
-This set of commands is for converting the Python code into an executable (.exe) file. The first command installs the PyInstaller package which is used for creating standalone executables from Python scripts
+To create an executable, run the following command:
 
 ```ps1
-pip install pyinstaller
+pyinstaller --onefile --windowed setup.py --name "WinPyTools"
 ```
 
-The second command converts the Python code into an executable (.exe) file.
+## File Tree
+
+The file_tree.py module provides functionality to traverse and display the directory structure of a specified path. It includes classes to print files and directories with customizable options, and to process folder structures with limits on depth, lines, and words. The module also summarizes the traversal results.
+
+### Usage
+
+Execute the Script:
 
 ```ps1
-pyinstaller --onefile --noconsole --windowed --add-data="res;res" src/task_reminder.py
+python file_tree.py --directory path/to/directory --depth 3 --line 100 --word 500
 ```
 
-The third command moves the executable file into the main directory of the project.
+### Example
 
 ```ps1
-move dist\task_reminder.exe .
+ py .\src\file_tree.py -dir "E:\Repos\WinPyTools\src\"
+├── 📁 E:\Repos\WinPyTools\src\
+├── 📄 controller.py
+├── 📄 file_tree.py
+├── 📄 hierarchy.py
+├── 📄 open_file_in_vscode.py
+├── 📄 pixel_art_analyzer.py
+├── 📄 print_to_json.py
+├── 📄 python-dotenv.py
+├── 📄 save_paint3d_tabs.py
+├── 📄 task_reminder.py
 ```
 
-The fourth command removes the build files.
+<!-- Heni -->
 
-```ps1
-# Powershell
-Remove-Item -Recurse -Force .\build\
+```plaintext
 
-# Command Prompt
-rmdir /s/q build
+gggggggggggggggggggggggg
+gggggggggbbbbbbggggggggg
+ggggggggbbbbbbbbgggggggg
+ggggggggbbbbbbbbgggggggg
+ggggggghbmmbbmmbhggggggg
+ggggggghbnibbinbhggggggg
+ggggggggbbbhhbbbgggggggg
+ggggggggbbmmmmbbgggggggg
+ggggggggghmbbmhggggggggg
+ggggggjjpkmhhmkpjjgggggg
+gggggjjjpkkookkpjjjggggg
+gggggjjjpkkookkpjjjggggg
+gggggjjlpkkookkpljjggggg
+gggggjjlpkkookkpljjggggg
+gggggjjgkkkookkkgjjggggg
+gggggjjgddkcckddgjjggggg
+gggggjbbkkkffkkkbbjggggg
+ggggggbhffffaaafhbgggggg
+ggggggggfffggaafgggggggg
+ggggggggfffggaafgggggggg
+ggggggggfffggaafgggggggg
+ggggggggfffggaafgggggggg
+ggggggggfffggfffgggggggg
+ggggggggeeeggeeegggggggg
+
 ```
-
-The fifth command removes the dist files.
-
-```ps1
-# Powershell
-Remove-Item -Recurse -Force .\dist\
-
-# Command Prompt
-rmdir /s/q dist
-```
-
-## Credits
-
-* [PyInstaller](https://www.pyinstaller.org/)
-* [Python](https://www.python.org/)
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
