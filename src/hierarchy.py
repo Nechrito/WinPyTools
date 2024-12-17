@@ -1,14 +1,8 @@
 import os
 import re
 
-# The code extracts all classes from a given file_content. 
-# This is done by matching all classes in the file_content with a regex.
-# For each class, the start position and end position is found.
-# The start position is found by matching the regex "class\s+(\w+)\s*{".
-# The end position is found by iterating from the start position until
-# the number of open braces are equal to the number of closed braces.
-# The class name is found by matching the regex "class\s+(\w+)\s*{".
-# The class is then appended to a list of classes.
+# Extract classes from a C# file, specifically made to give context to AI with minimized tokens
+
 
 def extract_classes(file_content):
     pattern = re.compile(r"(?:^|\n)\s*class\s+(\w+)\s*{", re.MULTILINE)
@@ -29,9 +23,11 @@ def extract_classes(file_content):
         classes.append((class_name, file_content[start_pos:end_pos]))
     return classes
 
+
 def replace_base_class(file_content, new_base_class="MonoBehaviour"):
     pattern = re.compile(r"class\s+\w+\s*:\s*\w+")
-    return pattern.sub(lambda match: match.group().split(':')[0] + f": {new_base_class}", file_content)
+    return pattern.sub(lambda match: match.group().split(":")[0] + f": {new_base_class}", file_content)
+
 
 input_file = "C:\\Users\\Magical Moe\\Desktop\\Scripts\\The-Prophecy-of-Hank\\HandyHank\\Assets\\HandyHank\\Scripts\\Runtime\\Character\\Units\\Unit.cs"
 output_dir = "C:\\Users\\Magical Moe\\Desktop\\Scripts\\The-Prophecy-of-Hank\\HandyHank\\Assets\\HandyHank\\Scripts\\Runtime\\Character"
